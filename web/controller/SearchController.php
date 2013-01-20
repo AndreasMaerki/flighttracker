@@ -1,5 +1,3 @@
-
-
 <?php
 include_once 'view/searchView/SearchView.php';
 include_once 'controller/Controller.php';
@@ -8,10 +6,9 @@ include_once 'lib/FlightXMLAdapter.php';
 include_once'view/home/NextFlightsView.php';
 
 class SearchController extends Controller{
-	
-	// dsudzsuzdsd
-	
-	
+
+
+    
 	protected function init(){
 	//echo"<p>init on SerchView called</p>";
 		$view = new SearchView();
