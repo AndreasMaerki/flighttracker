@@ -12,8 +12,8 @@ class AirportController extends Controller {
 	function __construct() {
 		//$this->airportXML = new AirportXMLAdapter(FXML_HOST, FXML_USER, FXML_PASSWORD);// übergabe definieren
 	}
-        
-	protected function index() {
+
+        protected function index() {
             $view = new AirportVeiw();
             $view->display();
             
