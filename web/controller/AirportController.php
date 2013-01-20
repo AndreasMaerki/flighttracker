@@ -3,22 +3,20 @@
 include_once ('controller/Controller.php');
 include_once ('lib/AirportXMLAdapter.php');
 include_once('view/home/NextFlightsView.php');
+include_once 'view/airportView/AirportView.php';
 include_once('model/Airport.php');
 
 class AirportController extends Controller {
 
-	private $airport;	
 	
-	private $AirportXML;
-
-	function __construct() {
-		$this->airportXML = new AirportXMLAdapter(FXML_HOST, FXML_USER, FXML_PASSWORD);// übergabe definieren
+	function __construct() { 
+		//$this->airportXML = new AirportXMLAdapter(FXML_HOST, FXML_USER, FXML_PASSWORD);// übergabe definieren
 	}
 
 	protected function index() {
-
-		echo "Search an airport please";
-
+            $view = new AirportVeiw();
+            $view->display();
+            
 	}
 
 	protected function show() {
@@ -28,24 +26,26 @@ class AirportController extends Controller {
 	protected function init() {
 		echo "init not implemented";
 	}
-
 	protected function create() {
 
 		if (isset($_POST['Airport'])){
 
-			$requestedAirport = $_POST['Airport'];
-			//should be AirportXML
-			$airports = $this->airportXML->getAirport($requestedAirport);
+			$requestedAirport = $_POST['airport'];//send the requested Airport to the Database
+			//database connection here!
+			//$airports = $this->airportXML->getAirport($requestedAirport);
+                        $airports = null;
 			$amount = count($airports);
 
 			if ($amount > 0)
 			{
-				$view= new AirportsView($airports);
+				$view= new AirportView();
+                                $view->setAirports($airports);
 				$view->display();
 
-
 			}else{
-				echo "Sorry, Airport <b>". $airport ."</b> found!";
+                            $view= new AirportView();
+                            $view->setErrorMessage($airports);
+                            $view->display();
 			}
 		}
 
@@ -53,4 +53,3 @@ class AirportController extends Controller {
 
 }
 
-?>

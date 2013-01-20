@@ -32,3 +32,7 @@
 127.0.0.1 - - [20/Jan/2013:22:31:57 +0100] "GET /images/MapsAirplane.png HTTP/1.1" 304 -
 127.0.0.1 - - [20/Jan/2013:22:31:57 +0100] "GET /css/AircraftDetails.css HTTP/1.1" 304 -
 127.0.0.1 - - [20/Jan/2013:22:32:57 +0100] "GET /home HTTP/1.1" 200 1767
+127.0.0.1 - - [20/Jan/2013:23:38:40 +0100] "GET /home HTTP/1.1" 200 1767
+127.0.0.1 - - [20/Jan/2013:23:38:41 +0100] "GET /css/normalize.css HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2013:23:38:41 +0100] "GET /css/styleMod.css HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jan/2013:23:38:41 +0100] "GET /css/AircraftDetails.css HTTP/1.1" 304 -
