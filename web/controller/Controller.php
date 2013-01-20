@@ -55,16 +55,16 @@ abstract class Controller {
 				break;
 			}elseif(preg_match("/\bairplanes\b/i", $_SERVER['REQUEST_URI'])){
 				$this->init();
-				echo "search_controller was called";// zu testzwecken
+				echo "airplane_controller was called";// zu testzwecken
 				break;
 			}elseif(preg_match("/\baircrafts\b/i", $_SERVER['REQUEST_URI'])){
 			echo "search_controller was called";// zu testzwecken
 				$this->init();
-				echo "search_controller was called";// zu testzwecken
+				echo "aircraft_controller was called";// zu testzwecken
 				break;
 			}elseif(preg_match("/\bcontact\b/i", $_SERVER['REQUEST_URI'])){
 				$this->init();
-				echo "search_controller was called";// zu testzwecken
+				echo "contact_controller was called";// zu testzwecken
 				break;
 			}else{
 				$this->init();

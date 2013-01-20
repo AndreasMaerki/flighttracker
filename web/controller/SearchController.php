@@ -6,10 +6,9 @@ include_once 'lib/FlightXMLAdapter.php';
 include_once'view/home/NextFlightsView.php';
 
 class SearchController extends Controller{
-	
-	
-	
-	
+
+
+    
 	protected function init(){
 	//echo"<p>init on SerchView called</p>";
 		$view = new SearchView();
