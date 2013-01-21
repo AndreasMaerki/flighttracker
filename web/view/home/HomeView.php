@@ -26,20 +26,12 @@ class HomeView extends View {
         echo "Flugzeugnummer: <input type=\"search\" class=\"aircraftField\" name=\"aircraftField\">\n";
         echo "Airport From: <input type=\"search\" class=\"airportField\" name=\"airportFromField\">\n";
         echo "Airport To: <input type=\"search\" class=\"airportField\" name=\"airportToField\">\n";
-        echo "<select name=\"top5\" size=\"1\">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-      <option>6</option>
-      <option>7</option>
-      <option>8</option>
-      <option>9</option>
-      <option>10</option>
-      
-      
-    </select>";
+        
+        echo "Anzahl Flüge: <select type=\"search\" class=\"airportField\" name=\"filter\" size=\"1\">
+      <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+      <option>6</option><option>7</option><option>8</option>
+      <option>9</option><option>11</option><option>12</option>
+      <option>13</option><option>14</option><option>15</option></select>";
 
 
         // Button

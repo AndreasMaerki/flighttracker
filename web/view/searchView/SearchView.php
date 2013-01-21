@@ -16,10 +16,8 @@ class SearchView extends View{
 		echo "<input class=\"button\" type=\"submit\" name=\"search\" value=\"find\">";
 		echo "</form>\n</div>";
 	}
-	
-	
-	
 
+        
 	public function getSearchString(){
 		$searchString= $_POST['airport'];
 		return $searchString;
