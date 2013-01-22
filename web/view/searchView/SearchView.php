@@ -19,7 +19,7 @@ class SearchView extends View{
 
         
 	public function getSearchString(){
-		$searchString= $_POST['airport'];
+		$searchString = $_POST['airport'];
 		return $searchString;
 	}
 

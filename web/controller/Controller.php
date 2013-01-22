@@ -43,6 +43,7 @@ abstract class Controller {
 				break;
 			}elseif(preg_match("/\bnext_flights\b/i", $_SERVER['REQUEST_URI'])){
 				$this->init();
+                               
 				echo "bnext_flights was called";// zu testzwecken
 				break;
 			}elseif(preg_match("/\bspecific_flight\b/i", $_SERVER['REQUEST_URI'])){

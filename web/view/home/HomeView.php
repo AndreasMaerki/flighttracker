@@ -10,35 +10,79 @@ class HomeView extends View {
 
     public function display() {
         $uri = URI_HOME;
-        $nextFlightsUri = URI_NEXT_FLIGHTS;
+        $nextFlightsURI = URI_NEXT_FLIGHTS;
+        
         $specificFlightsUri = URI_SPECIFIC_FLIGHT;
         $searchUri = URI_SEARCH_CONTROLLER;
-//unten $searchUri link
+ 
         // SUCHFORMULAR
 
 
-        $nextFlightsURI = URI_NEXT_FLIGHTS;
         //routing not good so far!!
-        echo"<div id=\"searchField\">";
-        //echo htmlspecialchars($_SERVER['PHP_SELF']);// next flights Controller gets the self
-        echo "<form action=\"{$nextFlightsURI}\" method=\"POST\">";
-
-        echo "Flugzeugnummer: <input type=\"search\" class=\"aircraftField\" name=\"aircraftField\">\n";
-        echo "Airport From: <input type=\"search\" class=\"airportField\" name=\"airportFromField\">\n";
-        echo "Airport To: <input type=\"search\" class=\"airportField\" name=\"airportToField\">\n";
-        
-        echo "Anzahl Flüge: <select type=\"search\" class=\"airportField\" name=\"filter\" size=\"1\">
-      <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-      <option>6</option><option>7</option><option>8</option>
-      <option>9</option><option>11</option><option>12</option>
-      <option>13</option><option>14</option><option>15</option></select>";
+        // Formularbeginn
+        echo "<div id=\"formular\">";
+        echo "<form action={$nextFlightsURI} method=\"POST\">";
 
 
-        // Button
+        // Flugzeugnummer suche
+        echo "<li class=\"formularMiddl\">";
+        echo "<label for=\"aircraftField:\">Flight Nr.:</label>";
+        echo "<input type=\"search\" id=\"aircraftNrField\" value=\"A7xL\" name=\"aircraftField\">\n";
+        echo "</li>";
+
+        // Ankunft
+        echo "<li id=\"formularLeft\">";
+
+        echo "<label for=\"airportToField\:\">Airport To:</label>";
+        echo "<input type=\"search\" class=\"airportField\" name=\"airportToField\">\n";
+
+        echo "<label for=\"arrivalDateField\">Arrival Date:</label>";
+        echo "<input type=\"search\" class=\"dateField\" name=\"arrivalDateField\">\n";
+
+        echo "</li>";
+
+
+        // Abflug
+        echo "<li id=\"formularRight\">";
+
+        echo "<label for=\"airportFromField:\">Airport From:</label>";
+        echo "<input type=\"search\" class=\"airportField\" name=\"airportFromField\">\n";
+
+
+        echo "<label for=\"departDateField:\">Depart Date:</label>";
+        echo "<input type=\"search\" class=\"dateField\" name=\"departDateField\">\n";
+
+
+        echo "</li>";
+
+
+
+        // Zeitsuche
+
+
+
+
+        echo "<li class=\"formularDown\">";
+        // Filter
+        echo "<label for=\"filter\">Filter:</label>";
+        echo "<select type=\"search\" class=\"airportField\" name=\"filter\" size=\"1\">
+         <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+        <option>6</option><option>7</option><option>8</option>
+        <option>9</option><option selected=\"selected\">10</option><option>11</option>
+       <option>12</option><option>13</option><option>14</option><option>15</option></select>";
+
+        // Button Find
         echo "<input class=\"button\" type=\"submit\" name=\"search\" value=\"find\">";
-        echo "</form>\n</div>";
+        echo "</form>\n</li>";
+        echo "</div>";
 
 
+
+
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
         // alte Buttons       
         /*             echo <<<HOMEVIEW
           <div id= HomeContainer>

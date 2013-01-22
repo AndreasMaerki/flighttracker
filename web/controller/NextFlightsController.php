@@ -30,13 +30,15 @@ class NextFlightsController extends Controller {
 	protected function create() {
 	
 		echo"NextFlightsController create not implemented";
-		if (isset($_POST['airport'])){// übergabe von post im SearchController
+		if (isset($_POST['airportToField'])){// ï¿½bergabe von post im SearchController
 			$this->flightXML = new FlightXMLAdapter(FXML_HOST, FXML_USER, FXML_PASSWORD);//constants from the config file
-			$airport = $_POST['airport'];
-			$flights = $this->flightXML->getFlightsFromAirport($airport, "15");
-			$flights2=$this->flightXML->getFlightsFromAirport($airport, "15");
+			$airport = $_POST['airportToField'];
+                        $filter = $_POST['filter'];
+			$flights = $this->flightXML->getFlightsFromAirport($airport, $filter);
+			$flights2=$this->flightXML->getFlightsFromAirport($airport, $filter);
 			$amount = count($flights);
 			if ($amount > 0){
+                            echo "im if";
 				$view= new NextFlightsView($flights,$flights2);
 				$view->display();
 			}else{
