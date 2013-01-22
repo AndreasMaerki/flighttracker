@@ -37,7 +37,7 @@ class HomeView extends View {
         echo "<label for=\"airportFromField:\">Airport From:</label>";
         echo "<input type=\"search\" class=\"airportField\" name=\"airportFromField\">\n";
         echo "<label for=\"departDateField:\">Depart Date:</label>";
-        echo "<input type=\"search\" class=\"dateField\" name=\"departDateField\">\n";
+        echo "<input type=\"search\" class=\"dateField\" name=\s"departDateField\">\n";
         echo "</li>";
 
         // Filter
