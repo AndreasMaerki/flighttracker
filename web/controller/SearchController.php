@@ -14,7 +14,7 @@ class SearchController {
         $airportFieldFromNew = $this->getAirportCodeFromPOST($airportFieldFrom);
         
         //Kontroll ausgabe
-        echo "<br>Aircarft ID: " . " {$aircraftField}<br>" . "AirportTo: " . "{$airportFieldTo} <br>" . "Airport From:" . "{$airportFieldFrom} <br>" . "departDate: " . " 
+        echo "<br>Aircarft ID: " . " {$aircraftField}<br>" . "AirportTo: " . "{$airportFieldToNew} <br>" . "Airport From:" . "{$airportFieldFromNew} <br>" . "departDate: " . " 
         {$departDateField}<br> " . "arrivalDate:" . "{$arrivalDateField}<br> " . "Filter: " . " {$filter}<br>";
         
         
@@ -29,7 +29,7 @@ class SearchController {
         // Ankunft und Ablug wurde Ausgefüllt, zeigt beides an
         if ($airportFieldToNew != '' && $airportFieldFromNew != ''){// Uebergabe von post im SearchController
             $this->flightXML = new FlightXMLAdapter(FXML_HOST, FXML_USER, FXML_PASSWORD); //constants from the config file
-            $flights = $this->flightXML->getFlightsFromAirport($airportFieldNew, $filter);
+            $flights = $this->flightXML->getFlightsFromAirport($airportFieldToNew, $filter);
             echo "<br>ist im airport Ankunfts und ablug anzeige <br>";
             return $flights;
          } 

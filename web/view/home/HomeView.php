@@ -45,7 +45,12 @@ class HomeView extends View {
         echo "<label for=\"filter\">Filter:</label>";
         echo "<select type=\"search\" class=\"airportField\" name=\"filter\" size=\"1\">";
         for ($i=1;$i<16;$i++){
-            echo "<option>$i</option>";
+            
+            if ($i == 10){
+               echo "<option selected=\"selected\">$i</option>";
+            }else {
+                echo "<option>$i</option>";
+            }
         }
         echo "</select>";
 
