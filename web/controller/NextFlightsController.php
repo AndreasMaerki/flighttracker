@@ -4,6 +4,7 @@ include_once ('controller/Controller.php');
 include_once ('model/Flight.php');
 include_once ('lib/FlightXMLAdapter.php');
 include_once('view/home/NextFlightsView.php');
+include_once('controller/SearchController.php');
 
 class NextFlightsController extends Controller {
 
@@ -28,25 +29,32 @@ class NextFlightsController extends Controller {
 	}
 
 	protected function create() {
-	
-		echo"NextFlightsController create not implemented";
-		if (isset($_POST['airportToField'])){// �bergabe von post im SearchController
-			$this->flightXML = new FlightXMLAdapter(FXML_HOST, FXML_USER, FXML_PASSWORD);//constants from the config file
-			$airport = $_POST['airportToField'];
-                        $filter = $_POST['filter'];
-			$flights = $this->flightXML->getFlightsFromAirport($airport, $filter);
-			$flights2=$this->flightXML->getFlightsFromAirport($airport, $filter);
-			$amount = count($flights);
+                echo"NextFlightsController create not implemented";
+		
+                        // Search Controller ezeugen der die Suche händelt
+                        $searcherController = new SearchController();
+                        $flightsArrival = $searcherController->searchFlightfromHome($_POST['aircraftField'], 
+                                $_POST['airportToField'], 
+                                $_POST['airportFromField'],
+                                $_POST['departDateField'],
+                                $_POST['arrivalDateField'],                                                     
+                                $_POST['filter'] );
+                        
+                        // Array von Flüge püfen
+                        $amount = count($flightsArrival);
 			if ($amount > 0){
                             echo "im if";
-				$view= new NextFlightsView($flights,$flights2);
+				$view= new NextFlightsView($flightsArrival, $flights);
 				$view->display();
-			}else{
+			}
+                        
+                        
+                        else{
 				echo "Sorry, no flights for Airport <b>". $airport ."</b> found!";
 			}
 		}
 
-	}
+	
 
 }
 
