@@ -31,6 +31,11 @@ class AirportController extends Controller {
 		if (isset($_POST['Airport'])){
 
 			$requestedAirport = $_POST['airport'];//send the requested Airport to the Database
+                        
+                        //$controller = new SearchController($requestedAirport);
+                        //$airport = $controller->searchAirport();
+                        //$airport = $controller->searchFlight();
+                        
 			//database connection here!
 			//$airports = $this->airportXML->getAirport($requestedAirport);
                         $airports = null;
@@ -44,7 +49,7 @@ class AirportController extends Controller {
 
 			}else{
                             $view= new AirportView();
-                            $view->setErrorMessage($airports);
+                            $view->setErrorMessage($requestedAirport);
                             $view->display();
 			}
 		}
