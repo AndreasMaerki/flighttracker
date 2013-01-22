@@ -25,6 +25,8 @@ include_once 'config/config.php';// alle konstanten sind im config file definier
     <link rel="stylesheet" type="text/css" href="css/AircraftDetails.css">
     <link rel="stylesheet" type="text/css" href="/css/homeView.css">
     
+    <link rel="stylesheet" type="text/css" href="/css/cupertino/jquery-ui-1.10.0.custom.css">
+    
 </head>
 
 <body id="wholePage">
@@ -98,6 +100,9 @@ include_once 'config/config.php';// alle konstanten sind im config file definier
                     break;
                 default:
                     include_once 'controller/HomeController.php';
+                    
+             
+            
                     $controller = new HomeController();
                     //echo $_SERVER['REQUEST_URI'];
                     //echo getCurrentURI();

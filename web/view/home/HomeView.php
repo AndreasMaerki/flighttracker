@@ -21,7 +21,7 @@ class HomeView extends View {
         // Flugzeugnummer suche
         echo "<li class=\"formularMiddl\">";
         echo "<label for=\"aircraftField:\">Flight Nr.:</label>";
-        echo "<input type=\"search\" id=\"aircraftNrField\" value=\"A7xL\" name=\"aircraftField\">\n";
+        echo "<input type=\"search\" id=\"aircraftNrField\" name=\"aircraftField\">\n";
         echo "</li>";
 
         // Ankunft
@@ -55,10 +55,7 @@ class HomeView extends View {
         echo "</div>";
 
 
-
-
-        echo "<br>";
-        echo "<br>";
+      
         echo "<br>";
         echo "<br>";
     }

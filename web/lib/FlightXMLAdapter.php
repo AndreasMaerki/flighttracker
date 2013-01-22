@@ -48,7 +48,65 @@ final class FlightXMLAdapter {
         }
     }
 
+    
+    public function getFlightsFromANumber ($number) {
+        
+        $params = $number;
+	$result = $this->client->FlightInfo($params);
+        
+        
+      $list = array();
+      
+      
+      if (!empty($result->FlightInfoResult->FlightInfo))
+	{
 
+		$amount = count($result->FlightInfoResult->FlightInfo);
+		$flights = null;
+
+		if ($amount > 0)
+		{
+			foreach($result->FlightInfoResult->FlightInfo as &$element)
+			{
+
+
+				$number = $element->ident;
+    				$airline = "";
+    				$airport_from = $element->originName ." (". $element->originCity .")";
+    				$airport_to = $element->destinationName ." (". $element->destinationCity .")";
+    				$aircraft = $element->aircrafttype;
+    				$flightstatus = "noch setzen";
+
+    				$arrival_sced = $element->estimatedarrivaltime;
+    				$arrival_calc = "4";
+    				$depart_sced = $element->filed_departuretime;
+    				$depart_calc = "dont know";
+    				$timestamp = "e";
+    				$longitude = "e";
+    				$latitude = "e";
+    				$groundspeed = "e";
+    				$heading = "e";
+    				$id="1";
+    				$name="2han";
+    				$description="3";
+    				$image="4";
+
+        
+                        $flight = new Flight($id, $name, $description, $image, $number, $airline, $airport_from, $airport_to, 
+                         $aircraft, $flightstatus, $arrival_sced, $arrival_calc,
+			 $depart_sced, $depart_calc, $timestamp, $longitude,
+                         $latitude, $groundspeed, $heading);
+
+				$list[] = $flight;
+                                
+                        }
+                                
+        
+                }
+                return $list;
+    }
+    }
+    
     public function getFlightsFromAirport($airport, $howMany) {
 
 	$params = array("airport" => $airport, "howMany" => $howMany, "filter" => "", "offset" => "0");
@@ -64,19 +122,11 @@ final class FlightXMLAdapter {
 
 		if ($amount > 0)
 		{
-
-		
-
 			foreach($result->ScheduledResult->scheduled as &$element)
 			{
 
-				// ** Debugging output
-				//echo "<pre>";
-				//print_r($element);
-				//echo "</pre>";
 
-
-					$number = $element->ident;
+				$number = $element->ident;
     				$airline = "";
     				$airport_from = $element->originName ." (". $element->originCity .")";
     				$airport_to = $element->destinationName ." (". $element->destinationCity .")";
@@ -120,4 +170,4 @@ final class FlightXMLAdapter {
     }
 
 }
-
+        
