@@ -130,48 +130,7 @@ h1 small {
 	outline:none;
 }
 
-/* Styling search field. currently not implemented!! */
-#searchField input{
-	width:85px;
-	height:30px;
-	margin-left:9px;
-	margin-top:8px;
-	border:none;
-	padding-left:20px;
-	padding-right:10px;
-	color:#a5deed;
-	-moz-border-radius:5px;
-	-webkit-border-radius:5px;
-	border-radius:5px;
-/***  CSS Gradient  ***/
-/*  Chrome 1-9 and Safari 4-5.0  */
-	background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0.0,#7cd7ff),color-stop(1.0,#4b4b4b));
-/*  Chrome 10+ Safari 5.1+ Mobile Safari  */
-	background-image:-webkit-linear-gradient(top,#7cd7ff,#4b4b4b);
-/*  Firefox 3.6+  */
-	background-image:-moz-linear-gradient(top,#7cd7ff,#4b4b4b);
-/*  IE 10+  */
-	background-image:-ms-linear-gradient(top,#7cd7ff,#4b4b4b);
-/*  Opera 11.10+  */
-	background-image:-o-linear-gradient(top,#7cd7ff,#4b4b4b);
-/*  W3C  */
-	background-image:linear-gradient(top,#7cd7ff,#4b4b4b);
-	background-repeat:no-repeat;
-	background-color:#497690;
-/* Fallback */
-}
-#searchField input.searchField{
-	-moz-box-shadow:inset 0 2px 1px 1px #35525f;
-	-webkit-box-shadow:inset 0 2px 1px 1px #35525f;
-	box-shadow:inset 0 2px 1px 1px #35525f;
-	position:;
-}
 
-#searchField input.button{
- color: white;
-text-align: center;
- border: 1px inset #003767;
-}
 
 /* Rounded corner for the first in last item */
 #navigationBar li:first-child {
