@@ -6,7 +6,7 @@ $results = Array();
 
 $req = "SELECT apo_city "
 	."FROM fis_airport "
-	."WHERE apo_city LIKE '".$_REQUEST['term']."%' "; 
+	."WHERE apo_city LIKE '".utf8_decode($_REQUEST['term'])."%' "; 
 
 $query = mysql_query($req);
 
@@ -15,4 +15,4 @@ while($row = mysql_fetch_array($query))
 	$results[] = array('label' => $row['apo_city']);
 }
 
-echo json_encode($results);
+echo utf8_encode(json_encode($results));

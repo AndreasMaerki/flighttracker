@@ -11,10 +11,13 @@ include_once 'config/config.php';// alle konstanten sind im config file definier
     <meta charset="utf-8">
 
    
-<script src="http://code.jquery.com/jquery-1.9.0.js"></script>
-<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+
     
+ <script src="/js/vendor/jquery-1.9.0.js"></script>
+ <script src="/js/vendor/jquery-ui.js"></script>
  <script src="/js/formular.js"></script>
+ 
+ 
 
     <title>Flighttracker Home</title>
     <link rel="stylesheet" type="text/css" href="/css/normalize.css">

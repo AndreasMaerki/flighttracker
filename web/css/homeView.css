@@ -141,17 +141,21 @@ text-align: center;
 
 
 
-
-
-
-
-
-
+.ui-autocomplete { position: absolute; 
+                  cursor: pointer; 
+                  list-style: none;
+                  background: whitesmoke;
+                  height: 100px;
+                    overflow-x: auto;
+                  
+}
 
 
 .ui-helper-hidden {
 	display: none;
 }
+
+
 .ui-helper-hidden-accessible {
 	border: 0;
 	clip: rect(0 0 0 0);
