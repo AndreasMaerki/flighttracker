@@ -14,7 +14,7 @@ class SearchController {
         $airportFieldFromNew = $this->getAirportCodeFromPOST($airportFieldFrom);
         
         //Kontroll ausgabe
-        echo "<br>Aircarft ID: " . " {$aircraftField}<br>" . "AirportTo: " . "{$airportFieldTo} <br>" . "Airport From:" . "{$airportFieldFrom} <br>" . "departDate: " . " 
+        echo "<br>Aircarft ID: " . " {$aircraftField}<br>" . "AirportTo: " . "{$airportFieldToNew} <br>" . "Airport From:" . "{$airportFieldFromNew} <br>" . "departDate: " . " 
         {$departDateField}<br> " . "arrivalDate:" . "{$arrivalDateField}<br> " . "Filter: " . " {$filter}<br>";
         
         
@@ -60,7 +60,9 @@ class SearchController {
     // Schneidet alles ausser code2 ab bei airport suche
     public function getAirportCodeFromPOST($searchStreing){    
         $airportCode = explode(' ',$searchStreing, 2);  
-        return $airportCode[0];
+        // Entfernt noch die Klammern
+        $airportCodeNew = substr($airportCode[0], 1 , strlen($airportCode[0])-2); 
+        return $airportCodeNew;
     }
     
     
