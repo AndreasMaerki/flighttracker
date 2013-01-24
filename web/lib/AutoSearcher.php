@@ -1,6 +1,6 @@
 <?php
 
-mysql_connect('localhost', 'root', 'hami') or die( mysql_error() );
+mysql_connect('localhost', 'root', '') or die( mysql_error() );
 mysql_select_db('myFis');
 $results = Array();
 
