@@ -37,37 +37,58 @@ abstract class Controller {
 		
 		switch ($_SERVER['REQUEST_METHOD']){// returns  'GET', 'HEAD', 'POST' or 'PUT'.
 		case 'GET':
+                    
+                        // Flight Details
 			if (preg_match("/\bFlightDetailView\b/i", $_SERVER['REQUEST_URI'])) {
 				$this->showFlightdetails();
 				echo "bFlightDetailView was called";// zu testzwecken
 				break;
-			}elseif(preg_match("/\bnext_flights\b/i", $_SERVER['REQUEST_URI'])){
+			
+                        // Next Flight         
+                        }elseif(preg_match("/\bnext_flights\b/i", $_SERVER['REQUEST_URI'])){
 				$this->init();
                                
 				echo "bnext_flights was called";// zu testzwecken
 				break;
-			}elseif(preg_match("/\bspecific_flight\b/i", $_SERVER['REQUEST_URI'])){
+			
+                        // specific Flight        
+                        }elseif(preg_match("/\bspecific_flight\b/i", $_SERVER['REQUEST_URI'])){
 				$this->init();
 				echo "bspecific_flight was called";// zu testzwecken
 				break;
-			}elseif(preg_match("/\btrack\b/i", $_SERVER['REQUEST_URI'])){
+			
+                        // track a Flight         
+                        }elseif(preg_match("/\btrack\b/i", $_SERVER['REQUEST_URI'])){
 				$this->init();
 				echo "btrack was called";// zu testzwecken
 				break;
-			}elseif(preg_match("/\bairplanes\b/i", $_SERVER['REQUEST_URI'])){
+                        
+                        // Airlines
+                        }elseif(preg_match("/\bairlines\b/i", $_SERVER['REQUEST_URI'])){
 				$this->init();
-				echo "airplane_controller was called";// zu testzwecken
+				echo "airlines was called";// zu testzwecken
 				break;
-			}elseif(preg_match("/\baircrafts\b/i", $_SERVER['REQUEST_URI'])){
-			echo "search_controller was called";// zu testzwecken
+		
+                         // Aircraft       
+                        }elseif(preg_match("/\baircrafts\b/i", $_SERVER['REQUEST_URI'])){		
 				$this->init();
-				echo "aircraft_controller was called";// zu testzwecken
+				//echo "aircraft_controller was called";// zu testzwecken
 				break;
-			}elseif(preg_match("/\bcontact\b/i", $_SERVER['REQUEST_URI'])){
+			
+                        // Airsports
+                        }elseif(preg_match("/\bairports\b/i", $_SERVER['REQUEST_URI'])){	
+				$this->init();
+				echo "airport_controller was called";// zu testzwecken
+				break;
+                        
+                        // Kontakt
+                        }elseif(preg_match("/\bcontact\b/i", $_SERVER['REQUEST_URI'])){
 				$this->init();
 				echo "contact_controller was called";// zu testzwecken
 				break;
-			}else{
+			
+                                
+                        }else{
 				$this->init();
 				echo "default init";
 				break;

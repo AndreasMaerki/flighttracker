@@ -12,26 +12,30 @@ include_once 'config/config.php';
  *
  * @author andy1111
  */
-class AirportView extends View {
+class AirlineView extends View {
 
-    private $airports;
+    private $airline;
+    private $airlineCode;
+    
     private $airportNotFound;
-    private $country;
     
     // Konstruktor
-     function __construct($country) {  
-        $this->country = $country;            
+     function __construct($airline, $airlineCode) {  
+         $this->airline = $airline; 
+         $this->airlineCode = $airlineCode;            
      }
     
     
     public function display() {
-        $airportsUri = URI_AIRPORTS; 
+        $airlineUri = URI_AIRLINES;   
          echo "<h2>Check out details on Airports:</h2>";
         
-        echo "<label for=\"countrySearch\">Select Country</label>";
-        echo "<select type=\"search\" action=\"{$airportsUri}\" methode=\"POST\" class=\"airportSearchField\" name=\"airportSearch\" size=\"1\">";
-        for($i=0; $i < count($this->country); $i++){
-          echo "<option>" . utf8_encode($this->country[$i]) . "</option>";         
+        echo "<label for=\"countrySearch\">Select Airline</label>";
+        echo "<select type=\"search\" action=\"{$airlineUri}\" methode=\"POST\" class=\"airportSearchField\" name=\"airlineSearch\" size=\"1\">";
+        for($i=0; $i < count($this->airline); $i++){
+          echo "<option>" . "(" .utf8_encode($this->airline[$i]) . 
+                ") " . utf8_encode($this->airlineCode[$i])
+                  . "</option>";         
         }
         
        echo "</select><br><br>";
@@ -43,8 +47,8 @@ class AirportView extends View {
         echo "</form>\n</div>\n";
 
 
-        if ($this->airports) {
-            foreach ($this->airports as $value) {
+        if ($this->airline) {
+            foreach ($this->airline as $value) {
                 //paste your hmtl code here Phil!!
             }
         } else if ($this->airportNotFound) {
