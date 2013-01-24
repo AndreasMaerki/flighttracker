@@ -20,9 +20,7 @@ div#formular form input{
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
-    background-image: rgba(235,235,235,1);
-    background-image:-webkit-gradient(linear,left bottom,left top,color-stop(0,#2b6f80),color-stop(0.5,#3b88a3),color-stop(0.51,#5aa0be),color-stop(1,#74b8e0));
-    background-image:-moz-linear-gradient(center bottom,#2b6f80 0%,#3b88a3 50%,#5aa0be 51%,#74b8e0 100%);
+    background-color: #bdbdbd;
     -webkit-box-shadow: rgba(0,0,0,0.1) 0px 2px 0px 0px, inset rgba(9,9,5,1) 1px 2px 3px 0px;
     -moz-box-shadow: rgba(0,0,0,0.1) 0px 2px 0px 0px, inset rgba(9,9,5,1) 1px 2px 3px 0px;
     box-shadow: rgba(0,0,0,0.1) 0px 2px 0px 0px, inset rgba(9,9,5,1) 1px 2px 3px 0px;
@@ -30,6 +28,10 @@ div#formular form input{
 }
 
 
+div#formular label{
+    display: block;
+    padding: 3px;
+}
 
 div#formular form li.formularDown input.button{
     width: 81px;
