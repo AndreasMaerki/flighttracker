@@ -29,20 +29,17 @@ input{
 #formular {
   
    padding: 10px;
-   
-   margin-left: auto;
-   margin-right: auto;
-    
-  border-top: solid black;
-  border-right: solid black;
-  border-bottom: solid black;
-  border-left: solid black;
-  background-color: #DADADA;
+   margin: auto;
+   margin-top: 50px;
+   background-color: white;
+   border-radius: 4px;
+   box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.4);
+   border: inset 2px #aaa;
+   padding: 10px;
+   height: 95px;
+   width: 800px;
   
- 
-  
-  border-radius:10px;
-  
+  border-radius:5px;
   width: 600px;
 height: 350px;
   
@@ -93,25 +90,10 @@ label {
 	padding-left:20px;
 	padding-right:10px;
 	color:#a5deed;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	border-radius:10px;
-/***  CSS Gradient  ***/
-/*  Chrome 1-9 and Safari 4-5.0  */
-	background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0.0,#7cd7ff),color-stop(1.0,#4b4b4b));
-/*  Chrome 10+ Safari 5.1+ Mobile Safari  */
-	background-image:-webkit-linear-gradient(top,#7cd7ff,#4b4b4b);
-/*  Firefox 3.6+  */
-	background-image:-moz-linear-gradient(top,#7cd7ff,#4b4b4b);
-/*  IE 10+  */
-	background-image:-ms-linear-gradient(top,#7cd7ff,#4b4b4b);
-/*  Opera 11.10+  */
-	background-image:-o-linear-gradient(top,#7cd7ff,#4b4b4b);
-/*  W3C  */
-	background-image:linear-gradient(top,#7cd7ff,#4b4b4b);
-	background-repeat:no-repeat;
-	background-color:#497690;
-/* Fallback */
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+
 }
 #formular input.searchField{
 	-moz-box-shadow:inset 0 2px 1px 1px #35525f;
@@ -125,4 +107,3 @@ label {
 text-align: center;
  border: 1px inset #003767;
 }
-

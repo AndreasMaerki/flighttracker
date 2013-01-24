@@ -191,7 +191,8 @@
 	top: 0;
 	left: 0;
 	cursor: default;
-        height: 400px;
+        height: 200px;
+        overflow-x: auto;
         
         
 }
