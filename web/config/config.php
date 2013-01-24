@@ -10,8 +10,12 @@ define('URI_NEXT_FLIGHTS', '/next_flights');
 define('URI_SPECIFIC_FLIGHT','/specific_flight');
 define('URI_SEARCH_CONTROLLER','/search_controller');
 
-
-
+/*
+local DB LOGIN DATA
+*/
+define('MYSQL_HOST', 'localhost');
+define('MYSQL_USER', 'root');
+define('MYSQL_PASSWORD', 'hami');
 
 
 /*

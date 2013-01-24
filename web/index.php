@@ -99,9 +99,9 @@ include_once 'config/config.php';// alle konstanten sind im config file definier
 					echo "<p>case ShowFlightsController called in index</p>";
                     break;    
                 case URI_AIRCRAFTS:
-                	include_once('view/aircraftView/AircraftView.php');
-                	$controller = new AircraftView();
-                	$controller->display();
+                	include_once('controller/AircraftController.php');
+                	$controller = new AircraftController();
+                	
                     break;
                 default:
                     include_once 'controller/HomeController.php';

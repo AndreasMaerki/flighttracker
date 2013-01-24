@@ -1,6 +1,8 @@
 <?php
 
-mysql_connect('localhost', 'root', 'hami') or die( mysql_error() );
+include '../config/config.php';
+
+mysql_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD) or die( mysql_error() );
 mysql_select_db('myFis');
 $results = Array();
 
@@ -20,3 +22,5 @@ while($row = mysql_fetch_array($query))
             utf8_encode($row['apo_country'])."]");     
 }
 echo (json_encode($results));
+
+?>
