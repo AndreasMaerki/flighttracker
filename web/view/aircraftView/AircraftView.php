@@ -1,35 +1,36 @@
 <?php
 
 include_once"view/View.php";
+include 'config/config.php';
 
 
 class AircraftView extends View{
+    
+    private $country = array();
+     
+    private $aircraftViewURI = URI_AIRCRAFTS;
+    
+    
+    function __construct($country2) {
+        
+        $this->country = $country2;      
+        
+    }
+
+
+    
 
 public function display(){
 
-    $country = Array();
     
-    mysql_connect('localhost', 'root', 'hami') or die( mysql_error() );
-    mysql_select_db('myFis');
-   
-
-    $req = "SELECT DISTINCT apo_country "
-    ."FROM fis_airport";
-
-    $query = mysql_query($req);
-    
-    while($row = mysql_fetch_array($query))
-        {
-        $country[] = $row[apo_country];
-        
-        }
 
     echo "<h2>Check out details on Aircraft types:</h2>";
+    
     echo "<label for=\"countrySearch\">Select Country</label>";
-    echo "<select type=\"search\" class=\"airportSearchField\" name=\"countrySearch\" size=\"1\">";
+    echo "<select type=\"search\" action=\"{$aircraftViewURI}\" methode=\"POST\" class=\"airportSearchField\" name=\"countrySearch\" size=\"1\">";
 
-       for($i=0; $i < count($country); $i++){
-          echo "<option>" . utf8_encode($country[$i]) . "</option>";         
+       for($i=0; $i < count($this->country); $i++){
+          echo "<option>" . utf8_encode($this->country[$i]) . "</option>";         
        }
         
        echo "</select><br><br>";
