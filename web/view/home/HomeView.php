@@ -55,7 +55,7 @@ class HomeView extends View {
         echo "</select>";
 
         // Button Find
-        echo "<input class=\"button\" type=\"submit\" name=\"search\" value=\"find\">";
+        echo "<input class =\"button\"  type=\"submit\" name=\"search\" value=\"find\">";
         echo "</form>\n</li>";
         echo "</div>";
 
