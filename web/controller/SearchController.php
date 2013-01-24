@@ -60,7 +60,9 @@ class SearchController {
     // Schneidet alles ausser code2 ab bei airport suche
     public function getAirportCodeFromPOST($searchStreing){    
         $airportCode = explode(' ',$searchStreing, 2);  
-        return $airportCode[0];
+        // Entfernt noch die Klammern
+        $airportCodeNew = substr($airportCode[0], 1 , strlen($airportCode[0])-2); 
+        return $airportCodeNew;
     }
     
     

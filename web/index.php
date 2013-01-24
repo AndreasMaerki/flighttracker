@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <?php
 include_once 'config/config.php';// alle konstanten sind im config file definiert
@@ -9,6 +10,7 @@ include_once 'config/config.php';// alle konstanten sind im config file definier
     <meta name="description" content="Flighttracker system">
     <meta name="author" content="Andreas Maerki">
     <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
    
 
