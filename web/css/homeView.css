@@ -39,10 +39,7 @@ input{
    height: 95px;
    width: 800px;
   
- 
-  
   border-radius:5px;
-  
   width: 600px;
   height: 350px;
   
@@ -82,13 +79,6 @@ label {
 }
 
 
-.dateField {
-    
-    
-    
-}
-
-
 
 /* Styling search field. currently not implemented!! */
 #formular input{
@@ -112,17 +102,8 @@ label {
 	/*position: ;*/
 }
 
-
-
-
-
-/*.ui-autocomplete { position: absolute; 
-                  cursor: pointer; 
-                  list-style: none;
-                  background: whitesmoke;
-                  height: 200px;
-                    overflow-x: auto;
-                  
-}*/
-
-
+#formular input.button{
+ color: white;
+text-align: center;
+ border: 1px inset #003767;
+}
