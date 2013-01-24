@@ -191,10 +191,11 @@
 	top: 0;
 	left: 0;
 	cursor: default;
-        height: 200px;
+        height: 400px;
         
         
 }
+
 .ui-button {
 	display: inline-block;
 	position: relative;

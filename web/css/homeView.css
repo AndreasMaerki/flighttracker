@@ -51,11 +51,6 @@ height: 350px;
 }
 
 
-.ui-datepicker {
-    background: lightgray;
-    border: 2px solid #555;
-    color: black;
-}
 
 label {
    padding-top:  5px; 
@@ -84,13 +79,6 @@ label {
     list-style-type: none;
      padding: 20px;
     float: right;
-}
-
-
-.dateField {
-    
-    
-    
 }
 
 
@@ -137,17 +125,4 @@ label {
 text-align: center;
  border: 1px inset #003767;
 }
-
-
-
-
-.ui-autocomplete { position: absolute; 
-                  cursor: pointer; 
-                  list-style: none;
-                  background: whitesmoke;
-                  height: 200px;
-                    overflow-x: auto;
-                  
-}
-
 

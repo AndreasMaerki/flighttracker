@@ -1,6 +1,6 @@
 <?php
 
-$dblink = mysql_connect('localhost', 'root', 'hami') or die( mysql_error() );
+mysql_connect('localhost', 'root', 'hami') or die( mysql_error() );
 mysql_select_db('myFis');
 $results = Array();
 
@@ -16,7 +16,7 @@ $query = mysql_query($req);
 while($row = mysql_fetch_array($query))
 {
 	$results[] = array('label' => "(" . utf8_encode($row['apo_code2']) .") ". 
-            utf8_encode($row['apo_name']) .", ". utf8_encode($row['apo_city']).", [". 
+            utf8_encode($row['apo_name']) .", ". utf8_encode($row['apo_city'])." [". 
             utf8_encode($row['apo_country'])."]");     
 }
 echo (json_encode($results));
