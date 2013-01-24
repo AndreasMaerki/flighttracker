@@ -26,6 +26,8 @@ include_once 'config/config.php';// alle konstanten sind im config file definier
     <link rel="stylesheet" type="text/css" href="css/styleMod.css">
     <link rel="stylesheet" type="text/css" href="css/AircraftDetails.css">
     <link rel="stylesheet" type="text/css" href="/css/homeView.css">
+    <link rel="stylesheet" type="text/css" href="/css/Forms.css">
+
     
     <link rel="stylesheet" type="text/css" href="/css/cupertino/jquery-ui-1.10.0.custom.css">
      <link rel="stylesheet" type="text/css" href="/css/cupertino/jquery-ui-1.10.0.custom.min.css">

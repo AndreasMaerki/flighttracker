@@ -43,14 +43,19 @@ class HomeView extends View {
         // Filter
         echo "<li class=\"formularDown\">";      
         echo "<label for=\"filter\">Filter:</label>";
-        echo "<select type=\"search\" class=\"airportField\" name=\"filter\" size=\"1\">
-         <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-        <option>6</option><option>7</option><option>8</option>
-        <option>9</option><option selected=\"selected\">10</option><option>11</option>
-       <option>12</option><option>13</option><option>14</option><option>15</option></select>";
+        echo "<select type=\"search\" class=\"airportField\" name=\"filter\" size=\"1\">";
+        for ($i=1;$i<16;$i++){
+            
+            if ($i == 10){
+               echo "<option selected=\"selected\">$i</option>";
+            }else {
+                echo "<option>$i</option>";
+            }
+        }
+        echo "</select>";
 
         // Button Find
-        echo "<input class=\"button\" type=\"submit\" name=\"search\" value=\"find\">";
+        echo "<input class =\"button\"  type=\"submit\" name=\"search\" value=\"find\">";
         echo "</form>\n</li>";
         echo "</div>";
 
