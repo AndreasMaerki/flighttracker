@@ -12,7 +12,7 @@ class HomeView extends View {
        // $uri = URI_HOME;
         $nextFlightsURI = URI_NEXT_FLIGHTS;       
        // $searchUri = URI_SEARCH_CONTROLLER;
- 
+         echo "<h2>Search your Fly:</h2>";
 
         // Formularbeginn
         echo "<div id=\"formular\">";
@@ -44,8 +44,7 @@ class HomeView extends View {
         echo "<li class=\"formularDown\">";      
         echo "<label for=\"filter\">Filter:</label>";
         echo "<select type=\"search\" class=\"airportField\" name=\"filter\" size=\"1\">";
-        for ($i=1;$i<16;$i++){
-            
+        for ($i=1;$i<16;$i++){           
             if ($i == 10){
                echo "<option selected=\"selected\">$i</option>";
             }else {

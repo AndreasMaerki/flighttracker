@@ -1,10 +1,12 @@
 <?php
 include_once ('controller/Controller.php');
-include_once ('view/airportView/AirportView.php');
-include_once ('model/Airport.php');
+include_once ('view/airlineView/AirlineView.php');
+include_once ('model/Airline.php');
 
-class AirportController extends Controller {
+class AirlineController extends Controller {
 
+    
+    
 	
 	function __construct() { 
 		
@@ -22,24 +24,25 @@ class AirportController extends Controller {
 	protected function init() {
             
             
-            $country = Array();
+            $airline = Array();
+            $airlineCode = Array();
     
             mysql_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD) or die( mysql_error() );
             mysql_select_db('myFis');
 
-            $req = "SELECT DISTINCT apo_country "
-            ."FROM fis_airport";
+            $req = "SELECT DISTINCT ali_code2, ali_name "
+            ."FROM fis_airline";
 
             $query = mysql_query($req);
             
 
             while($row = mysql_fetch_array($query))
                 {
-                $country[] = $row[apo_country];
-
+                $airline[] = $row[ali_code2];
+                $airlineCode[] = $row[ali_name];
                 }
 		
-            $view = new AirportView($country);
+            $view = new AirlineView($airline, $airlineCode);
             $view->display();
             
             

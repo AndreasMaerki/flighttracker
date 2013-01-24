@@ -64,55 +64,43 @@ include_once 'config/config.php';// alle konstanten sind im config file definier
                     include_once 'controller/TrackController.php';
                     $controller = new TrackController();
                     break;
+                
                 case URI_CONTACT:
-                    include_once 'view/contactView/ContactInitView.php';
-                    //$controller = new ContactInitView();
-                    echo "<p>contact controller not implementet </p>";
+                    include_once 'controller/ContactController.php';
+                    $controller = new ContactController();
+                    //echo "<p>contact controller not implementet </p>";
                     break;
-                case URI_SEARCH_CONTROLLER:
-                	include_once 'controller/SearchController.php';
-                	$controller = new SearchController();
-                	//echo "<p>case SearchController called in index</p>";
-                    break;
-               case URI_NEXT_FLIGHTS:
+               
+                case URI_NEXT_FLIGHTS:
                 	include_once 'controller/NextFlightsController.php';
                 	$controller = new NextFlightsController();
                 	echo 'controller/NextFlightsController';
                 	//echo "<p>case SearchController called in index</p>";
                     break;
-                case URI_SPECIFIC_FLIGHT:
-                	include_once('controller/ShowFlightsController.php');
-                	//$controller = new SearchController();
-                	echo "<p>not implemented jet</p>";
-					echo "<p>case ShowFlightsController called in index</p>";
-                    break;
+                
                 case URI_AIRLINES:
-                	include_once('controller/AirlinesController.php');
-                	//$controller = new SearchController();
-                	echo "<p>not implemented jet</p>";
-					echo "<p>case ShowFlightsController called in index</p>";
+                	include_once('controller/AirlineController.php');
+                	$controller = new AirlineController();
+                        //echo "<p>case AirlineController called in index</p>";
                     break;
+                
                 case URI_AIRPORTS:
                 	include_once('controller/AirportController.php');
-                	//$controller = new SearchController();
-                	echo "<p>not implemented jet</p>";
-					echo "<p>case ShowFlightsController called in index</p>";
+                	$controller = new AirportController();
+                        
+                        //echo "<p>case AirportController called in index</p>";
                     break;    
+                
                 case URI_AIRCRAFTS:
                 	include_once('controller/AircraftController.php');
                 	$controller = new AircraftController();
                 	
                     break;
                 default:
-                    include_once 'controller/HomeController.php';
                     
-             
-            
+                    include_once 'controller/HomeController.php';
                     $controller = new HomeController();
-                    //echo $_SERVER['REQUEST_URI'];
-                    //echo getCurrentURI();
-                    break;
-                
+                    break;                
                 }
                 
                 
