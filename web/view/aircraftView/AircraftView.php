@@ -3,42 +3,37 @@
 include_once"view/View.php";
 include 'config/config.php';
 
+class AircraftView extends View {
 
-class AircraftView extends View{
-    
     private $acrCode;
     private $aircraftName;
-    
-    
-    
-    function __construct($acrCode, $aircraftName) {  
-        $this->acrCode = $acrCode;   
-        $this->aircraftName = $aircraftName;            
+
+    function __construct($acrCode, $aircraftName) {
+        $this->acrCode = $acrCode;
+        $this->aircraftName = $aircraftName;
     }
 
+    public function display() {
 
-public function display(){
-    
-    $aircraftViewURI = URI_AIRCRAFTS;
-    echo "<h2>Check out details on Aircraft types:</h2>";
-    
-    echo "<label for=\"countrySearch\">Select AircraftTyp</label>";
-    echo "<select type=\"search\" action=\"{$aircraftViewURI}\" 
-            methode=\"POST\" class=\"airportSearchField\" name=\"countrySearch\" size=\"1\">";
+        $aircraftViewURI = URI_AIRCRAFTS;
+        echo "<h2>Check out details on Aircraft types:</h2>\n";
 
-       for($i=0; $i < count($this->acrCode); $i++){
-          echo "<option>" . "(" .utf8_encode($this->acrCode[$i]) . 
-                ") " . utf8_encode($this->aircraftName[$i])
-                  . "</option>";         
-       }
-        
-       echo "</select><br><br>";
+        echo "<label for=\"countrySearch\">Select AircraftTyp</label>\n";
+        echo "<select type=\"search\" action=\"{$aircraftViewURI}\" 
+            methode=\"POST\" class=\"airportSearchField\" name=\"countrySearch\" size=\"1\">\n";
 
-                for($i=0;$i<20;$i++){
+        for ($i = 0; $i < count($this->acrCode); $i++) {
+            echo "<option>" . "(" . utf8_encode($this->acrCode[$i]) .
+            ") " . utf8_encode($this->aircraftName[$i])
+            . "</option>\n";
+        }
+        echo "</select>";
 
-                    echo <<<AIRCRAFTS
-				<div id="entries">
-                    <a class="entry" href="/galerie/galerie-hotel/">
+        for ($i = 0; $i < 20; $i++) {
+
+            echo <<<AIRCRAFTS
+		<div id="entries">
+                    <a class="entry" href="">
 
                     <div class="inline">
                         <div class="image">
@@ -66,13 +61,9 @@ public function display(){
                         <div class="clear"></div>
                     </div>
                     </a>
-                </div>
-
-
+                </div>\n
 AIRCRAFTS;
-		}
-
-	}
-
-
+        }//end for
+        echo '<div class="clear"></div>';
+    }//end display
 }

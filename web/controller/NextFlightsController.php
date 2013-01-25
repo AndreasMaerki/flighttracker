@@ -31,20 +31,27 @@ class NextFlightsController extends Controller {
 	protected function create() {
                 echo"NextFlightsController create not implemented";
 		
-                        // Search Controller ezeugen der die Suche händelt
+                // create instace of SearchController and send the searchstring to the apropriate method
                         $searcherController = new SearchController();
-                        $flightsArrival = $searcherController->searchFlightfromHome($_POST['aircraftField'], 
+                        $arrivingFlights = $searcherController->searchArrivingFlightsfromHomeView($_POST['aircraftField'], 
                                 $_POST['airportToField'], 
                                 $_POST['airportFromField'],
                                 $_POST['departDateField'],
                                 $_POST['arrivalDateField'],                                                     
                                 $_POST['filter'] );
                         
-                        // Array von Flüge püfen
-                        $amount = count($flightsArrival);
+                // do the same for departing flights here. replace the current method call with the right one        
+                        $departingFlights = $searcherController->searchArrivingFlightsfromHomeView($_POST['aircraftField'], 
+                                $_POST['airportToField'], 
+                                $_POST['airportFromField'],
+                                $_POST['departDateField'],
+                                $_POST['arrivalDateField'],                                                     
+                                $_POST['filter'] );
+                        // test if $flightsArrival is not empty
+                        $amount = count($arrivingFlights);
 			if ($amount > 0){
                             echo "im if";
-				$view= new NextFlightsView($flightsArrival, $flights);
+				$view= new NextFlightsView($arrivingFlights, $departingFlights);
 				$view->display();
 			}
                         

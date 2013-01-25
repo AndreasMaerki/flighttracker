@@ -90,7 +90,6 @@ abstract class Controller {
                                 
                         }else{
 				$this->init();
-				echo "default init";
 				break;
 			}
 
