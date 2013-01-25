@@ -12,56 +12,56 @@ class HomeView extends View {
        // $uri = URI_HOME;
         $nextFlightsURI = URI_NEXT_FLIGHTS;       
        // $searchUri = URI_SEARCH_CONTROLLER;
-         echo "<h2>Search your Fly:</h2>";
+         echo "<h2>Search your Flight:</h2>\n";
 
         // Formularbeginn
-        echo "<div id=\"formular\">";
-        echo "<form action={$nextFlightsURI} method=\"POST\">";
+        echo "<div id=\"formular\">\n";
+        echo "<form action={$nextFlightsURI} method=\"POST\">\n";
 
         // Flugzeugnummer suche
-        echo "<div class=\"formularMiddl\">";
-        echo "<label for=\"aircraftField:\">Flight Nr.:</label>";
+        echo "<div class=\"formularMiddl\">\n";
+        echo "<label for=\"aircraftField:\">Flight Nr.:</label>\n";
         echo "<input type=\"search\" id=\"aircraftNrField\" name=\"aircraftField\">\n";
-        echo "</div>";
+        echo "</div>\n";
 
         // Ankunft
-        echo "<div id=\"formularLeft\">";
-        echo "<label for=\"airportToField\:\">Airport To:</label>";
+        echo "<div id=\"formularLeft\">\n";
+        echo "<label for=\"airportToField\:\">Airport To:</label>\n";
         echo "<input type=\"search\" class=\"airportField\" name=\"airportToField\">\n";
-        echo "<label for=\"arrivalDateField\">Arrival Date:</label>";
+        echo "<label for=\"arrivalDateField\">Arrival Date:</label>\n";
         echo "<input type=\"search\" class=\"dateField\" name=\"arrivalDateField\">\n";
-        echo "</div>";
+        echo "</div>\n";
 
         // Abflug
-        echo "<div id=\"formularRight\">";
-        echo "<label for=\"airportFromField:\">Airport From:</label>";
+        echo "<div id=\"formularRight\">\n";
+        echo "<label for=\"airportFromField:\">Airport From:</label>\n";
         echo "<input type=\"search\" class=\"airportField\" name=\"airportFromField\">\n";
-        echo "<label for=\"departDateField:\">Depart Date:</label>";
+        echo "<label for=\"departDateField:\">Depart Date:</label>\n";
         echo "<input type=\"search\" class=\"dateField\" name=\"departDateField\">\n";
-        echo "</div>";
+        echo "</div>\n";
 
         // Filter
-        echo "<div class=\"formularDown\">";      
-        echo "<label for=\"filter\">Filter:</label>";
-        echo "<select type=\"search\" class=\"airportField\" name=\"filter\" size=\"1\">";
+        echo "<div class=\"formularDown\">\n";      
+        echo "<label for=\"filter\">Filter:</label>\n";
+        echo "<select type=\"search\" class=\"airportField\" name=\"filter\" size=\"1\">\n";
         for ($i=1;$i<16;$i++){           
             if ($i == 10){
-               echo "<option selected=\"selected\">$i</option>";
+               echo "<option selected=\"selected\">$i</option>\n";
             }else {
-                echo "<option>$i</option>";
+                echo "<option>$i</option>\n";
             }
         }
-        echo "</select>";
+        echo "</select>\n";
 
         // Button Find
-        echo "<input class =\"button\"  type=\"submit\" name=\"search\" value=\"find\">";
-        echo "</form>\n</div>";
-        echo "</div>";
+        echo "<input class =\"button\"  type=\"submit\" name=\"search\" value=\"find\">\n";
+        echo "</form>\n</div>\n";
+        echo "</div>\n";
 
 
       
-        echo "<br>";
-        echo "<br>";
+        echo "<br>\n";
+        echo "<br>\n";
     }
 
 }
