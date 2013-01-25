@@ -15,9 +15,9 @@ class AircraftView extends View {
 
     public function display() {
 
-        $aircraftViewURI = URI_AIRCRAFTS;
+        $aircraftViewURI = URI_AIRCRAFTS;        
         echo "<h2>Check out details on Aircraft types:</h2>\n";
-
+        echo "<div id =\"aircraftSearchfieldContainer\">";
         echo "<label for=\"countrySearch\">Select AircraftTyp</label>\n";
         echo "<select type=\"search\" action=\"{$aircraftViewURI}\" 
             methode=\"POST\" class=\"airportSearchField\" name=\"countrySearch\" size=\"1\">\n";
@@ -28,6 +28,7 @@ class AircraftView extends View {
             . "</option>\n";
         }
         echo "</select>";
+        echo "</div>";
 
         for ($i = 0; $i < 20; $i++) {
 

@@ -7,10 +7,11 @@
 */
 
 
-#homeForm form input{
-    width: 130px;
-    height: 22px;
-    padding: 2px;
+#homeForm form input,
+#contactform input[type="text"],
+#contactform input[type="email"],
+#contactform textarea{
+    padding-left: 10px;
     margin: 2px;
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
@@ -26,16 +27,16 @@
     -webkit-box-shadow: rgba(0,0,0,0.1) 0px 1px 0px 0px, inset rgba(9,9,5,1) 1px 1px 1px 0px;
     -moz-box-shadow: rgba(0,0,0,0.1) 0px 1px 0px 0px, inset rgba(9,9,5,1) 1px 1px 1px 0px;
     box-shadow: rgba(0,0,0,0.1) 0px 1px 0px 0px, inset rgba(9,9,5,1) 1px 1px 1px 0px;
-
 }
 
-#homeForm form input:focus{
+#homeForm form input:focus,
+#contactform input[type="text"]:focus,
+#contactform input[type="email"]:focus,
+#contactform textarea:focus{
     -webkit-box-shadow: rgba(0,0,0,0.1) 0px 1px 0px 0px, inset rgba(9,9,5,1) 1px 2px 2px 0px;
     -moz-box-shadow: rgba(0,0,0,0.1) 0px 1px 0px 0px, inset rgba(9,9,5,1) 1px 2px 2px 0px;
     box-shadow: rgba(0,0,0,0.1) 0px 1px 0px 0px, inset rgba(9,9,5,1) 1px 2px 2px 0px;
-  
 }
-
 
 #homeForm form input{
     -webkit-transition: all 100ms ease-in;
