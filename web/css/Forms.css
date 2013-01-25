@@ -21,7 +21,7 @@ div#formular form input{
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
-    background-color: #bdbdbd;/*fallback*/
+    background-color: #aaa;/*fallback*/
     background-image: url(/images/NoiseBackground.png);
     -webkit-box-shadow: rgba(0,0,0,0.1) 0px 2px 0px 0px, inset rgba(9,9,5,1) 1px 2px 3px 0px;
     -moz-box-shadow: rgba(0,0,0,0.1) 0px 2px 0px 0px, inset rgba(9,9,5,1) 1px 2px 3px 0px;
@@ -33,10 +33,11 @@ div#formular form input{
 div#formular label{
     display: block;
     padding: 3px;
+        color: black;
+
 }
 
 .airportField {
-    color: black;
     background-color: #bdbdbd;
     width: 70px;
     border: outset 2px;

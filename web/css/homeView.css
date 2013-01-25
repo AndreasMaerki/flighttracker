@@ -10,21 +10,32 @@ root {
     display: block;
     text-align: center;
 }
+h2{
+    text-align: center;
+}
 
+/*#body{
+    width: 750px;
+    margin: auto;
+    margin-top: 100px;
+}*/
 
 #formular {
-    padding: 10px;
+    padding: 5px;
     margin: auto;
-    margin-top: 50px;
-    background-color: white;
+    margin-top: 5px;
+    background-color: #fafafa;
     border-radius: 4px;
-    box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.4);
-    border: inset 2px #aaa;
+    /*box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.4);*/
+    border: solid 1px #ccc;
     padding: 10px;
     height: 95px;
     border-radius:5px;
     width: 600px;
-    height: 350px;
+    height: 350px; 
+    
+  
+
 }
 
 .formularDown {
@@ -34,8 +45,6 @@ root {
 
     text-align: center; 
     border-top: 1px solid #ccc;
-    background-color: #ddd;
-    
     
 }
 
@@ -44,7 +53,7 @@ root {
     padding: 20px;
     text-align: center;
     border-bottom: 1px solid #ccc;
-
+    
 }
 
 #formularLeft {
