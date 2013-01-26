@@ -22,17 +22,28 @@ public function display(){
     $aircraftViewURI = URI_AIRCRAFTS;
     echo "<h2>Check out details on Aircraft types:</h2>";
     
+    echo "<form action={$aircraftViewURI} method=\"POST\">";
     echo "<label for=\"countrySearch\">Select AircraftTyp</label>";
-    echo "<select type=\"search\" action=\"{$aircraftViewURI}\" 
-            methode=\"POST\" class=\"airportSearchField\" name=\"countrySearch\" size=\"1\">";
+    echo "<select type=\"search\" class=\"airportSearchField\" name=\"countrySearch\" size=\"1\">";
 
        for($i=0; $i < count($this->acrCode); $i++){
           echo "<option>" . "(" .utf8_encode($this->acrCode[$i]) . 
                 ") " . utf8_encode($this->aircraftName[$i])
                   . "</option>";         
        }
-        
-       echo "</select><br><br>";
+               
+       echo "</select>";
+       // Button      
+        echo "<input class=\"button\" type=\"submit\" name=\"aircraftSearchButton\" value=\"find\">";
+       echo "</form>";
+       
+        if ($_POST['countrySearch'] != null ){
+            
+            echo $_POST['countrySearch'];
+        }
+        else{
+            echo "wählen sie aus!";
+        }
 
                 for($i=0;$i<20;$i++){
 
@@ -42,7 +53,8 @@ public function display(){
 
                     <div class="inline">
                         <div class="image">
-                                <img src="../../images/Planes/PlanesSmall/s_airberlin_a330_1.jpg" alt="s_airberlin_a330_1" >
+                                <img src="../../images/Planes/PlanesSmall/s_airberlin_a330_1.jpg" 
+                                alt="s_airberlin_a330_1" >
                         </div>
 
                         <div class="e-right">
@@ -60,7 +72,10 @@ public function display(){
                         </div>
 
                         <div class="rightImage">
-                                <img src="../../images/AirlineLogos/AB_Airlines__formerly_Air_Bristol_-logo-216CE398C3-seeklogo.com.gif" alt="AB_Airlines__formerly_Air_Bristol_-logo-216CE398C3-seeklogo.com" width="200" height="200">
+                                <img src="../../images/AirlineLogos/AB_Airlines__formerly_
+                                Air_Bristol_-logo-216CE398C3-seeklogo.com.gif" 
+                                alt="AB_Airlines__formerly_Air_Bristol_-logo-216CE398C3-seeklogo.com" 
+                                width="200" height="200">
                         </div>
 
                         <div class="clear"></div>

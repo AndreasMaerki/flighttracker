@@ -28,21 +28,27 @@ class AirportView extends View {
         $airportsUri = URI_AIRPORTS; 
          echo "<h2>Check out details on Airports:</h2>";
         
+        // Suchfeld 
+        echo "<form action={$airportsUri} method=\"POST\">";
         echo "<label for=\"countrySearch\">Select Country</label>";
-        echo "<select type=\"search\" action=\"{$airportsUri}\" methode=\"POST\" class=\"airportSearchField\" name=\"airportSearch\" size=\"1\">";
+        echo "<select type=\"search\"  class=\"airportSearchField\" name=\"airportSearch\" size=\"1\">";
         for($i=0; $i < count($this->country); $i++){
           echo "<option>" . utf8_encode($this->country[$i]) . "</option>";         
         }
-        
-       echo "</select><br><br>";
-       
-       // Altes Button
-        echo"<div class=\"searchField\">\n";
-        
-        echo "<input class=\"button\" type=\"submit\" name=\"Search\" value=\"find\">\n";
-        echo "</form>\n</div>\n";
+        echo "</select>";
+        //Button 
+        echo "<input class=\"button\" type=\"submit\" methode=\"POST\" name=\"airlineSearchbutton\" value=\"find\">\n";
+        echo "</form>";
 
-
+        if ($_POST['airportSearch'] != null ){
+            
+            echo $_POST['airportSearch'];
+        }
+        else{
+            echo "wählen sie aus!";
+        }
+        
+        
         if ($this->airports) {
             foreach ($this->airports as $value) {
                 //paste your hmtl code here Phil!!

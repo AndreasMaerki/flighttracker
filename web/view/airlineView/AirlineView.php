@@ -30,22 +30,26 @@ class AirlineView extends View {
         $airlineUri = URI_AIRLINES;   
          echo "<h2>Check out details on Airports:</h2>";
         
+         echo "<form action={$airlineUri} method=\"POST\">";
         echo "<label for=\"countrySearch\">Select Airline</label>";
-        echo "<select type=\"search\" action=\"{$airlineUri}\" methode=\"POST\" class=\"airportSearchField\" name=\"airlineSearch\" size=\"1\">";
+        echo "<select type=\"search\" class=\"airportSearchField\" name=\"airlineSearch\" size=\"1\">";
         for($i=0; $i < count($this->airline); $i++){
           echo "<option>" . "(" .utf8_encode($this->airline[$i]) . 
                 ") " . utf8_encode($this->airlineCode[$i])
                   . "</option>";         
+        }   
+       echo "</select>";    
+       // Button      
+        echo "<input class=\"button\" type=\"submit\" name=\"airlineSearchButton\" value=\"find\">\n";
+        echo "</form>";
+        
+        if ($_POST['airlineSearch'] != null ){
+            
+            echo $_POST['airlineSearch'];
         }
-        
-       echo "</select><br><br>";
-       
-       // Altes Button
-        echo"<div class=\"searchField\">\n";
-        
-        echo "<input class=\"button\" type=\"submit\" name=\"Search\" value=\"find\">\n";
-        echo "</form>\n</div>\n";
-
+        else{
+            echo "wählen sie aus!";
+        }
 
         if ($this->airline) {
             foreach ($this->airline as $value) {

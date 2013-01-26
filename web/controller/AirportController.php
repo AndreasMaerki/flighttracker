@@ -44,9 +44,14 @@ class AirportController extends Controller {
             
             
 	}
-	protected function create() {
-
-		
+	
+        
+                protected function create() {
+                
+                // Searchcontroller einbinden
+                
+                // View neu laden
+		$this->init();
 		
 
 	}

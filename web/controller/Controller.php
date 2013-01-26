@@ -41,32 +41,32 @@ abstract class Controller {
                         // Flight Details
 			if (preg_match("/\bFlightDetailView\b/i", $_SERVER['REQUEST_URI'])) {
 				$this->showFlightdetails();
-				echo "bFlightDetailView was called";// zu testzwecken
+				//echo "bFlightDetailView was called";// zu testzwecken
 				break;
 			
                         // Next Flight         
                         }elseif(preg_match("/\bnext_flights\b/i", $_SERVER['REQUEST_URI'])){
 				$this->init();
                                
-				echo "bnext_flights was called";// zu testzwecken
+				//echo "bnext_flights was called";// zu testzwecken
 				break;
 			
                         // specific Flight        
                         }elseif(preg_match("/\bspecific_flight\b/i", $_SERVER['REQUEST_URI'])){
 				$this->init();
-				echo "bspecific_flight was called";// zu testzwecken
+				//echo "bspecific_flight was called";// zu testzwecken
 				break;
 			
                         // track a Flight         
                         }elseif(preg_match("/\btrack\b/i", $_SERVER['REQUEST_URI'])){
 				$this->init();
-				echo "btrack was called";// zu testzwecken
+				//echo "btrack was called";// zu testzwecken
 				break;
                         
                         // Airlines
                         }elseif(preg_match("/\bairlines\b/i", $_SERVER['REQUEST_URI'])){
 				$this->init();
-				echo "airlines was called";// zu testzwecken
+				//echo "airlines was called";// zu testzwecken
 				break;
 		
                          // Aircraft       
@@ -78,24 +78,24 @@ abstract class Controller {
                         // Airsports
                         }elseif(preg_match("/\bairports\b/i", $_SERVER['REQUEST_URI'])){	
 				$this->init();
-				echo "airport_controller was called";// zu testzwecken
+				//echo "airport_controller was called";// zu testzwecken
 				break;
                         
                         // Kontakt
                         }elseif(preg_match("/\bcontact\b/i", $_SERVER['REQUEST_URI'])){
 				$this->init();
-				echo "contact_controller was called";// zu testzwecken
+				//echo "contact_controller was called";// zu testzwecken
 				break;
 			
                                 
                         }else{
 				$this->init();
-				echo "default init";
+				//echo "default init";
 				break;
 			}
 
 		case 'POST':// store the submitted user data in case of post
-				echo "<p>case POST on controller called</p>";// zu testzwecken
+				//echo "<p>case POST on controller called</p>";// zu testzwecken
 			$this->create();
 			break;
 		default:

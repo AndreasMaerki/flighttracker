@@ -21,9 +21,7 @@ class AirlineController extends Controller {
 		echo " show not implemented";
 	}
 
-	protected function init() {
-            
-            
+	protected function init() {  
             $airline = Array();
             $airlineCode = Array();
     
@@ -47,11 +45,10 @@ class AirlineController extends Controller {
             
             
 	}
+        
+        
 	protected function create() {
-
-		
-		
-
+            $this->init();
 	}
 
 }
