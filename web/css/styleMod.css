@@ -167,6 +167,11 @@ to {
     width:140px;
 }
 
+.selected{
+    background-image:-webkit-gradient(linear,left bottom,left top,color-stop(0,#1a444e),color-stop(0.5,#275c6f),color-stop(0.51,#407287),color-stop(1,#497690));
+    background-image:-moz-linear-gradient(center bottom,#1a444e 0%,#275c6f 50%,#407287 51%,#497690 100%);
+    background-color:#244655;
+}
 
 
 /* PAGECONTENT */

@@ -1,12 +1,10 @@
 /* 
-    Document   : Contact
-    Created on : 25.01.2013, 23:07:50
-    Author     : andreasmaerki
-    Description:
-        Purpose of the stylesheet follows.
+    Document   :    Contact
+    Created on :    25.01.2013, 23:07:50
+    Author     :    andreasmaerki
+    Description:    Layout of the ContactView.
+                    The form itself gets styled by the Forms.css .
 */
-
-/* CONTACTFORM */
 
 #contactform{
     with: 500px;
@@ -23,11 +21,11 @@ fieldset{
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
     border-radius:5px;
-    
 }
 
 .contactformDiv{
     margin: 15px;
+
 }
 
 
@@ -39,35 +37,25 @@ fieldset{
     height: 26px;
 }
 #contactform textarea{
-   padding-top: 5px;
+    padding-top: 5px;
 }
 #contactform #contactform-name {
-   display: none;
+    display: none;
 }
 
 #contactform input.missing,#contactform textarea.missing {
-    
+
 }
 
 #contactform label {
     display: block;
-   
-
-}
-
-#contactform input,#contactform label {
-    
 }
 
 #contactform label.required:after {
     content:" *";
 }
 
-input:focus,textarea:focus {
-}
 
-#contactform input[type="submit"] {
-   
-}
+
 
 

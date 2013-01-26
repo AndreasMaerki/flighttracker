@@ -5,7 +5,7 @@ include_once 'view/View.php';
 class ContactView extends View {
 
 	public function display() {// implementation of abstract view method
-		echo "<h2>Contact</h2>";
+		echo "<h2>Complaints, suggestions, or just a comment. Drop us a line.</h2>";
 		if (!empty($this -> vars['notification'])) {//vars is a array defined in the abstract view class.if vars['key'] is empty, then true!
 			echo "<p>{$this->vars['notification']}</p>";
 			//return the content of vars['notification']
@@ -37,7 +37,7 @@ class ContactView extends View {
             </div>
                 <input type="text" id="contactform-name" name="name">
                 <input type="hidden" name="contact" value="1">
-            <input type="submit" name="contactform_submit" value="Submit">
+            <input class ="button"type="submit" name="contactform_submit" value="Submit">
             </fieldset>
         </form>
 FORM;
