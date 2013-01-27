@@ -36,7 +36,6 @@ class AircraftView extends View {
             echo <<<AIRCRAFTS
 		<div id="entries">
                     <a class="entry" href="">
-
                         <div class="image">
                                 <img src="../../images/Planes/PlanesSmall/s_airberlin_a330_1.jpg" alt="s_airberlin_a330_1" >
                         </div>
