@@ -362,3 +362,6 @@ tbody.scrollContent td + td + td + td + td + td + td {
     width:117px;
 }
 
+#footer p{
+    float: left;
+}

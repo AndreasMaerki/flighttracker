@@ -64,7 +64,7 @@ abstract class Controller {
 				break;
                         
                         // Airlines
-                        }elseif(preg_match("/\bairlines\b/i", $_SERVER['REQUEST_URI'])){
+                        }elseif(preg_match("/\bairlines\w*\b/", $_SERVER['REQUEST_URI'])){
 				$this->init();
 				echo "airlines was called";// zu testzwecken
 				break;

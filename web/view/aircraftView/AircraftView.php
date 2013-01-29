@@ -17,7 +17,7 @@ class AircraftView extends View {
 
         $aircraftViewURI = URI_AIRCRAFTS;        
         echo "<h2>Check out details on Aircraft types:</h2>\n";
-        echo "<div id =\"aircraftSearchfieldContainer\">";
+        echo "<div id =\"selectionBarContainer\">";
         echo "<label for=\"countrySearch\">Select AircraftTyp</label>\n";
         echo "<select type=\"search\" action=\"{$aircraftViewURI}\" 
             methode=\"POST\" class=\"airportSearchField\" name=\"countrySearch\" size=\"1\">\n";
@@ -35,21 +35,21 @@ class AircraftView extends View {
 
             echo <<<AIRCRAFTS
 		<div id="entries">
-                    <a class="entry" href="">
+                    <a class="entry" id = "aircraftEntry" href="">
                         <div class="image">
                                 <img src="../../images/Planes/PlanesSmall/s_airberlin_a330_1.jpg" alt="s_airberlin_a330_1" >
                         </div>
 
                         <div class="e-right">
                             <div class="title">
-                                Plane Type:
+                                Type:
                             </div>
                             <div class="infoText">
-                                Check the fuckin Plane out:
+                                Manufaturer:
                             </div>
 
                             <div class="fabricator">
-                                    Manufaturer:
+                                Click on for large image!
                             </div>
                         </div>
                         <div class="clear"></div>

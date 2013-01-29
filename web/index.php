@@ -28,7 +28,6 @@ include_once 'config/config.php';// alle konstanten sind im config file definier
     <link rel="stylesheet" type="text/css" href="/css/Forms.css">
     <link rel="stylesheet" type="text/css" href="/css/Contact.css">
 
-    
     <link rel="stylesheet" type="text/css" href="/css/cupertino/jquery-ui-1.10.0.custom.css">
      <link rel="stylesheet" type="text/css" href="/css/cupertino/jquery-ui-1.10.0.custom.min.css">
     
@@ -57,9 +56,10 @@ include_once 'config/config.php';// alle konstanten sind im config file definier
             <div id="body">
                 <?php
                 $controller = null;
-
+                //$hans =$_SERVER['REQUEST_URI'];
+               //echo "$hans";
                 switch(getCurrentURI()){
-                
+
                 case URI_TRACK:
                     include_once 'controller/TrackController.php';
                     $controller = new TrackController();
@@ -121,7 +121,7 @@ include_once 'config/config.php';// alle konstanten sind im config file definier
      */
     function getMenu() {
         return array(
-            URI_HOME => '<img src="images/MapsAirplane.png" alt="Page Logo">',
+            URI_HOME => '<img src="images/MapsAirplane.png" alt="Home">',
             URI_TRACK => 'Track',
             URI_AIRPORTS => 'Airports',
             URI_AIRLINES => 'Airlines',
@@ -132,7 +132,7 @@ include_once 'config/config.php';// alle konstanten sind im config file definier
     
     function getURIs (){
 	return array(
-            URI_HOME => '<img src="images/MapsAirplane.png" alt="Page Logo">',
+            URI_HOME => 'Home',
             URI_TRACK => 'Track',
             URI_AIRPORTS => 'Airports',
             URI_AIRLINES => 'Airlines',
@@ -154,7 +154,7 @@ include_once 'config/config.php';// alle konstanten sind im config file definier
             return $_SERVER['REQUEST_URI'];
         } else {
             foreach (array_keys(getURIs()) as $href) {
-                if (preg_match("@^$href@", $_SERVER['REQUEST_URI'])) {// tryes to ignore typing errors
+                if (preg_match("@^$href@", $_SERVER['REQUEST_URI'])) {// isolates keywords
                     return $href;
                 }
             }
