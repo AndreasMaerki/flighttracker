@@ -33,7 +33,7 @@ h1 small {
     border-radius:4px;
     padding:10px;
     border: 1px outset #ccc;
-/*    -webkit-box-reflect:below 4px -webkit-gradient(linear,left top,left bottom,from(transparent),color-stop(0.6,transparent),to(white));*/
+    /*    -webkit-box-reflect:below 4px -webkit-gradient(linear,left top,left bottom,from(transparent),color-stop(0.6,transparent),to(white));*/
     margin-top:2px;
 }
 
@@ -51,10 +51,11 @@ h1 small {
 /* CONTENT */
 #content {
     margin-top:15px;
+    font:14px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
 }
 
 #content p {
-    font:14px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
+/*    font:14px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;*/
     color:#333;
     line-height:18px;
     margin:15px auto;
@@ -66,7 +67,7 @@ h1 small {
     margin:10px 0 15px;
     list-style:none;
     /* Lucinda Grande = Apple. */
-    font-family:"Lucida Sans Unicode","Lucida Grande",Verdana,Arial,Helvetica,sans-serif;
+/*    font-family:"Lucida Sans Unicode","Lucida Grande",Verdana,Arial,Helvetica,sans-serif;*/
     letter-spacing:-.5px;
     font-size:13px;
     text-shadow:0 -1px 3px #202020;

@@ -32,11 +32,11 @@ class AirlineView extends View {
     }
 
     public function display() {
-        $airlineUri = URI_AIRLINES;
+        $aircraftUri = URI_AIRCRAFTS;
         echo "<h2>Check out details on Airports:</h2>";
         echo "<div id =\"selectionBarContainer\">";
         echo "<label for=\"countrySearch\">Select Airline</label>";
-        echo "<select type=\"search\" action=\"{$airlineUri}\" methode=\"POST\" class=\"airportSearchField\" name=\"airlineSearch\" size=\"1\">";
+        echo "<select type=\"search\" action=\"{$aircraftUri}\" method=\"POST\" class=\"airportSearchField\" name=\"airlineSearch\" size=\"1\">";
         for ($i = 0; $i < count($this->airline); $i++) {
             echo "<option>" . "(" . utf8_encode($this->airline[$i]) .
             ") " . utf8_encode($this->airlineCode[$i])
@@ -53,7 +53,7 @@ class AirlineView extends View {
         echo "<div class= \"littleLinkBoxContainer\">\n";
         for($i=1;$i<=$this->pages;$i++){
             echo "<div class= \"littleLinkBox\">\n
-                        <a href=\"$airlineUri/$i\">$i</a>\n
+                        <a href=\"$aircraftUri/$i\">$i</a>\n
                   </div>\n";
         }
         echo "</div>\n";
@@ -73,23 +73,21 @@ class AirlineView extends View {
 		<div id="entries">
                     <a class="entry" id= "airlineEntry" href="">
                         <div class="image">
-                                <img src="$dir/$imagePath" alt="$imagePath" >
+                                <img src="/$dir/$imagePath" alt="$imagePath" >
                         </div>
                         
                    
                     </a>
                 </div>\n
 AIRLINES;
-                
-                
             }//end if
 //        } else if ($this->airportNotFound) {
 //            echo "<div class = \"errorMessage\"> Sorry, Airport <b>" . $this->airportNotFound . "</b>not found!</div>\n";
         }//end for
 
-        foreach ($this->airlinesOnThisPage as $key => $value) {
-                    echo "$value \n ";
-                }
+//        foreach ($this->airlinesOnThisPage as $key => $value) {
+//                    echo "$value \n ";
+//                }
         echo '<div class="clear"></div>';
     }
 

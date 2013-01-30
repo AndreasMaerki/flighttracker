@@ -22,8 +22,8 @@ include_once 'config/config.php';// alle konstanten sind im config file definier
 
     <title>Flighttracker Home</title>
     <link rel="stylesheet" type="text/css" href="/css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="css/styleMod.css">
-    <link rel="stylesheet" type="text/css" href="css/AircraftDetails.css">
+    <link rel="stylesheet" type="text/css" href="/css/styleMod.css">
+    <link rel="stylesheet" type="text/css" href="/css/AircraftDetails.css">
     <link rel="stylesheet" type="text/css" href="/css/homeView.css">
     <link rel="stylesheet" type="text/css" href="/css/Forms.css">
     <link rel="stylesheet" type="text/css" href="/css/Contact.css">
@@ -44,8 +44,7 @@ include_once 'config/config.php';// alle konstanten sind im config file definier
                 <ul id="navigationBar">
                     <?php
                     $currentUri = getCurrentURI();
-                    foreach (getMenu() as $href => $title) { //getMenu() is coded out below and returns a array
-                        // below is a simplified if statement
+                    foreach (getMenu() as $href => $title) { //getMenu() returns array
                         //if URI= the the menuitem add it to the class selected to style it differently, else class is empty
                         echo "<li><a href=\"$href\" " . (($href == $currentUri) ? "class=\"selected\" " : "") . ">$title</a></li>\n";
                     }
@@ -121,7 +120,7 @@ include_once 'config/config.php';// alle konstanten sind im config file definier
      */
     function getMenu() {
         return array(
-            URI_HOME => '<img src="images/MapsAirplane.png" alt="Home">',
+            URI_HOME => '<img src="/images/MapsAirplane.png" alt="Home">',
             URI_TRACK => 'Track',
             URI_AIRPORTS => 'Airports',
             URI_AIRLINES => 'Airlines',

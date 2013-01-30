@@ -17,24 +17,34 @@ h2{
 }
 
 .littleLinkBoxContainer{
+    display: inline-table;
+    margin-left: auto;
+    margin-right: auto;
     width: 980px;
-    height: 40px;
-    background-color: lightgray;
+    height: 22px;
+    background-color:   #caf3ff;
     margin-bottom: 20px;
     text-align: center;
-    
+}
+.littleLinkBoxContainer a{
+    color: black;
+    text-decoration: none;
 }
 
+
 .littleLinkBox{
-    width: 30px;
-    height: 30px;
+    width: 45px;
+    height: 20px;
     float: left;
-    border: solid 1px #ccc;
+    border: outset 1px #ccc;
     padding-top: 5px;
-    -moz-border-radius:4px;
-    -webkit-border-radius:4px;
-    border-radius:4px;
-    text-decoration: none;
+
+    background-color: whitesmoke;
+
+  
+
+
+
 }
 
 #entries a.entry {   
