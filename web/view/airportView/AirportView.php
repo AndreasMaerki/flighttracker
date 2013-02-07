@@ -16,11 +16,15 @@ class AirportView extends View {
 
     private $airports;
     private $airportNotFound;
-    private $country;
+    private $countryList;
+    private $amount;
+    
     
     // Konstruktor
-     function __construct($country) {  
-        $this->country = $country;            
+     function __construct($country, $amount, $airports) {  
+        $this->countryList = $country;  
+        $this->airports = $airports; 
+        $this->amount = $amount; 
      }
     
     
@@ -32,21 +36,66 @@ class AirportView extends View {
         echo "<form action={$airportsUri} method=\"POST\">";
         echo "<label for=\"countrySearch\">Select Country</label>";
         echo "<select type=\"search\"  class=\"airportSearchField\" name=\"airportSearch\" size=\"1\">";
-        for($i=0; $i < count($this->country); $i++){
-          echo "<option>" . utf8_encode($this->country[$i]) . "</option>";         
+        for($i=0; $i < count($this->countryList); $i++){
+          echo "<option>" . utf8_encode($this->countryList[$i]) . "</option>";         
         }
         echo "</select>";
         //Button 
         echo "<input class=\"button\" type=\"submit\" methode=\"POST\" name=\"airlineSearchbutton\" value=\"find\">\n";
         echo "</form>";
 
-        if ($_POST['airportSearch'] != null ){
+        if (isset($this->airports)){
             
             echo $_POST['airportSearch'];
+            echo $this->countryList;
+              echo $this->airports;
+              echo  $this->amount;
         }
-        else{
-            echo "wählen sie aus!";
-        }
+        
+        
+        
+        
+        for ($i = 0; $i < $this->amount; $i++) {
+            echo <<<AIRPORTS
+		<div id="entries">
+                    <a class="entry" href="">
+
+                    <div class="inline">
+                        <div class="image">
+                                <img src="../../images/Planes/PlanesSmall/s_airberlin_a330_1.jpg" 
+                                alt="s_airberlin_a330_1" >
+                        </div>
+
+                        <div class="e-right">
+                            <div class="title">
+                                Airport: {$this->airports[$i]}
+                            </div>
+
+                            <div class="infoText">
+                                Aiport Code: {$this->code[$i]}
+                            </div>
+                                
+                          
+
+                            <div class="fabricator">
+                                    Country: {$this->country[$i]}
+                            </div>
+                        </div>
+
+                        <div class="rightImage">
+                                <img src="../../images/AirlineLogos/AB_Airlines__formerly_
+                                Air_Bristol_-logo-216CE398C3-seeklogo.com.gif" 
+                                alt="AB_Airlines__formerly_Air_Bristol_-logo-216CE398C3-seeklogo.com" 
+                                width="200" height="200">
+                        </div>
+
+                        <div class="clear"></div>
+                    </div>
+                    </a>
+                </div>\n
+AIRPORTS;
+        }//end for
+        
         
         
         if ($this->airports) {

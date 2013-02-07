@@ -682,6 +682,7 @@ button.ui-button::-moz-focus-inner {
 	overflow: hidden;
 	padding: 0;
 	vertical-align: middle;
+        width: 60px
 }
 .ui-spinner-input {
 	border: none;
@@ -691,6 +692,7 @@ button.ui-button::-moz-focus-inner {
 	margin: .2em 0;
 	vertical-align: middle;
 	margin-left: .4em;
+        
 	margin-right: 22px;
 }
 .ui-spinner-button {
@@ -748,6 +750,7 @@ button.ui-button::-moz-focus-inner {
 	border-bottom: 0;
 	padding: 0;
 	white-space: nowrap;
+        
 }
 .ui-tabs .ui-tabs-nav li a {
 	float: left;

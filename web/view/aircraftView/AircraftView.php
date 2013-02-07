@@ -3,25 +3,29 @@
 include_once"view/View.php";
 include 'config/config.php';
 
+class AircraftView extends View {
 
-class AircraftView extends View{
-    
     private $acrCode;
     private $aircraftName;
     
-    
-    
-    function __construct($acrCode, $aircraftName) {  
-        $this->acrCode = $acrCode;   
-        $this->aircraftName = $aircraftName;            
+    private $aircraft;
+    private $amount;
+
+    function __construct($acrCode, $aircraftName) {
+        $this->acrCode = $acrCode;
+        $this->aircraftName = $aircraftName;
+        
+        //$this->amount = $amount;
+        //$this->aircraft = $aircraft;
     }
 
+  
 
 public function display(){
     
     $aircraftViewURI = URI_AIRCRAFTS;
     echo "<h2>Check out details on Aircraft types:</h2>";
-    
+    echo "<div id=\"aircraftSearchfieldContainer\">";
     echo "<form action={$aircraftViewURI} method=\"POST\">";
     echo "<label for=\"countrySearch\">Select AircraftTyp</label>";
     echo "<select type=\"search\" class=\"airportSearchField\" name=\"countrySearch\" size=\"1\">";
@@ -36,8 +40,10 @@ public function display(){
        // Button      
         echo "<input class=\"button\" type=\"submit\" name=\"aircraftSearchButton\" value=\"find\">";
        echo "</form>";
+       echo "</div>";
        
-        if ($_POST['countrySearch'] != null ){
+       // Abfrage ob der Knopf schon gedrückt wurde
+       if ($_POST['countrySearch'] != null ){
             
             echo $_POST['countrySearch'];
         }
@@ -45,11 +51,10 @@ public function display(){
             echo "wählen sie aus!";
         }
 
-                for($i=0;$i<20;$i++){
-
-                    echo <<<AIRCRAFTS
-				<div id="entries">
-                    <a class="entry" href="/galerie/galerie-hotel/">
+        for ($i = 0; $i < 20; $i++) {
+            echo <<<AIRCRAFTS
+		<div id="entries">
+                    <a class="entry" href="">
 
                     <div class="inline">
                         <div class="image">
@@ -81,13 +86,10 @@ public function display(){
                         <div class="clear"></div>
                     </div>
                     </a>
-                </div>
-
-
+                </div>\n
 AIRCRAFTS;
-		}
+        }//end for
+        echo '<div class="clear"></div>';
+    }//end display
+    }
 
-	}
-
-
-}

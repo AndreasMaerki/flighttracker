@@ -26,7 +26,7 @@ class AirlineView extends View {
      }
     
     
-    public function display() {
+    public function display($count, $airports) {
         $airlineUri = URI_AIRLINES;   
          echo "<h2>Check out details on Airports:</h2>";
         
@@ -51,6 +51,11 @@ class AirlineView extends View {
             echo "wählen sie aus!";
         }
 
+
+        
+        
+        
+        
         if ($this->airline) {
             foreach ($this->airline as $value) {
                 //paste your hmtl code here Phil!!

@@ -29,7 +29,7 @@ class NextFlightsController extends Controller {
 	}
 
 	protected function create() {
-                echo"NextFlightsController create not implemented";
+                //echo"NextFlightsController create not implemented";
 		
                 // create instace of SearchController and send the searchstring to the apropriate method
                         $searcherController = new SearchController();

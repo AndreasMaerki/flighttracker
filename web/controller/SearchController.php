@@ -49,21 +49,53 @@ class SearchController {
             echo "<br>airport Abflug anzeige";
             return $flights;
          }
-          
-        
-         
-         
-         
-         
+   
     }
     
+    // Search Airport
+    public function getAirportFromCountry($searchString){   
+        
+       mysql_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD) or die( mysql_error() );
+        mysql_select_db('myFis');
+        $results = Array();
+
+        $req = "SELECT apo_code2, apo_name, apo_city "
+                ."FROM fis_airport "
+                ."WHERE apo_country LIKE '".$searchString."'"
+                ;
+                 
+
+        $query = mysql_query($req);
+
+        while($row = mysql_fetch_array($query))
+        { 
+          $results[] = $row['apo_name'];  
+        }
+        
+        return $results;
+    }
+    // Search Aircraft
+    public function getAircraftFromAircraft($searchString){   
+        
+        
+    }
+    // Search Airlines
+    public function getAirlinesFromAirlines($searchString){   
+        
+        
+    }
+    
+    
+    
+    
     // Schneidet alles ausser code2 ab bei airport suche
-    public function getAirportCodeFromPOST($searchStreing){    
-        $airportCode = explode(' ',$searchStreing, 2);  
+    public function getAirportCodeFromPOST($searchString){    
+        $airportCode = explode(' ',$searchString, 2);  
         // Entfernt noch die Klammern
         $airportCodeNew = substr($airportCode[0], 1 , strlen($airportCode[0])-2); 
         return $airportCodeNew;
     }
+    
     
     
 }

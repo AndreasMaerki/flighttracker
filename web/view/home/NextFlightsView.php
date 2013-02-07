@@ -28,6 +28,9 @@ AIRPORTDETAILS;
     }
 
     private function nextArrivals() {
+     
+       
+        
         echo "<div id=\"arrivalsContainer\">";
         echo "<h3 class= \"tableDescription\">Next arivivals:</h3>\n";
         echo <<<TABLEHEADER
@@ -136,6 +139,7 @@ TABLEHEADER;
         echo "</table>\n";
         echo "</div>\n"; //close the tableContainer
         echo "</div>\n";
+       
     }
 
 //end method 
