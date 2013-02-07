@@ -17,8 +17,10 @@ class AircraftView extends View {
         $this->pages = $pages;
     }
 
-    public function display() {
+  
 
+public function display(){
+    
         $aircraftViewURI = URI_AIRCRAFTS;
         echo "<h2>Check out details on Aircraft types:</h2>\n";
         echo "<div id =\"selectionBarContainer\">";
@@ -26,13 +28,26 @@ class AircraftView extends View {
         echo "<select type=\"search\" action=\"{$aircraftViewURI}\" 
             method=\"POST\" class=\"airportSearchField\" name=\"countrySearch\" size=\"1\">\n";
 
-        for ($i = 0; $i < count($this->acrCode); $i++) {
-            echo "<option>" . "(" . utf8_encode($this->acrCode[$i]) .
-            ") " . utf8_encode($this->aircraftName[$i])
-            . "</option>\n";
+       for($i=0; $i < count($this->acrCode); $i++){
+          echo "<option>" . "(" .utf8_encode($this->acrCode[$i]) . 
+                ") " . utf8_encode($this->aircraftName[$i])
+                  . "</option>";         
+       }
+               
+       echo "</select>";
+       // Button      
+        echo "<input class=\"button\" type=\"submit\" name=\"aircraftSearchButton\" value=\"find\">";
+       echo "</form>";
+       echo "</div>";
+       
+       // Abfrage ob der Knopf schon gedrückt wurde
+       if ($_POST['countrySearch'] != null ){
+            
+            echo $_POST['countrySearch'];
         }
-        echo "</select>";
-        echo "</div>";
+        else{
+            echo "wählen sie aus!";
+        }
 
         //subpages
         echo "<div class= \"littleLinkBoxContainer\">\n";
@@ -46,12 +61,12 @@ class AircraftView extends View {
 
 //            display of the results from here
         for ($i = 0; $i < 20; $i++) {
-
             echo <<<AIRCRAFTS
 		<div id="entries">
                     <a class="entry" id = "aircraftEntry" href="">
                         <div class="image">
-                                <img src="../../images/Planes/PlanesSmall/s_airberlin_a330_1.jpg" alt="s_airberlin_a330_1" >
+                                <img src="../../images/Planes/PlanesSmall/s_airberlin_a330_1.jpg" 
+                                alt="s_airberlin_a330_1" >
                         </div>
 
                         <div class="e-right">

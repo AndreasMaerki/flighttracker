@@ -8,12 +8,16 @@ include_once 'config/config.php';
 
 class AirlineController extends Controller {
 
+    
+    
+	
     function __construct() {
         
     }
 
     protected function index() {
         
+            
     }
 
     protected function show() {
