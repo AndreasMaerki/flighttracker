@@ -57,7 +57,7 @@ class AircraftController extends Controller{
 	protected function create(){
 		
             
-            
+            $this->init();
             
             
 

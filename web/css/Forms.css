@@ -89,3 +89,9 @@
     box-shadow: rgba(0,0,0,0.38) 0px 0px 0px 0px, inset rgba(255,255,255,0.4) 0px 1px 0px 0px;
 
 }
+
+#spinner{
+    
+    cursor: default;
+    
+}
