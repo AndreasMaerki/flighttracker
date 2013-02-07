@@ -7,28 +7,26 @@ class AircraftView extends View {
 
     private $acrCode;
     private $aircraftName;
-    
-    private $aircraft;
-    private $amount;
+    private $pages;
+    private $aircraftsOnThisPage;
+    private $aircraftCodesOnThisPage;
 
-    function __construct($acrCode, $aircraftName) {
+    function __construct($acrCode, $aircraftName, $pages) {
         $this->acrCode = $acrCode;
         $this->aircraftName = $aircraftName;
-        
-        //$this->amount = $amount;
-        //$this->aircraft = $aircraft;
+        $this->pages = $pages;
     }
 
   
 
 public function display(){
     
-    $aircraftViewURI = URI_AIRCRAFTS;
-    echo "<h2>Check out details on Aircraft types:</h2>";
-    echo "<div id=\"aircraftSearchfieldContainer\">";
-    echo "<form action={$aircraftViewURI} method=\"POST\">";
-    echo "<label for=\"countrySearch\">Select AircraftTyp</label>";
-    echo "<select type=\"search\" class=\"airportSearchField\" name=\"countrySearch\" size=\"1\">";
+        $aircraftViewURI = URI_AIRCRAFTS;
+        echo "<h2>Check out details on Aircraft types:</h2>\n";
+        echo "<div id =\"selectionBarContainer\">";
+        echo "<label for=\"countrySearch\">Select AircraftTyp</label>\n";
+        echo "<select type=\"search\" action=\"{$aircraftViewURI}\" 
+            method=\"POST\" class=\"airportSearchField\" name=\"countrySearch\" size=\"1\">\n";
 
        for($i=0; $i < count($this->acrCode); $i++){
           echo "<option>" . "(" .utf8_encode($this->acrCode[$i]) . 
@@ -51,12 +49,21 @@ public function display(){
             echo "wählen sie aus!";
         }
 
+        //subpages
+        echo "<div class= \"littleLinkBoxContainer\">\n";
+        for ($i = 1; $i <= $this->pages; $i++) {
+            echo "<div class= \"littleLinkBox\">\n
+                        <a href=\"$aircraftViewURI/$i\">$i</a>\n
+                  </div>\n";
+        }
+        echo "</div>\n";
+
+
+//            display of the results from here
         for ($i = 0; $i < 20; $i++) {
             echo <<<AIRCRAFTS
 		<div id="entries">
-                    <a class="entry" href="">
-
-                    <div class="inline">
+                    <a class="entry" id = "aircraftEntry" href="">
                         <div class="image">
                                 <img src="../../images/Planes/PlanesSmall/s_airberlin_a330_1.jpg" 
                                 alt="s_airberlin_a330_1" >
@@ -64,32 +71,36 @@ public function display(){
 
                         <div class="e-right">
                             <div class="title">
-                                Plane Type:
+                                Type:
                             </div>
-
                             <div class="infoText">
-                                Check the fuckin Plane out:
+                                Manufaturer:
                             </div>
 
                             <div class="fabricator">
-                                    Manufaturer:
+                                Click for large image!
                             </div>
                         </div>
-
-                        <div class="rightImage">
-                                <img src="../../images/AirlineLogos/AB_Airlines__formerly_
-                                Air_Bristol_-logo-216CE398C3-seeklogo.com.gif" 
-                                alt="AB_Airlines__formerly_Air_Bristol_-logo-216CE398C3-seeklogo.com" 
-                                width="200" height="200">
-                        </div>
-
                         <div class="clear"></div>
-                    </div>
+                   
                     </a>
                 </div>\n
 AIRCRAFTS;
         }//end for
         echo '<div class="clear"></div>';
+    
+        foreach ($this->aircraftsOnThisPage as $key => $value) {
+            echo "$value";
+        }
+        
     }//end display
+
+    public function setAircraftsOnThisPage($airlinesOnThisPage) {
+        $this->aircraftsOnThisPage = $airlinesOnThisPage;
     }
 
+    public function setAircraftCodesOnThisPage($airlineCodesOnThisPage) {
+        $this->aircraftCodesOnThisPage = $airlineCodesOnThisPage;
+    }
+
+}
