@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <?php
 include_once 'config/config.php';// alle konstanten sind im config file definiert
@@ -27,6 +26,7 @@ include_once 'config/config.php';// alle konstanten sind im config file definier
     <link rel="stylesheet" type="text/css" href="css/AircraftDetails.css">
     <link rel="stylesheet" type="text/css" href="/css/homeView.css">
     <link rel="stylesheet" type="text/css" href="/css/Forms.css">
+    <link rel="stylesheet" type="text/css" href="/css/Contact.css">
 
     
     <link rel="stylesheet" type="text/css" href="/css/cupertino/jquery-ui-1.10.0.custom.css">
@@ -37,7 +37,7 @@ include_once 'config/config.php';// alle konstanten sind im config file definier
 <body id="wholePage">
     <div id="wrapper">
         <div id="head">
-            <h1>Welcome to Flight Tracker<small>Find flights, Airports, Planes and Airlines in no Time!</small></h1>
+            <h1>Welcome to Flight Tracker<small>Find flights, Airports, Planes and Airlines in no time!</small></h1>
         </div>
 
         <div id="content">
@@ -109,6 +109,9 @@ include_once 'config/config.php';// alle konstanten sind im config file definier
                 }
 
                 ?>
+            </div>
+            <div id="footer">
+                <p>Copyright &copy; 2013 by Flighttracker Corporation. All rights reserved. </p>
             </div>
         </div>
     </div><?php

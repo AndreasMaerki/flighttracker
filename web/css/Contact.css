@@ -1,0 +1,61 @@
+/* 
+    Document   :    Contact
+    Created on :    25.01.2013, 23:07:50
+    Author     :    andreasmaerki
+    Description:    Layout of the ContactView.
+                    The form itself gets styled by the Forms.css .
+*/
+
+#contactform{
+    with: 500px;
+    padding: 10px;
+    border: none;
+    text-align: center;
+
+}
+fieldset{
+    with: 450px;
+    padding: 10px;
+    margin: 0;
+    border: 1px solid #ccc;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+}
+
+.contactformDiv{
+    margin: 15px;
+
+}
+
+
+#contactform input[type="text"],#contactform input[type="email"],#contactform textarea {
+    width: 250px;
+}
+
+#contactform input[type="text"],#contactform input[type="email"]{
+    height: 26px;
+}
+#contactform textarea{
+    padding-top: 5px;
+}
+#contactform #contactform-name {
+    display: none;
+}
+
+#contactform input.missing,#contactform textarea.missing {
+
+}
+
+#contactform label {
+    display: block;
+}
+
+#contactform label.required:after {
+    content:" *";
+}
+
+
+
+
+

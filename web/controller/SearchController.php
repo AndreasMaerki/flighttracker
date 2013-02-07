@@ -6,7 +6,7 @@ include_once 'lib/FlightXMLAdapter.php';
 class SearchController {
       
 
-    public function searchFlightfromHome($aircraftField, $airportFieldTo,
+    public function searchArrivingFlightsfromHomeView($aircraftField, $airportFieldTo,
              $airportFieldFrom, $departDateField, $arrivalDateField, $filter){
       
         // Airport such string nur code2 behalten
