@@ -41,7 +41,6 @@ abstract class Controller {
                 // Flight Details
                 if (preg_match("/\bFlightDetailView\b/i", $_SERVER['REQUEST_URI'])) {
                     $this->showFlightdetails();
-                    echo "bFlightDetailView was called"; // zu testzwecken
                     break;
 
                     // Next Flight         

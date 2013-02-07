@@ -29,7 +29,6 @@ class AirlineController extends Controller {
         $airlineCodesPerPage = array();
         $airlinePicturePerPage = array();
         $desiredEntriesPerPage = 50; 
-        $regexPatternVar = "airlines";// string will be passed to the sub router to complete the regex pattern
 
         mysql_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD) or die(mysql_error());
         mysql_select_db('myFis');

@@ -14,15 +14,15 @@ class SearchController {
         $airportFieldFromNew = $this->getAirportCodeFromPOST($airportFieldFrom);
         
         //Kontroll ausgabe
-        echo "<br>Aircarft ID: " . " {$aircraftField}<br>" . "AirportTo: " . "{$airportFieldToNew} <br>" . "Airport From:" . "{$airportFieldFromNew} <br>" . "departDate: " . " 
-        {$departDateField}<br> " . "arrivalDate:" . "{$arrivalDateField}<br> " . "Filter: " . " {$filter}<br>";
+        //echo "<br>Aircarft ID: " . " {$aircraftField}<br>" . "AirportTo: " . "{$airportFieldToNew} <br>" . "Airport From:" . "{$airportFieldFromNew} <br>" . "departDate: " . " 
+        //{$departDateField}<br> " . "arrivalDate:" . "{$arrivalDateField}<br> " . "Filter: " . " {$filter}<br>";
         
         
         // Flight Number Feld ist ausgefüllt
         if ($aircraftField != ''){// Uebergabe von post im SearchController
             $this->flightXML = new FlightXMLAdapter(FXML_HOST, FXML_USER, FXML_PASSWORD); //constants from the config file
             $flights = $this->flightXML->getFlightsFromANumber($aircraftField);
-            echo "<br>ist im FlightID anzeige <br>";
+            //echo "<br>ist im FlightID anzeige <br>";
             return $flights;
          }
         
@@ -30,7 +30,7 @@ class SearchController {
         if ($airportFieldToNew != '' && $airportFieldFromNew != ''){// Uebergabe von post im SearchController
             $this->flightXML = new FlightXMLAdapter(FXML_HOST, FXML_USER, FXML_PASSWORD); //constants from the config file
             $flights = $this->flightXML->getFlightsFromAirport($airportFieldToNew, $filter);
-            echo "<br>ist im airport Ankunfts und ablug anzeige <br>";
+            ///echo "<br>ist im airport Ankunfts und ablug anzeige <br>";
             return $flights;
          } 
          
@@ -38,7 +38,7 @@ class SearchController {
         if ($airportFieldToNew != ''){// Uebergabe von post im SearchController
             $this->flightXML = new FlightXMLAdapter(FXML_HOST, FXML_USER, FXML_PASSWORD); //constants from the config file
             $flights = $this->flightXML->getFlightsFromAirport($airportFieldToNew, $filter);
-            echo "<br>airport Ankunfts anzeige";
+            //echo "<br>airport Ankunfts anzeige";
             return $flights;
          }
          
@@ -46,7 +46,7 @@ class SearchController {
          if ($airportFieldFromNew != ''){// Uebergabe von post im SearchController
             $this->flightXML = new FlightXMLAdapter(FXML_HOST, FXML_USER, FXML_PASSWORD); //constants from the config file
             $flights = $this->flightXML->getFlightsFromAirport($airportFieldFromNew, $filter);
-            echo "<br>airport Abflug anzeige";
+            //echo "<br>airport Abflug anzeige";
             return $flights;
          }
           

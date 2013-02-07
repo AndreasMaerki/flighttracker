@@ -36,7 +36,7 @@ class AircraftView extends View {
 
         //subpages
         echo "<div class= \"littleLinkBoxContainer\">\n";
-        for ($i = 1; $i <= $this->pages; $i++) {
+        for ($i = 0; $i < $this->pages; $i++) {
             echo "<div class= \"littleLinkBox\">\n
                         <a href=\"$aircraftViewURI/$i\">$i</a>\n
                   </div>\n";

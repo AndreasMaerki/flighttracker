@@ -32,11 +32,11 @@ class AirlineView extends View {
     }
 
     public function display() {
-        $aircraftUri = URI_AIRCRAFTS;
+        $airlineUri = URI_AIRLINES;
         echo "<h2>Check out details on Airports:</h2>";
         echo "<div id =\"selectionBarContainer\">";
         echo "<label for=\"countrySearch\">Select Airline</label>";
-        echo "<select type=\"search\" action=\"{$aircraftUri}\" method=\"POST\" class=\"airportSearchField\" name=\"airlineSearch\" size=\"1\">";
+        echo "<select type=\"search\" action=\"{$airlineUri}\" method=\"POST\" class=\"airportSearchField\" name=\"airlineSearch\" size=\"1\">";
         for ($i = 0; $i < count($this->airline); $i++) {
             echo "<option>" . "(" . utf8_encode($this->airline[$i]) .
             ") " . utf8_encode($this->airlineCode[$i])
@@ -53,7 +53,7 @@ class AirlineView extends View {
         echo "<div class= \"littleLinkBoxContainer\">\n";
         for($i=1;$i<=$this->pages;$i++){
             echo "<div class= \"littleLinkBox\">\n
-                        <a href=\"$aircraftUri/$i\">$i</a>\n
+                        <a href=\"$airlineUri/$i\">$i</a>\n
                   </div>\n";
         }
         echo "</div>\n";
