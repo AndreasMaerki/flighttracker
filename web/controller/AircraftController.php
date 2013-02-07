@@ -8,6 +8,14 @@ class AircraftController extends Controller{
         protected function init(){
             
             $aircraftName = Array();
+        $acrCode = Array();
+        $aircraftsPerPage = array();
+        $aircraftCodesPerPage = array();
+        $aircraftPicturePerPage = array();
+        $desiredEntriesPerPage = 30; 
+
+            
+            $aircraftName = Array();
             $acrCode = Array();
     
             mysql_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD) or die( mysql_error() );
@@ -22,11 +30,19 @@ class AircraftController extends Controller{
                 $aircraftName[] = $row[acr_series];
                 $acrCode[] = $row[acr_code];               
             }
+            
+	$pages = count($aircraftName) / $desiredEntriesPerPage + 1;
+        //the constructor parameters are used to fill the searchfield. they are not responsible for the display
+        $view = new AircraftView($aircraftName, $airlineCode, $pages);
 
-             $view = new AircraftView($acrCode, $aircraftName);
-             $view->display(); 
-         }
-	
+            //call method once for every item that needs to be fitered
+        $aircraftsPerPage = $this->subPageContentFilter( $desiredEntriesPerPage, $aircraftName);
+        $aircraftCodesPerPage = $this->subPageContentFilter( $desiredEntriesPerPage, $acrCode);
+
+        $view->setAircraftsOnThisPage($aircraftsPerPage);
+        $view->setAircraftCodesOnThisPage($aircraftCodesPerPage);
+        $view->display();
+    }
 	
 	protected function index(){
 		echo "SearchController index not implemented jet";
