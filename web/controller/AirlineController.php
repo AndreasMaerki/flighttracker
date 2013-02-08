@@ -1,9 +1,10 @@
 <?php
 
-include_once ('controller/Controller.php');
-include_once ('view/airlineView/AirlineView.php');
-include_once ('model/Airline.php');
-include_once 'config/config.php';
+include_once ("{$_SERVER['DOCUMENT_ROOT']}/controller/Controller.php");
+include_once ("{$_SERVER['DOCUMENT_ROOT']}/view/airlineView/AirlineView.php");
+include_once ("{$_SERVER['DOCUMENT_ROOT']}/view/airlineView/AirlineDetailView.php");
+include_once ("{$_SERVER['DOCUMENT_ROOT']}/model/Airline.php");
+include_once "{$_SERVER['DOCUMENT_ROOT']}/config/config.php";
 
 
 class AirlineController extends Controller {
@@ -20,9 +21,7 @@ class AirlineController extends Controller {
             
     }
 
-    protected function show() {
-        echo " show not implemented";
-    }
+
 
     protected function init() {
 
@@ -63,6 +62,12 @@ class AirlineController extends Controller {
 
     protected function create() {
         echo 'not jet. be patient!!';
+    }
+    
+    
+    public function float() {
+        $view = new AirlineDetailView();
+        $view->display();
     }
 
 }

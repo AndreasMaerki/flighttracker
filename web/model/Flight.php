@@ -6,10 +6,10 @@
  */
 
 // Includes
-include_once 'model/Airport.php';
-include_once 'model/Airline.php';
-include_once 'model/Aircraft.php';
-include_once 'model/FlightStatus.php';
+include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Airport.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Airline.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Aircraft.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/model/FlightStatus.php";
 
 
 class Flight extends MainModel {

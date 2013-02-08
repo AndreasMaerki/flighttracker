@@ -1,8 +1,8 @@
 <?php
-include_once ('controller/Controller.php');
-include_once ('controller/SearchController.php');
-include_once ('view/airportView/AirportView.php');
-include_once ('model/Airport.php');
+include_once ("controller/Controller.php");
+include_once ("controller/SearchController.php");
+include_once ("view/airportView/AirportView.php");
+include_once ("model/Airport.php");
 
 class AirportController extends Controller {
 
@@ -72,6 +72,9 @@ class AirportController extends Controller {
             return $country;
             
         }
+        public function float() {
+        echo"float not implemented";
+    }
 
 }
 

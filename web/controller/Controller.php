@@ -14,13 +14,6 @@ abstract class Controller {
     abstract protected function index();
 
     /**
-     * show reads data of a single resource from model
-     * and assigs values to dedicated view template. 
-     * Results in a more detailed view../view/searchView/SearchView.php of a specific recource.
-     */
-    /* abstract protected function show(); */
-
-    /**
      * init creates a new empty instance of the resource
      */
     abstract protected function init();
@@ -29,9 +22,14 @@ abstract class Controller {
      * create validates and stores sent user data of a newly created resource
      */
     abstract protected function create();
+    /*
+     * some Pages create a flow view to display detailed content on a specific resouce
+     */
+
+    abstract public function float();
 
     /* route is controlling all the routing on page 
-     * except for the subrouting on some more komplex pages with subviews*/
+     * except for the subrouting on some more komplex pages with subviews */
 
     public function route() {
 
@@ -42,45 +40,12 @@ abstract class Controller {
                 if (preg_match("/\bFlightDetailView\b/i", $_SERVER['REQUEST_URI'])) {
                     $this->showFlightdetails();
                     break;
-
-                    // Next Flight         
-                } elseif (preg_match("/\bnext_flights\b/i", $_SERVER['REQUEST_URI'])) {
-                    $this->init();
-
-                    echo "bnext_flights was called"; // zu testzwecken
-                    break;
-
-                    // specific Flight        
-                } elseif (preg_match("/\bspecific_flight\b/i", $_SERVER['REQUEST_URI'])) {
-                    $this->init();
-                    echo "bspecific_flight was called"; // zu testzwecken
-                    break;
-
-                    // track a Flight         
-                } elseif (preg_match("/\btrack\b/i", $_SERVER['REQUEST_URI'])) {
-                    $this->init();
-                    break;
-
-                    // Airlines
-                } elseif (preg_match("/\bairlines\w*\b/", $_SERVER['REQUEST_URI'])) {
-                    $this->init();
-                    break;
-
-                    // Aircraft       
-                } elseif (preg_match("/\baircrafts\w*\b/i", $_SERVER['REQUEST_URI'])) {
-                    $this->init();
-                    break;
-
-                    // Airports
-                } elseif (preg_match("/\bairports\w*\b/i", $_SERVER['REQUEST_URI'])) {
-                    $this->init();
-                    break;
-
-                    // contact
-                } elseif (preg_match("/\bcontact\b/i", $_SERVER['REQUEST_URI'])) {
-                    $this->init();
-                    echo "contact_controller was called"; // zu testzwecken
-                    break;
+                } else if (preg_match("/\bAirplaneDetails\b/i", $_SERVER['REQUEST_URI'])) {
+                    $this->showFloat();
+                } elseif (preg_match("/\bAirportDetails\b/i", $_SERVER['REQUEST_URI'])) {
+                    $this->showFloat();
+                } elseif (preg_match("/\bAirlineDetails\b/i", $_SERVER['REQUEST_URI'])) {
+                    $this->showFloat();
                 } else {
                     $this->init();
                     break;
@@ -133,5 +98,6 @@ abstract class Controller {
         }
         return $itemsToDisplay;
     }
+    
 
 }

@@ -1,10 +1,10 @@
 <?php
 
-include_once 'view/View.php';
-include_once 'view/home/NextFlightsView.php';
-include_once 'view/home/FlightDetailView.php';
-include_once 'config/config.php';
-include_once 'controller/NextFlightsController.php';
+include_once "{$_SERVER['DOCUMENT_ROOT']}/view/View.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/view/home/NextFlightsView.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/view/home/FlightDetailView.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/config/config.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/controller/NextFlightsController.php";
 
 class HomeView extends View {
 

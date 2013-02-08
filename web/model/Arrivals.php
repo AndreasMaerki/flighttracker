@@ -7,7 +7,7 @@
  */
 
 // Includes
-include_once 'model/Airport.php';
+include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Airport.php";
 
 class Arrivals extends MainModel {
 

@@ -1,16 +1,11 @@
 <?php
 
-include_once 'view/view.php';
-include_once 'config/config.php';
+include_once "{$_SERVER['DOCUMENT_ROOT']}/view/View.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/config/config.php";
 
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor
- */
 
 /**
- * Description of AirportVeiw
+ * Description of AirlineVeiw
  *
  * @author andy1111
  */

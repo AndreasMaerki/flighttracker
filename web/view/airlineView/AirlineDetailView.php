@@ -1,17 +1,15 @@
-<!DOCTYPE HTML>
+<?php
 
-<html lang="de">
-<head>
-    <meta name="description" content="blablalba">
-    <meta name="author" content="Andreas Maerki">
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="../../css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../css/AirlineDetails.css">
+/**
+ * Description of AirlineDetailView
+ *
+ * @author andy1111
+ */
+class AirlineDetailView extends View {
 
-    <title>details</title>
-</head>
-
-<body>
+    public function display() {
+        echo "<h1>Details on Airline</h1>";
+        echo<<<DETAILS
     <div id="FlightDetailsContainer">
         <h2>Details for flight Number <i>Lx7214</i> from <i>Zurich</i> to <i>London</i>.</h2>
         <img id="FlightDetailAirplanePic" src="../../images/aircraft/pc-6-turbo.jpg" alt="pc-6-turbo" width="238" height="181">
@@ -42,6 +40,11 @@
                 </tbody>
             </table>
         </div>
-    </div>
-</body>
-</html>
+    </div>\n
+DETAILS;
+        echo '<div id="close-overlay"></div>';
+    }// end display
+
+}
+
+?>

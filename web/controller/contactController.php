@@ -1,7 +1,7 @@
 <?php
-include_once 'controller/Controller.php';
-include_once 'model/Aircraft.php';
-include_once 'view/contactView/ContactView.php';
+include_once "{$_SERVER['DOCUMENT_ROOT']}/controller/Controller.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Aircraft.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/view/contactView/ContactView.php";
 
 class ContactController extends Controller{
 	
@@ -26,12 +26,11 @@ class ContactController extends Controller{
 	}
 
 	protected function create(){
-		
-            
-            
-            
-            
 
 	}
+        
+        public function float() {
+        echo"float not implemented";
+    }
 	
 }

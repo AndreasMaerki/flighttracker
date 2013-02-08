@@ -1,7 +1,7 @@
 <?php
 
-include_once"view/View.php";
-include 'config/config.php';
+include_once"{$_SERVER['DOCUMENT_ROOT']}/view/View.php";
+include "{$_SERVER['DOCUMENT_ROOT']}/config/config.php";
 
 class AircraftView extends View {
 

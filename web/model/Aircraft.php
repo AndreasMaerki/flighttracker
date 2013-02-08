@@ -7,7 +7,7 @@
  */
 
 // Includes
-include_once 'model/AircraftManufacturer.php';
+include_once "{$_SERVER['DOCUMENT_ROOT']}/model/AircraftManufacturer.php";
 
 class Aircraft extends MainModel {
 

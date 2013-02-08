@@ -1,13 +1,13 @@
 <?php
 
-include_once 'controller/Controller.php';
-include_once 'view/View.php';
-include_once 'view/home/HomeView.php';
-include_once 'view/home/FlightDetailView.php';
-include_once 'view/home/NextFlightsView.php';
+include_once "{$_SERVER['DOCUMENT_ROOT']}/controller/Controller.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/view/View.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/view/home/HomeView.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/view/home/FlightDetailView.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/view/home/NextFlightsView.php";
 /*
-include_once 'model/Arrivals.php';
-include_once 'model/Departures.php';
+include_once "model/Arrivals.php';
+include_once "model/Departures.php';
 */
 
 class HomeController extends Controller{
@@ -46,7 +46,9 @@ echo "HomeController index not implemented";
 		echo"HomeController create not implemented jet";
 
 	}
-
+        public function float() {
+        echo"float not implemented";
+    }
 
 
 

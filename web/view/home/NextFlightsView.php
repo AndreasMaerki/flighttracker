@@ -1,6 +1,6 @@
 <?php
 
-include_once 'view/View.php';
+include_once "{$_SERVER['DOCUMENT_ROOT']}/view/View.php";
 
 class NextFlightsView extends View {
 

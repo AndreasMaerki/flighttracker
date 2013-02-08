@@ -6,15 +6,15 @@
  * @author Marc Hangartner
  */
  
- include_once 'model/Aircraft.php';
-include_once 'model/AircraftCode.php';
-/* include_once 'model/AircraftManufacter.php'; */ //funzt nicht
-include_once 'model/Airline.php';
-include_once 'model/Arrivals.php';
-include_once 'model/Country.php';
-include_once 'model/Currency.php';
-include_once 'model/Flight.php';
-include_once 'model/FlightStatus.php';
+ include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Aircraft.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/model/AircraftCode.php";
+/* include_once "model/AircraftManufacter.php'; */ //funzt nicht
+include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Airline.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Arrivals.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Country.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Currency.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Flight.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/model/FlightStatus.php";
 
 class MainModel {
     

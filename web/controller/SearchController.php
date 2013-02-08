@@ -1,7 +1,7 @@
 
 <?php
 
-include_once 'lib/FlightXMLAdapter.php';
+include_once "{$_SERVER['DOCUMENT_ROOT']}/lib/FlightXMLAdapter.php";
 
 class SearchController {
       
@@ -94,6 +94,9 @@ class SearchController {
         // Entfernt noch die Klammern
         $airportCodeNew = substr($airportCode[0], 1 , strlen($airportCode[0])-2); 
         return $airportCodeNew;
+    }
+    public function float() {
+        echo"float not implemented";
     }
     
     
