@@ -6,8 +6,16 @@
  * @author andy1111
  */
 class AirlineDetailView extends View {
+    
+    
+    
+    private $airport;
+    function __construct($airport) { 
+            $this->airport = $airport;
+	}
 
-    public function display() {
+
+        public function display() {
         echo "<h1>Details on Airline</h1>";
         echo<<<DETAILS
     <div id="FlightDetailsContainer">
@@ -36,6 +44,10 @@ class AirlineDetailView extends View {
                     <tr>
                         <td class="label">Registered On</td>
                         <td>05-05-08</td>
+                        <td>$this->airport</td>
+                        <td>$this->airport</td>
+                        <td>$this->airport</td>
+                        <td>$this->airport</td>
                     </tr>
                 </tbody>
             </table>
@@ -45,6 +57,10 @@ DETAILS;
         echo '<div id="close-overlay"></div>';
     }// end display
 
+    public function setAirport($param) {
+        //$this->airport = $param;
+    }
 }
+
 
 ?>

@@ -28,25 +28,25 @@ function chkFormular () {
     if (document.Form2000.aircraftField.value == "" && 
         document.Form2000.airportToField.value == "" && 
         document.Form2000.airportFromField.value == "") {
-        alert("Bitte eine Flugnummer oder ein Flughafen eingeben!");
+        alert("Please enter a flightnumber or a airport!");
         document.Form2000.aircraftField.focus();
         return false;
     }
     else if ((document.Form2000.aircraftField.value !== "") && 
         (document.Form2000.airportToField.value !== "")) {
-        alert("Bitte entscheiden ob Flug oder Ankunfts Flughafen Suche!");
+        alert("Flightnumber and airport exclude each other!");
         document.Form2000.aircraftField.focus();
         return false;
     }
     else if ((document.Form2000.aircraftField.value !== "") && 
         (document.Form2000.airportFromField.value !== "")) {
-        alert("Bitte entscheiden ob Flug oder Abflug Flughafen Suche!");
+        alert("Flightnumber and airport exclude each other!");
         document.Form2000.aircraftField.focus();
         return false;
     }
     else if ((document.Form2000.filter.value > 15) || 
         (document.Form2000.filter.value < 1)) {
-        alert("Anzahl Flüge muss zwischen 1 und 15 liegen");
+        alert("Amount must lie between 1 and 15");
         document.Form2000.filter.focus();
         return false;
     }
@@ -109,20 +109,33 @@ $(function() {
  
 });
 
-// hover function
+// float function
 $(document).ready(function() {
+    $('#entries').click(function(e){
+        // console.log(e.target.getAttribute('id')); 
+        var clickedItem =e.target.getAttribute('id');
+        $.ajax({
+            type: "POST",
+            url: "/controller/Ajax/index.php",
+            data: {
+                name: clickedItem,
+                loc: 'something'
+            }
+        }).done(function( msg ) {
+            alert( "Data Saved: " + msg );
+        });
+        
+        
+    });
     $('.entry').on({
         'click':function(event) {
             $('#overlay').show();
-            $('#overlay > div').load('/controller/ajax/index.php');
-            event.preventDefault();
+            $('#overlay > div').load('/controller/Ajax/index.php');
+            event.preventDefault();           
         }
     });
-    
+     
     $(document).on('click', '#close-overlay', function() {
         $('#overlay').hide();
     })
 });
-
-
-

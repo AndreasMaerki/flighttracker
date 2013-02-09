@@ -52,7 +52,6 @@ abstract class Controller {
                 }
 
             case 'POST':// store the submitted user data in case of post
-                echo "<p>case POST on controller called</p>"; // zu testzwecken
                 $this->create();
                 break;
             default:

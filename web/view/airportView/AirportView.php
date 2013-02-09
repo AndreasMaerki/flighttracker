@@ -50,9 +50,6 @@ class AirportView extends View {
             echo $this->amount;
         }
 
-
-
-
         for ($i = 0; $i < $this->amount; $i++) {
             echo <<<AIRPORTS
 		<div id="entries">
@@ -63,23 +60,17 @@ class AirportView extends View {
                                 <img src="../../images/Planes/PlanesSmall/s_airberlin_a330_1.jpg" 
                                 alt="s_airberlin_a330_1" >
                         </div>
-
                         <div class="e-right">
                             <div class="title">
                                 Airport: {$this->airports[$i]}
                             </div>
-
                             <div class="infoText">
                                 Aiport Code: {$this->code[$i]}
                             </div>
-                                
-                          
-
                             <div class="fabricator">
                                     Country: {$this->country[$i]}
                             </div>
                         </div>
-
                         <div class="rightImage">
                                 <img src="../../images/AirlineLogos/AB_Airlines__formerly_
                                 Air_Bristol_-logo-216CE398C3-seeklogo.com.gif" 

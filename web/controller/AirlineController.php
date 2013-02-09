@@ -8,10 +8,9 @@ include_once "{$_SERVER['DOCUMENT_ROOT']}/config/config.php";
 
 
 class AirlineController extends Controller {
+    private $clickedItem;
 
-    
-    
-	
+
     function __construct() {
         
     }
@@ -63,10 +62,14 @@ class AirlineController extends Controller {
     protected function create() {
         echo 'not jet. be patient!!';
     }
-    
+    public function setKlickedItem($param) {
+        $this->clickedItem = $param;
+    }
     
     public function float() {
-        $view = new AirlineDetailView();
+        $view = new AirlineDetailView($this->clickedItem);
+        $param = $_SERVER['REQUEST_URI'];
+        $view->setAirport($param);
         $view->display();
     }
 

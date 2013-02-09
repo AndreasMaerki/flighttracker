@@ -56,6 +56,8 @@ class AirlineView extends View {
         $dir = 'images/AirlineLogos';
         $pictures = scandir($dir);
         $test = 0;
+        
+        echo "<div id=\"entries\">";
         foreach ($pictures as $key => $imagePath) {
             $test++;
             if ($key > 2) {
@@ -65,22 +67,19 @@ class AirlineView extends View {
                 //display of the results from here
                 //bis hier
                 $currentAirline = utf8_encode($this->airline[$test]);
+                $uri = URI_AIRLINE_DETAILS;
                 echo <<<AIRLINES
-		<div id="entries">
-                    <a class="entry" id= "airlineEntry" onclick ="alert('$currentAirline')"">
+                    <a class="entry" href = "" >
                         <div class="image">
-                              <img src="/$dir/$imagePath" alt="$imagePath" >
+                              <img id= "$currentAirline" src="/$dir/$imagePath" alt="$imagePath" >
                         </div>
                     </a>
-                </div>\n
 AIRLINES;
             }//end if
-//        } else if ($this->airportNotFound) {
-//            echo "<div class = \"errorMessage\"> Sorry, Airport <b>" . $this->airportNotFound . "</b>not found!</div>\n";
         }//end for
-//        foreach ($this->airlinesOnThisPage as $key => $value) {
-//                    echo "$value \n ";
-//                }
+        echo "</div>\n";
+
+        
         echo '<div class="clear"></div>';
     }
 
