@@ -18,43 +18,41 @@ class AirportView extends View {
     private $airportNotFound;
     private $countryList;
     private $amount;
-    
-    
+
     // Konstruktor
-     function __construct($country, $amount, $airports) {  
-        $this->countryList = $country;  
-        $this->airports = $airports; 
-        $this->amount = $amount; 
-     }
-    
-    
+    function __construct($country, $amount, $airports) {
+        $this->countryList = $country;
+        $this->airports = $airports;
+        $this->amount = $amount;
+    }
+
     public function display() {
-        $airportsUri = URI_AIRPORTS; 
-         echo "<h2>Check out details on Airports:</h2>";
-        
+        $airportsUri = URI_AIRPORTS;
+        echo "<h2>Check out details on Airports:</h2>";
+
         // Suchfeld 
         echo "<form action={$airportsUri} method=\"POST\">";
         echo "<label for=\"countrySearch\">Select Country</label>";
         echo "<select type=\"search\"  class=\"airportSearchField\" name=\"airportSearch\" size=\"1\">";
-        for($i=0; $i < count($this->countryList); $i++){
-          echo "<option>" . utf8_encode($this->countryList[$i]) . "</option>";         
+        for ($i = 0; $i < count($this->countryList); $i++) {
+            echo "<option>" . utf8_encode($this->countryList[$i]) . "</option>";
         }
         echo "</select>";
         //Button 
         echo "<input class=\"button\" type=\"submit\" methode=\"POST\" name=\"airlineSearchbutton\" value=\"find\">\n";
         echo "</form>";
 
-        if (isset($this->airports)){
-            
+        if (isset($this->airports)) {
+
             echo $_POST['airportSearch'];
             echo $this->countryList;
-              echo $this->airports;
-              echo  $this->amount;
+            echo $this->airports;
+            echo $this->amount;
         }
-        
-        
-        
-        
+
+
+
+
         for ($i = 0; $i < $this->amount; $i++) {
             echo <<<AIRPORTS
 		<div id="entries">
@@ -95,16 +93,16 @@ class AirportView extends View {
                 </div>\n
 AIRPORTS;
         }//end for
-        
-        
-        
+
+
+
         if ($this->airports) {
             foreach ($this->airports as $value) {
                 //paste your hmtl code here Phil!!
             }
         } else if ($this->airportNotFound) {
             echo "<div class = \"errorMessage\"> Sorry, Airport <b>" . $this->airportNotFound . "</b>not found!</div>\n";
-        } 
+        }
     }
 
 //end method

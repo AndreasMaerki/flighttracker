@@ -55,7 +55,7 @@ include_once 'config/config.php'; // alle konstanten sind im config file definie
                     </ul>
                 </nav>
 
-                <div id="body">
+                <div id="body" >
                     <?php
                     $controller = null;
                     //the uri determines wich controller will be instaciated;
