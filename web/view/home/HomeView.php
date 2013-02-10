@@ -33,16 +33,16 @@ class HomeView extends View {
         echo "<div id=\"homeFormLeft\">\n";
         echo "<label for=\"airportToField\:\">Going to:</label>\n";
         echo "<input type=\"search\" class=\"airportField\" name=\"airportToField\">\n";
-        echo "<label for=\"arrivalDateField\">Arrival Date:</label>\n";
-        echo "<input type=\"search\" class=\"dateField\" name=\"arrivalDateField\">\n";
+        //echo "<label for=\"arrivalDateField\">Arrival Date:</label>\n";
+        //echo "<input type=\"search\" class=\"dateField\" name=\"arrivalDateField\">\n";
         echo "</div>\n";
 
         // Abflug
         echo "<div id=\"homeFormRight\">\n";
         echo "<label for=\"airportFromField:\">Leaving from:</label>\n";
         echo "<input type=\"search\" class=\"airportField\" name=\"airportFromField\">\n";
-        echo "<label for=\"departDateField:\">Depart Date:</label>\n";
-        echo "<input type=\"search\" class=\"dateField\" name=\"departDateField\">\n";
+        //echo "<label for=\"departDateField:\">Depart Date:</label>\n";
+        //echo "<input type=\"search\" class=\"dateField\" name=\"departDateField\">\n";
         echo "</div>\n";
         //echo "</div id=\"2\">\n";
         //echo "<div id=\"3\">\n";

@@ -2,6 +2,15 @@
 <?php
 include_once 'config/config.php'; // alle konstanten sind im config file definiert
 
+//include_once "{$_SERVER['DOCUMENT_ROOT']}/model/MainModel.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Aircraft.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Airline.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Airport.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Arrivals.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Country.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Flight.php";
+include_once "{$_SERVER['DOCUMENT_ROOT']}/model/FlightStatus.php";
+
 ?>
 
 <html lang="de">
@@ -36,7 +45,7 @@ include_once 'config/config.php'; // alle konstanten sind im config file definie
 
     </head>
 
-    <body id="wholePage">
+    <body id="wholePage" onload="initialize()">
         <div id="overlay"><div> </div></div>
         <div id="wrapper">
             <div id="head">

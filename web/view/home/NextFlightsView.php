@@ -7,12 +7,15 @@ class NextFlightsView extends View {
     private $departingFlights;
     private $arrivingFlights;
 
+    
     function __construct($arrivingFlightsArray, $departingFlightsArray) {
         $this->arrivingFlights = $arrivingFlightsArray;
         $this->departingFlights = $departingFlightsArray;
     }
 
     public function display() {
+        $nextFlightsURI = URI_NEXT_FLIGHTS;
+        
         if ($this->arrivingFlights) {
             $airport = $this->arrivingFlights[0]->getAirport_to();
             $airportName = $airport->getName();
@@ -25,15 +28,27 @@ class NextFlightsView extends View {
 				</div>
 	
 AIRPORTDETAILS;
-
+        
+        // Kontrolle Offset
+        
+         echo "<li><a href=\"{$nextFlightsURI}?Page=1&Offset=0\">Page 1</a></li>\n";
+         echo "<li><a href=\"{$nextFlightsURI}?Page=2&Offset=10\">Page 2</a></li>\n";
+         echo "<li><a href=\"{$nextFlightsURI}?Page=3&Offset=20\">Page 3</a></li>\n";
+         echo "<li><a href=\"{$nextFlightsURI}?Page=4&Offset=30\">Page 4</a></li>\n";
+         echo "<li><a href=\"{$nextFlightsURI}?Page=5&Offset=40\">Page 5</a></li>\n";
+         echo "<li><a href=\"{$nextFlightsURI}?Page=6&Offset=50\">Page 6</a></li>\n";
+         echo "<li><a href=\"{$nextFlightsURI}?Page=7&Offset=60\">Page 7</a></li>\n";
+         echo "<li><a href=\"{$nextFlightsURI}?Page=8&Offset=70\">Page 8</a></li>\n";
+         echo "<li><a href=\"{$nextFlightsURI}?Page=9&Offset=80\">Page 9</a></li>\n";
+            
         $this->nextArrivals();
         $this->nextDepartures();
     }
 
     private function nextArrivals() {
-
-
-
+     
+       
+        
         echo "<div id=\"arrivalsContainer\">";
         echo "<h3 class= \"tableDescription\">Next arivivals:</h3>\n";
         echo <<<TABLEHEADER
@@ -105,6 +120,15 @@ TABLEHEADER;
 TABLEHEADER;
         //foreach 
         foreach ($this->departingFlights as &$flight) {
+            /*
+              $flightNumber = $flight->getFlightNumber();
+              $airline = $flight->getAirline();
+              $planeType = $flight->getPlaneType();
+              $destinationAirport = $flight->getDestinationAirport();
+              $scheduledDepartureTime = date("d.m.Y H:i", $flight->getScheduledDepartureTime());
+              $expectedDepartureTime = date("d.m.Y H:i", $flight->getExpectedDepartureTime());
+              $staus = $flight->getStatus();
+             */
 
 
             $arrivalTime = $flight->getNumber();
@@ -116,8 +140,9 @@ TABLEHEADER;
             $staus = $flight->getFlightstatus();
             $destination = $flight->getairport_to()->getName();
 
+
             echo "
-                <tr>
+				<tr>
                     <td>$flightNumber</td>
                     <td>$airline}</td>
                     <td>$scheduledDepartureTime</td>
@@ -132,6 +157,7 @@ TABLEHEADER;
         echo "</table>\n";
         echo "</div>\n"; //close the tableContainer
         echo "</div>\n";
+       
     }
 
 //end method 
