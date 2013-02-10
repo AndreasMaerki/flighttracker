@@ -6,7 +6,7 @@
  * @author Marc Hangartner
  */
 
-include_once "{$_SERVER['DOCUMENT_ROOT']}/model/MainModel.php";
+include_once 'MainModel.php';
 class Currency extends MainModel{
   
     /**

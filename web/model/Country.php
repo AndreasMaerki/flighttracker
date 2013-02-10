@@ -6,7 +6,7 @@
  * @author Marc Hangartner
  */
 // Includes
-include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Currency.php";
+include_once 'model/Currency.php';
 
 class Country extends MainModel {
 

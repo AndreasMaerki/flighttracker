@@ -7,7 +7,7 @@
  */
 
 // Includes
-include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Country.php";
+include_once 'model/Country.php';
 
 class Airline extends MainModel {
 
@@ -46,6 +46,8 @@ class Airline extends MainModel {
     function __construct($id, $name, $description, $image, $code, 
             $country, $code2, $callsign, $adress, $postcode, $city, $phone, $www, $email) {
 
+        parent::__construct($id, $name, $description, $image);
+        
         $this->code = $code;
         $this->country = $country;
         $this->code2 = $code2;

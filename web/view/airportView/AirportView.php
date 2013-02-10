@@ -10,7 +10,7 @@ include_once "{$_SERVER['DOCUMENT_ROOT']}/config/config.php";
 /**
  * Description of AirportVeiw
  *
- * @author andy1111
+ * @author Andreas Maerki
  */
 class AirportView extends View {
 
@@ -29,6 +29,8 @@ class AirportView extends View {
     public function display() {
         $airportsUri = URI_AIRPORTS;
         echo "<h2>Check out details on Airports:</h2>";
+        echo "<div id =\"selectionBarContainer\">";
+
 
         // Suchfeld 
         echo "<form action={$airportsUri} method=\"POST\">";
@@ -41,6 +43,7 @@ class AirportView extends View {
         //Button 
         echo "<input class=\"button\" type=\"submit\" methode=\"POST\" name=\"airlineSearchbutton\" value=\"find\">\n";
         echo "</form>";
+        echo "</div>\n";
 
         if (isset($this->airports)) {
 
@@ -49,10 +52,9 @@ class AirportView extends View {
             echo $this->airports;
             echo $this->amount;
         }
-
+        echo "<div id=\"entries\">";
         for ($i = 0; $i < $this->amount; $i++) {
             echo <<<AIRPORTS
-		<div id="entries">
                     <a class="entry" href="">
 
                     <div class="inline">
@@ -81,9 +83,9 @@ class AirportView extends View {
                         <div class="clear"></div>
                     </div>
                     </a>
-                </div>\n
 AIRPORTS;
         }//end for
+        echo "</div>\n";
 
 
 

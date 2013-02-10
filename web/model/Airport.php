@@ -7,7 +7,7 @@
  */
 
 // Includes
-include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Country.php";
+include_once 'model/Country.php';
 
 class Airport extends MainModel{
 

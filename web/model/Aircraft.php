@@ -7,7 +7,7 @@
  */
 
 // Includes
-include_once "{$_SERVER['DOCUMENT_ROOT']}/model/AircraftManufacturer.php";
+include_once 'model/AircraftManufacturer.php';
 
 class Aircraft extends MainModel {
 
@@ -15,7 +15,6 @@ class Aircraft extends MainModel {
      * Membervariabeln deklaration 
      */
    
-    private $aircraft;                  // Aircraft referenz
     private $aircraftManufacturer;      // Aircraftmanufacturer referenz
    
     private $code;                      // Aircraftcode
@@ -26,7 +25,7 @@ class Aircraft extends MainModel {
     private $maxtraveldist;             // Max. Reisedistanz
     private $maxflightheight;           // Max. Flughöhe
     private $hasfirstclass;             // hat erste Klasse wenn "true"
-    private $hasbusniessclass;          // hat busniess Klasse wenn "true"
+    private $hasbusinessclass;          // hat busniess Klasse wenn "true"
 
     
     
@@ -38,7 +37,6 @@ class Aircraft extends MainModel {
      * @param type $name
      * @param type $description
      * @param type $image
-     * @param type $aircraft
      * @param type $aircraftManufacturer
      * @param type $code
      * @param type $description
@@ -50,13 +48,12 @@ class Aircraft extends MainModel {
      * @param type $hasfirstclass
      * @param type $hasbusniessclass 
      */
-    function __construct($id, $name, $description, $image, $aircraft, $aircraftManufacturer, $code, 
-            $description, $weight, $maxpassengers, $maxspeed, $maxtraveldist, 
-            $maxflightheight, $hasfirstclass, $hasbusniessclass) {
+    function __construct($id, $name, $description, $image, $aircraftManufacturer, $code, 
+            $weight, $maxpassengers, $maxspeed, $maxtraveldist, 
+            $maxflightheight, $hasfirstclass, $hasbusinessclass) {
         
         parent::__construct($id, $name, $description, $image);
         
-        $this->aircraft = $aircraft;
         $this->aircraftManufacturer = $aircraftManufacturer;
         $this->code = $code;
         $this->description = $description;
@@ -66,25 +63,9 @@ class Aircraft extends MainModel {
         $this->maxtraveldist = $maxtraveldist;
         $this->maxflightheight = $maxflightheight;
         $this->hasfirstclass = $hasfirstclass;
-        $this->hasbusniessclass = $hasbusniessclass;
+        $this->hasbusinessclass = $hasbusinessclass;
     }
 
-    
-    /**
-     *
-     * @return type 
-     */
-    public function getAircraft() {
-        return $this->aircraft;
-    }
-
-    /**
-     *
-     * @param type $aircraft 
-     */
-    public function setAircraft($aircraft) {
-        $this->aircraft = $aircraft;
-    }
 
     /**
      *
@@ -234,16 +215,16 @@ class Aircraft extends MainModel {
      *
      * @return type 
      */
-    public function getHasbusniessclass() {
-        return $this->hasbusniessclass;
+    public function getHasbusinessclass() {
+        return $this->hasbusinessclass;
     }
 
     /**
      *
      * @param type $hasbusniessclass 
      */
-    public function setHasbusniessclass($hasbusniessclass) {
-        $this->hasbusniessclass = $hasbusniessclass;
+    public function setHasbusinessclass($hasbusinessclass) {
+        $this->hasbusinessclass = $hasbusinessclass;
     }
 
 }

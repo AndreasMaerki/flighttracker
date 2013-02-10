@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Model der Flüge
  *
@@ -6,10 +6,10 @@
  */
 
 // Includes
-include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Airport.php";
-include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Airline.php";
-include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Aircraft.php";
-include_once "{$_SERVER['DOCUMENT_ROOT']}/model/FlightStatus.php";
+include_once 'model/Airport.php';
+include_once 'model/Airline.php';
+include_once 'model/Aircraft.php';
+include_once 'model/FlightStatus.php';
 
 
 class Flight extends MainModel {
@@ -27,48 +27,25 @@ class Flight extends MainModel {
 
     private $arrival_sced;      // 
     private $arrival_calc;      // 
-    private $depart_sced;
-    private $depart_calc;
+    private $depart_sced;       // 
+    private $depart_calc;       // 
     private $timestamp;         // 
     private $longitude;         // Momentaner Länngengrad
     private $latitude;          // Momentaner Breitengrad
+    private $coordinates_log;   // String geflogener Wegpunktkoordinaten (longitude,latitute;longitude2,latitude2)
     private $groundspeed;       // 
     private $heading;           //
 
     
-       
-    /**
-     *
+    /**   
      * Konstruktor
-     * 
-     * @param type $id
-     * @param type $name
-     * @param type $description
-     * @param type $image
-     * @param type $number
-     * @param type $airline
-     * @param type $airport_from
-     * @param type $airport_to
-     * @param type $aircraft
-     * @param type $flightstatus
-     * @param type $arrival_sced
-     * @param type $arrival_calc
-     * @param type $depart_sced
-     * @param type $depart_calc
-     * @param type $timestamp
-     * @param type $longitude
-     * @param type $latitude
-     * @param type $groundspeed
-     * @param type $heading 
      */
-    function __construct($id, $name, $description, $image, $number, $airline, $airport_from, $airport_to, 
+    function __construct($number, $airline, $airport_from, $airport_to, 
                          $aircraft, $flightstatus, $arrival_sced, $arrival_calc,
 			 $depart_sced, $depart_calc, $timestamp, $longitude,
-                         $latitude, $groundspeed, $heading) {
-          
-
-        parent::__construct($id, $name, $description, $image);
-        
+                         $latitude, $coordinates_log, $groundspeed, $heading) {
+        // Konstruktorfunktion    
+                
 	$this->number = $number;
 	$this->airline = $airline;
 	$this->airport_from = $airport_from;
@@ -81,10 +58,11 @@ class Flight extends MainModel {
 	$this->depart_calc = $depart_calc;
 	$this->timestamp = $timestamp;
 	$this->longitude = $longitude;
+        $this->coordinates_log = $coordinates_log;
 	$this->latitude = $latitude;
 	$this->groundspeed = $groundspeed;
 	$this->heading = $heading;
-   
+
     }    
 
     /**
@@ -187,38 +165,6 @@ class Flight extends MainModel {
      *
      * @return type 
      */
-     public function getDepart_sced() {
-        return $this->depart_sced;
-    }
-
-    /**
-     *
-     * @param type $depart_sced 
-     */
-    public function setDepart_sced($depart_sced) {
-        $this->depart_sced = $depart_sced;
-    }
-
-    /**
-     *
-     * @return type 
-     */
-    public function getDepart_calc() {
-        return $this->depart_calc;
-    }
-
-    /**
-     *
-     * @param type $depart_calc 
-     */
-    public function setDepart_calc($depart_calc) {
-        $this->depart_calc = $depart_calc;
-    }
-    
-    /**
-     *
-     * @return type 
-     */
     public function getArrival_sced() {
         return $this->arrival_sced;
     }
@@ -245,6 +191,38 @@ class Flight extends MainModel {
      */
     public function setArrival_calc($arrival_calc) {
         $this->arrival_calc = $arrival_calc;
+    }
+
+    /**
+     *
+     * @return type 
+     */
+    public function getDepart_sced() {
+        return $this->depart_sced;
+    }
+
+    /**
+     *
+     * @param type $depart_sced 
+     */
+    public function setDepart_sced($depart_sced) {
+        $this->depart_sced = $depart_sced;
+    }
+
+    /**
+     *
+     * @return type 
+     */
+    public function getDepart_calc() {
+        return $this->depart_calc;
+    }
+
+    /**
+     *
+     * @param type $depart_calc 
+     */
+    public function setDepart_calc($depart_calc) {
+        $this->depart_calc = $depart_calc;
     }
 
     /**
@@ -295,6 +273,22 @@ class Flight extends MainModel {
         $this->latitude = $latitude;
     }
 
+    /**
+     *
+     * @return type 
+     */
+    public function getCoordinates_log() {
+        return $this->coordinates_log;
+    }
+
+    /**
+     *
+     * @param type $latitude 
+     */
+    public function setCoordinates_log($coordinates_log) {
+        $this->coordinates_log = $coordinates_log;
+    }
+    
     /**
      *
      * @return type 

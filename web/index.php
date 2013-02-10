@@ -63,7 +63,7 @@ include_once 'config/config.php'; // alle konstanten sind im config file definie
 
                         case URI_TRACK:
                             include_once 'controller/TrackController.php';
-                            $controller = new TrackController();
+                            $controller = new TrackController('');
                             break;
                         case URI_CONTACT:
                             include_once 'controller/ContactController.php';
