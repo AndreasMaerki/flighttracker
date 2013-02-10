@@ -13,12 +13,15 @@ class NextFlightsView extends View {
     }
 
     public function display() {
-
+        if ($this->arrivingFlights) {
+            $airport = $this->arrivingFlights[0]->getAirport_to();
+            $airportName = $airport->getName();
+            $airportDesc = $airport->getDescription();
+        }
         echo <<<AIRPORTDETAILS
 				<div id= "AirportDetails">
-					<p>Airpot name:</p>
-					<p>Adress:</p>
-					<p>Country:</p>
+					<p>Airpot name: $airportName </p>
+                                        <p>Airpot Description:</br> $airportDesc </p>
 				</div>
 	
 AIRPORTDETAILS;
@@ -28,9 +31,9 @@ AIRPORTDETAILS;
     }
 
     private function nextArrivals() {
-     
-       
-        
+
+
+
         echo "<div id=\"arrivalsContainer\">";
         echo "<h3 class= \"tableDescription\">Next arivivals:</h3>\n";
         echo <<<TABLEHEADER
@@ -49,26 +52,25 @@ AIRPORTDETAILS;
 					</thead>
 					<tbody class= "scrollContent">
 TABLEHEADER;
-        //foreach this is the real code!!
         foreach ($this->arrivingFlights as &$flight) {
-            $arrivalTime = (string) date("d.m.Y H:i", $flight->getArrival_sced());
-            $flightNumber = (string) $flight->getNumber();
-            $airline = (string) $flight->getAirline();
-            $planeType = (string) $flight->getAircraft();
-            $DepartureAirport = (string) $flight->getAirport_from();
-            $scheduledArrivalTime = (string) date("d.m.Y H:i", $flight->getArrival_sced());
-            $expectedArrivalTime = (string) date("d.m.Y H:i", $flight->getArrival_calc());
-            $staus = (string) $flight->getFlightstatus();
+            $arrivalTime = $flight->getArrival_sced();
+            $flightNumber = $flight->getNumber();
+            $airline = $flight->getAirline()->getName();
+            $planeType = $flight->getAircraft()->getCode();
+            $DepartureAirport = $flight->getAirport_from()->getName();
+            $scheduledArrivalTime = $flight->getArrival_sced();
+            $expectedArrivalTime = $flight->getArrival_calc();
+            $staus = $flight->getFlightstatus();
 
 
             echo "<tr>
-                    <td>\"$flightNumber\"</td>
-                    <td>\"$airline\"</td>
-                    <td>\"$scheduledArrivalTime\"</td>
-                    <td>\"$expectedArrivalTime\"</td>
-                    <td>\"$departureAirport\"</td>
-                    <td><a href=\"/images/testImages/A380_On_Ground.jpg\">\"$planeType\"</a></td>
-                    <td>\"$staus\"</td>
+                    <td>$flightNumber</td>
+                    <td>$airline</td>
+                    <td>$scheduledArrivalTime</td>
+                    <td>$expectedArrivalTime</td>
+                    <td>$DepartureAirport</td>
+                    <td>$planeType</td>
+                    <td>$staus</td>
                 </tr>\n";
         }// end foreach
 
@@ -103,35 +105,26 @@ TABLEHEADER;
 TABLEHEADER;
         //foreach 
         foreach ($this->departingFlights as &$flight) {
-            /*
-              $flightNumber = $flight->getFlightNumber();
-              $airline = $flight->getAirline();
-              $planeType = $flight->getPlaneType();
-              $destinationAirport = $flight->getDestinationAirport();
-              $scheduledDepartureTime = date("d.m.Y H:i", $flight->getScheduledDepartureTime());
-              $expectedDepartureTime = date("d.m.Y H:i", $flight->getExpectedDepartureTime());
-              $staus = $flight->getStatus();
-             */
 
-            $arrivalTime = date("d.m.Y H:i", $flight->getArrival_sced());
+
+            $arrivalTime = $flight->getNumber();
             $flightNumber = $flight->getNumber();
-            $airline = $flight->getAirline();
-            $planeType = $flight->getAircraft();
-            $DepartureAirport = $flight->getAirport_from();
-            //$scheduledArrivalTime = date("d.m.Y H:i", $flight->getArrival_sced());
-            //$expectedArrivalTime = date("d.m.Y H:i", $flight->getArrival_calc());
+            $airline = $flight->getAirline()->getName();
+            $planeType = $flight->getAircraft()->getCode();
+            $scheduledDepartureTime = $flight->getDepart_sced();
+            $expectedDepartureTime = $flight->getDepart_calc();
             $staus = $flight->getFlightstatus();
-
+            $destination = $flight->getairport_to()->getName();
 
             echo "
-				<tr>
-                    <td>\"$flightNumber\"</td>
-                    <td>\"$airline}</td>
-                    <td>\"$scheduledDepartureTime\"</td>
-                    <td>\"$expectedDepartureTime\"</td>
-                    <td>\"$destinationAirport\"</td>
-                    <td><a href=\"/images/testImages/A380_On_Ground.jpg\">\"$planeType\"</a></td>
-                    <td>\"$staus\"</td>
+                <tr>
+                    <td>$flightNumber</td>
+                    <td>$airline}</td>
+                    <td>$scheduledDepartureTime</td>
+                    <td>$expectedDepartureTime</td>
+                    <td>$destination</td>
+                    <td>$planeType</td>
+                    <td>$staus</td>
                 </tr>\n";
         }//end foreach       
 
@@ -139,7 +132,6 @@ TABLEHEADER;
         echo "</table>\n";
         echo "</div>\n"; //close the tableContainer
         echo "</div>\n";
-       
     }
 
 //end method 

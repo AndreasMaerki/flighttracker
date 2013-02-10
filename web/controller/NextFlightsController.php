@@ -30,7 +30,8 @@ class NextFlightsController extends Controller {
                 $_POST['airportToField'], $_POST['airportFromField'], $_POST['filter']);
 
         // do the same for departing flights here. replace the current method call with the right one        
-        $departingFlights = $searcherController->searchArrivingFlightsfromHomeView($_POST['aircraftField'], $_POST['airportToField'], $_POST['airportFromField'], $_POST['departDateField'], $_POST['arrivalDateField'], $_POST['filter']);
+        $departingFlights = $searcherController->searchArrivingFlightsfromHomeView($_POST['aircraftField'], 
+                $_POST['airportToField'], $_POST['airportFromField'],  $_POST['filter']);
         // test if $flightsArrival is not empty
         $amount = count($arrivingFlights);
         if ($amount > 0) {

@@ -35,7 +35,6 @@ final class MysqlAdapter {
         } 
         else {
             $this->con->set_charset('utf8');  
-            echo 'Erfolgreiche Verbindung';
              }
         
      

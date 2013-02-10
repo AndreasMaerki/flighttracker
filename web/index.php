@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <?php
 include_once 'config/config.php'; // alle konstanten sind im config file definiert
+
 ?>
 
 <html lang="de">
