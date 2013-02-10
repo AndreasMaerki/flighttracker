@@ -48,6 +48,7 @@ class AirlineDetailView extends View {
                         <td>$this->airport</td>
                         <td>$this->airport</td>
                         <td>$this->airport</td>
+                            <td id = "hans"></td>
                     </tr>
                 </tbody>
             </table>

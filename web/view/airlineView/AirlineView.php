@@ -69,7 +69,7 @@ class AirlineView extends View {
                 $currentAirline = utf8_encode($this->airline[$test]);
                 $uri = URI_AIRLINE_DETAILS;
                 echo <<<AIRLINES
-                    <a class="entry" href = "" >
+                    <a class="entry" >
                         <div class="image">
                               <img id= "$currentAirline" src="/$dir/$imagePath" alt="$imagePath" >
                         </div>
