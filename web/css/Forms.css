@@ -59,7 +59,8 @@
     margin: 5px;
 }
 
-#homeForm form div.homeFormBelow input.button{
+#homeForm form div.homeFormBelow input.button,
+#NextFlightsPageButtons li{
     width: 81px;
     height: 24px;
     margin: 4px;
@@ -83,7 +84,8 @@
     box-shadow: rgba(0,0,0,0.38) 0px 2px 3px 1px, inset rgba(255,255,255,0.4) 0px 1px 0px 0px;
 }
 
-#homeForm form div.homeFormBelow input.button:active{
+#homeForm form div.homeFormBelow input.button:active,
+#NextFlightsPageButtons li:active{
     -webkit-box-shadow: rgba(0,0,0,0.38) 0px 0px 0px 0px, inset rgba(255,255,255,0.4) 0px 1px 0px 0px;
     -moz-box-shadow: rgba(0,0,0,0.38) 0px 0px 0px px, inset rgba(255,255,255,0.4) 0px 1px 0px 0px;
     box-shadow: rgba(0,0,0,0.38) 0px 0px 0px 0px, inset rgba(255,255,255,0.4) 0px 1px 0px 0px;

@@ -3,13 +3,6 @@
  */
 
 
-// date picker
-$(function() {
-    $( ".dateField" ).datepicker({
-        changeMonth: true
-    });
-});
-
 
 // Autocompleter
 $(function() {
@@ -108,77 +101,34 @@ $(function() {
     });
  
 });
-//$('#entries').click(function(e){
-//    // console.log(e.target.getAttribute('id')); 
-//    var clickedItem =e.target.getAttribute('id');
-//    $.ajax({
-//        type: "POST",
-//        url: "/controller/Ajax/index.php",
-//        data: {
-//            fname: clickedItem,
-//            loc: clickedItem
+
+//var clickedItem = null;
+//$(document).ready(function() {
+//     $('.entry').on({
+//        'click':function(event) {
+//            $('#overlay').show();
+//            $('#overlay > div').load('/controller/Ajax/index.php');
+//            event.preventDefault();           
 //        }
-//    }).done(function( msg ) {
-//        alert( "Data Saved: " + msg );
 //    });
-//        
-//        
-//});
-//function erzXHRObject(){
-//var xhr = new XMLHttpRequest();
-//    return xhr;
-//}
-var clickedItem = null;
-//var resOb =erzXHRObject();
-// float function
-$(document).ready(function() {
-     $('.entry').on({
-        'click':function(event) {
-            $('#overlay').show();
-            $('#overlay > div').load('/controller/Ajax/index.php');
-            event.preventDefault();           
-        }
-    });
-     
-    $(document).on('click', '#close-overlay', function() {
-        $('#overlay').hide();
-    })
-    $('#entries').click(function(e){
-        // console.log(e.target.getAttribute('id')); 
-        clickedItem =e.target.getAttribute('id');
-       // alert(clickedItem);
-//        clickedItem = "c=ba&pw=geheim";
-//        resOb.open('post', '/controller/Ajax/index.php' + clickedItem, true);
-//        resOb.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-//        resOb.setRequestHeader("content-length",clickedItem.length);
-//        resOb.onreadystatechange = handleResponse;
-//        resOb.send (clickedItem);
-
-        
-            $.ajax({
-            url: '/controller/Ajax/index.php', //This is the current doc
-            type: "POST",
-            data: ({fname: clickedItem}),
-            success:function(data){
-                clickedItem.html(data);
-            }
-        });
-
-        
-    });
-   
-})
-
-//function handleResponse(){
+//     
+//    $(document).on('click', '#close-overlay', function() {
+//        $('#overlay').hide();
+//    })
+//    $('#entries').click(function(e){
+//        // console.log(e.target.getAttribute('id')); 
+//        clickedItem =e.target.getAttribute('id');
+//            $.ajax({
+//            url: '/controller/Ajax/index.php', //This is the current doc
+//            type: "POST",
+//            data: ({fname: clickedItem}),
+//            success:function(msg){
+//                //clickedItem.html(data);
+//            }
+//        });
 //
-//    if (resOb.readyState ==4 ){
-//        //alert(clickedItem);
-//        document.getElementById("hans").onclick = resOb.responseText;
-//    }
-//}
-//function sendReqGET(){
-//    var clickedItem =e.target.getAttribute('id');
-//    resOb.open('get','/controller/Ajax/index.php?' + clickedItem, true);
-//    resOb.onreadystatechange = handleResponse;
-//    resOb.send (null);
-//}
+//        
+//    });
+   
+//})
+

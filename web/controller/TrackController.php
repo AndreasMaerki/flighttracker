@@ -35,6 +35,9 @@ class TrackController extends Controller {
             if (isset($_POST['flightnumber'])) {
                 $this->flightnumber = $_POST['flightnumber'];
             }
+            elseif (isset($_GET['flightnumber'])) {
+               $this->flightnumber = $_GET['flightnumber']; 
+            }
             
             if (isset($this->flightnumber))
             {

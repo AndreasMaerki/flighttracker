@@ -31,15 +31,13 @@ include_once "{$_SERVER['DOCUMENT_ROOT']}/model/FlightStatus.php";
 
         <title>Flighttracker Home</title>
         <link rel="stylesheet" type="text/css" href="/css/normalize.css">
-        <link rel="stylesheet" type="text/css" href="/css/styleMod.css">
+        <link rel="stylesheet" type="text/css" href="/css/General.css">
         <link rel="stylesheet" type="text/css" href="/css/AircraftDetails.css">
         <link rel="stylesheet" type="text/css" href="/css/homeView.css">
         <link rel="stylesheet" type="text/css" href="/css/Forms.css">
         <link rel="stylesheet" type="text/css" href="/css/Contact.css">
         <link rel="stylesheet" type="text/css" href="/css/FloatWindows.css">
         <link rel="stylesheet" type="text/css" href="/css/FloatWindows.css">
-
-
         <link rel="stylesheet" type="text/css" href="/css/cupertino/jquery-ui-1.10.0.custom.css">
         <link rel="stylesheet" type="text/css" href="/css/cupertino/jquery-ui-1.10.0.custom.min.css">
 
@@ -83,7 +81,6 @@ include_once "{$_SERVER['DOCUMENT_ROOT']}/model/FlightStatus.php";
                         case URI_NEXT_FLIGHTS:
                             include_once 'controller/NextFlightsController.php';
                             $controller = new NextFlightsController();
-                            echo 'controller/NextFlightsController';
                             //echo "<p>case SearchController called in index</p>";
                             break;
                         case URI_AIRLINES:

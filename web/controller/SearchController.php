@@ -4,12 +4,14 @@
 //include_once "{$_SERVER['DOCUMENT_ROOT']}/lib/FlightXMLAdapter.php";
 include_once ("{$_SERVER['DOCUMENT_ROOT']}/lib/MysqlAdapter.php");
 class SearchController {
+
     private $offset;
     private $sqlAdapter;
 
-    public function setOffset($offset){
-        $this->offset = $offset;    
+    public function setOffset($offset) {
+        $this->offset = $offset;
     }
+
     function __construct() {
         $this->sqlAdapter = new MysqlAdapter(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     }
@@ -19,31 +21,7 @@ class SearchController {
         return $flight;
     }
 
-    public function searchArrivingFlightsfromHomeView($aircraftField, $airportFieldTo, $airportFieldFrom, $filter) {
-
-        // Airport such string nur code2 behalten
-        $airportFieldToNew = $this->getAirportCodeFromPOST($airportFieldTo);
-        $airportFieldFromNew = $this->getAirportCodeFromPOST($airportFieldFrom);
-        echo " $airportFieldToNew";
-        
-        if ($aircraftField != '') {// Uebergabe von post im SearchController
-            $flight = $this->sqlAdapter->getFlight($aircraftField);
-            return $flight;
-        }
-
-
-        // ankunfts Airport feld ist ausgefüllt
-        if ($airportFieldToNew != '') {// Uebergabe von post im SearchController
-            $arrivals = $this->sqlAdapter->getAirportArrivals($airportFieldToNew, $filter,0); //offset noch uebergeben
-            return $arrivals;
-        }
-
-        // Abflug ist ausgefüllt
-        if ($airportFieldFromNew != '') {// Uebergabe von post im SearchController
-            $departures = $this->sqlAdapter->getAirportDepartures($airportFieldFromNew, $filter, 0); //offset noch uebergeben
-            return $departures;
-        }
-    }
+    
 
     // Search Airport
     public function getAirportsFromACountry($searchString) {
@@ -54,38 +32,127 @@ class SearchController {
 
     // Search Aircraft
     public function getAircraft($searchString) {
-        $ret = $this->sqlAdapter->getAircraft($searchString);
-        return ret;
+        $ret = $this->sqlAdapter->getAircraftByCode($searchString);
+        return $ret;
+    }
+    public function getAllAircrafts(){
+        $ret = $this->sqlAdapter->getAircraft();
+        
+
+        return $ret;
     }
 
-    // Search Airlines
-    public function getAirlines($searchString) {
-        if($searchString){
-        $airline = $this->sqlAdapter->getAirline(); // uebergabeparameter??
-        }else{
-        $airline = $this->sqlAdapter->getAirlineById(); // uebergabeparameter??
+    /**
+     * 
+     * @return string array with names of all airlines found db
+     */
+    public function getAllAirlineNames() {
+        $airlineArray = $this->sqlAdapter->getAirline();
+        $ret = Array();
+        if ($airlineArray) {
+            foreach ($airlineArray as $airlineObject) {
+                array_push($ret, $airlineObject->getName());
+            }
         }
+        return $ret;
     }
 
-   
+    public function getAllAirlinePictures() {
+        $airlineArray = $this->sqlAdapter->getAirline();
+        $ret = Array();
+        if ($airlineArray) {
+            foreach ($airlineArray as $airlineObject) {
+                array_push($ret, $airlineObject->getImage());
+            }
+        }
+        return $ret;
+    }
+
+    /**
+     * 
+     * @return type array with all airline-codes found in db
+     */
+    public function getAllAirlineCodes() {
+        $airlineCodesArray = $this->sqlAdapter->getAirline(); //not implemented
+        $ret = Array();
+        if ($airlineCodesArray) {
+            foreach ($airlineCodesArray as $airlineObject) {
+                array_push($ret, $airlineObject->getCode());
+            }
+        }
+        return $ret;
+    }
+
+    public function getAllAirlines() {
+        $ret = $this->sqlAdapter->getAirline();
+        return $ret;
+    }
+
+    /**
+     * 
+     * @param type $searchString
+     * @return type string containing airline matching the search string
+     */
+    public function getAirlinesByName($searchString) {
+        if ($searchString) {
+            $ret = $this->sqlAdapter->getAirlineByName($searchString);
+        }
+        return $ret;
+    }
+
+    public function getAirlinesPicByName($searchString) {
+        if ($searchString) {
+            $ret = $this->sqlAdapter->getAirlineByCountry($searchString)->getImage();
+        }
+        return $ret;
+    }
+
+     public function searchArrivingFlightsfromHomeView($aircraftField, $airportField, $offset) {
+        // Airport such string nur code2 behalten
+        $airportFieldNew = $this->getAirportCodeFromPOST($airportField);
+
+        if ($aircraftField != '') {// Uebergabe von post im SearchController
+            $flight[] = $this->sqlAdapter->getFlight($aircraftField);
+            return $flight;
+        }
+        // ankunfts Airport feld ist ausgefüllt
+        if ($airportFieldNew != '') {// Uebergabe von post im SearchController
+            $arrivals = $this->sqlAdapter->getAirportArrivals($airportFieldNew, "10", $offset); //offset noch uebergeben
+
+            return $arrivals;
+        } 
+    }
+
+    public function searchDepartFlightsfromHomeView($aircraftField, $airportField, $offset) {
+        $airportFieldNew = $this->getAirportCodeFromPOST($airportField);
+        
+        if ($aircraftField != '') {// Uebergabe von post im SearchController
+            $flight = $this->sqlAdapter->getFlight($aircraftField);
+            return $flight;
+        }
+         if ($airportFieldNew != '') {// Uebergabe von post im SearchController
+            $departs = $this->sqlAdapter->getAirportDepartures($airportFieldNew, "10", $offset); //offset noch uebergeben
+            return $departs;
+        }
+        
+    }
 
     public function float() {
         echo"float not implemented";
     }
-    
-    
-    public function getAllCountrys($airport_country){
-        $ret= $this->sqlAdapter->getCountry();
+
+    public function getAllCountrys() {
+        $ret = $this->sqlAdapter->getCountry(); 
         return $ret;
     }
-    
-     // Schneidet alles ausser code2 ab bei airport suche
+
+    // Schneidet alles ausser code2 ab bei airport suche
     public function getAirportCodeFromPOST($searchString) {
         $airportCode = explode(' ', $searchString, 2);
         // Entfernt noch die Klammern
         //$airportCodeRet = substr($airportCode[0], 1, strlen($airportCode[0]) - 2);
-        $airportCodeRet = str_replace("(", "",$airportCode[0]);
-        $airportCodeRet = str_replace(")", "",$airportCodeRet);
+        $airportCodeRet = str_replace("(", "", $airportCode[0]);
+        $airportCodeRet = str_replace(")", "", $airportCodeRet);
         return $airportCodeRet;
     }
 

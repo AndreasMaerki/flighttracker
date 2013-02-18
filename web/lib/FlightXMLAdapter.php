@@ -224,9 +224,9 @@ final class FlightXMLAdapter {
 	$params = array("airport" => $airport, "howMany" => $howMany, "filter" => "", "offset" => $offset);
 	$result = $this->client->Scheduled($params);
 
-        echo "<hr><pre>";
-        print_r($result);
-        echo "</pre>";
+        //echo "<hr><pre>";
+        //print_r($result);
+        //echo "</pre>";
 
 	$airportDepartures = array();
 
@@ -306,13 +306,12 @@ final class FlightXMLAdapter {
 			foreach($result->EnrouteResult->enroute as &$element){
                             
                             $number = $element->ident;
-                            
                             $params_inFlight = array("ident" => $number, "howMany" => "1");
                             $result_inFlight = $this->client->InFlightInfo($params_inFlight);
- 
+
                             $params_flightinfo = array("ident" => $result_inFlight->InFlightInfoResult->faFlightID, "howMany" => 1, "offset" => 0);
                             $result_flightinfo = $this->client->FlightInfoEx($params_flightinfo);
-                            
+
                             // Flugstatus setzen
                             if ($result_inFlight->InFlightInfoResult->timeout == "timed_out") {
                                 $flightstatus = "L";

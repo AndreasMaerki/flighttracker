@@ -3,12 +3,20 @@
 include_once ("controller/Controller.php");
 include_once ("controller/SearchController.php");
 include_once ("view/airportView/AirportView.php");
+include_once ("{$_SERVER['DOCUMENT_ROOT']}/controller/SearchController.php");
 include_once ("model/Airport.php");
 
 class AirportController extends Controller {
-    private $searcherController;
+
+    private $searchController;
+    private $clickedItem;
+    private $airport;
+    private $airportPictures;
+    private $countries;
+    private $countryStringArray;
+
     function __construct() {
-        $this->$searcherController = new SearchController();
+        $this->searchController = new SearchController();
     }
 
     protected function index() {
@@ -20,44 +28,53 @@ class AirportController extends Controller {
     }
 
     protected function init() {
-
-
-        $country = $this->getCountry();
-
-        $view = new AirportView($country, null, null);
+        $this->countryStringArray = array();
+        $this->countries = $this->searchController->getAllCountrys();
+        foreach ($this->countries as $countryOb) {
+            array_push($this->countryStringArray, $countryOb->getName());
+        }
+        $view = new AirportView($this->countryStringArray, null, null, null, null, null);
         $view->display();
     }
 
     protected function create() {
 
         // Searchcontroller request
-        $airports = $this->searcherController->getAirportsFromACountry($_POST['airportSearch']
-        );
+        $this->countryStringArray = array();
+        $airports = $this->searchController->getAirportsFromACountry($_POST['airportSearch']);
+        $this->countries = $this->searchController->getAllCountrys();
+        $airportCodes = array();
+        $airportCoutry = array();
+        $airportPic = array();
+        foreach ($this->countries as $countryOb) {
+            array_push($this->countryStringArray, $countryOb->getName());
+        }
+        if (count($airports) > 0) {
+            $airportStringArray = array();
+            foreach ($airports as $airportOb) {
+                array_push($airportStringArray, $airportOb->getName());
+                array_push($airportCodes, $airportOb->getCode());
+                array_push($airportCoutry, $airportOb->getCountry()->getName());
+                array_push($airportPic, $airportOb->getImage());
+            }
+            for ($i = 0; $i < count($airportPic); $i++) {
+            if (!$airportPic[$i]) {
+                $airportPic[$i] = "images/airport/default2.jpg";
+            }
+        }
+            $view = new AirportView($this->countryStringArray, 
+                    $airportStringArray, 
+                    $airportCodes,
+                    $airportCoutry,
+                    $airportPic, 
+                    $airports);
 
-        // test if $flightsArrival is not empty
-        $amount = count($airports);
-        if ($amount > 0) {
-            echo "im Airport list";
-            $view = new AirportView($this->getCountry(), $amount, $airports);
             $view->display();
         }
     }
 
     protected function getCountry() {
-        $country = Array();
-
-        mysql_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD) or die(mysql_error());
-        mysql_select_db('myFis');
-
-        $req = "SELECT DISTINCT apo_country "
-                . "FROM fis_airport";
-
-        $query = mysql_query($req);
-
-
-        while ($row = mysql_fetch_array($query)) {
-            $country[] = $row[apo_country];
-        }
+        $country = $this->searchController->getAllCountrys();
         return $country;
     }
 

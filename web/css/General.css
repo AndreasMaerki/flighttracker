@@ -54,7 +54,7 @@ h1 small {
 }
 
 #content p {
-/*    font:14px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;*/
+    /*    font:14px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;*/
     color:#333;
     line-height:18px;
     margin:15px auto;
@@ -101,10 +101,7 @@ h1 small {
     background-image:-moz-linear-gradient(center bottom,#205361 0%,#316f85 50%,#48859f 51%,#4e89ac 100%);
     /* Fallback */
     background-color:#3a5c6b;
-    /* inset box shadow */
-    -moz-box-shadow:inset 0 0 3px 3px #35525f;
-    -webkit-box-shadow:inset 0 0 3px 3px #35525f;
-    box-shadow:inset 0 0 3px 3px #35525f;
+
 }
 
 /* user clicks the button*/
@@ -114,9 +111,9 @@ h1 small {
     /* Fallback */
     background-color:#244655;
     /* inset box shadow */
-    -moz-box-shadow:inset 0 1px 2px 2px #000;
-    -webkit-box-shadow:inset 0 1px 2px 2px #000;
-    box-shadow:inset 0 1px 2px 2px #000;
+    -moz-box-shadow:inset 0 0 3px 3px #35525f;
+    -webkit-box-shadow:inset 0 0 3px 3px #35525f;
+    box-shadow:inset 0 0 3px 3px #35525f;
 }
 
 #navigationBar li a {
@@ -152,23 +149,13 @@ h1 small {
     width:160px;
 }
 
-to {
-    opacity:1;
-}
-
-#navigationBar {
-    -webkit-animation:showMenu 1s;
-    position:relative;
-}
-
-#navigationBar form input:focus {
-    width:140px;
-}
-
 .selected{
     background-image:-webkit-gradient(linear,left bottom,left top,color-stop(0,#1a444e),color-stop(0.5,#275c6f),color-stop(0.51,#407287),color-stop(1,#497690));
     background-image:-moz-linear-gradient(center bottom,#1a444e 0%,#275c6f 50%,#407287 51%,#497690 100%);
     background-color:#244655;
+    -moz-box-shadow:inset 0 0 3px 3px #35525f;
+    -webkit-box-shadow:inset 0 0 3px 3px #35525f;
+    box-shadow:inset 0 0 3px 3px #35525f;
 }
 
 
@@ -207,7 +194,23 @@ to {
     box-shadow:0 2px 2px #8b8b8b;
     z-index:5;
 }
+/*NEXT FLIGHTS PAGE BUTTONS*/
+#NextFlightsPageButtons{
+    list-style:none;
+}
 
+#NextFlightsPageButtons li{
+    float: left;
+    padding-left: 10px;
+}
+#NextFlightsPageButtons li a {
+    color:black;
+    text-decoration:none;
+    text-align:center;
+    display:block;
+    line-height:24px;
+    outline:none;
+}
 /* STYLING OF THE FLIGHT TABLES */
 #AirportDetails {
     float:left;
@@ -263,9 +266,9 @@ thead.fixedHeader tr {
 #arrivalsTable thead {
     background-color:whitesmoke;
     border-bottom:2px solid #fff;
-    
+
 }
-    
+
 
 #departuresTable thead {
     background-color:whitesmoke;

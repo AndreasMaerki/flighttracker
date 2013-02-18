@@ -21,57 +21,51 @@ class NextFlightsController extends Controller {
         echo "show not implemented";
     }
 
+        /**
+     *
+     * Gibt weitere flüge an mit dem gewähltem offset
+     *  
+     */
     protected function init() {
-
         $searchController = new SearchController();
 
-        for ($i = 1; $i < 10; $i++) {
-            if ($_GET["Page"] == $i) {
-                $searchController->setOffset($i * 10);
-                echo $i * 10 . NextFlightsController::$searchFROMAirport;
-            }
-        }
-
-
-        $arrivingFlights = $searchController->searchArrivingFlightsfromHomeView("", NextFlightsController::$searchFROMAirport, NextFlightsController::$searchTOAirport, 10);
-
-        $amount = count($arrivingFlights);
-        if ($amount > 0) {
-            echo "im fagg if";
-            $view = new NextFlightsView($arrivingFlights, $departingFlights);
+        // neue anfrage mit offset / 10 Einträge
+        $arrivingFlights = $searchController->searchArrivingFlightsfromHomeView(
+                "", $_GET["Airport"], $_GET["offset"]);
+        
+        $departingFlights = $searchController->searchDepartFlightsfromHomeView(
+                 "", $_GET["Airport"], $_GET["offset"]);
+        
+       // $amount = count($arrivingFlights);
+        if (!empty($arrivingFlights) || !empty($departingFlights)) {      
+            $view = new NextFlightsView($arrivingFlights, $departingFlights, $_GET["Airport"]);
             $view->display();
         } else {
-            echo "Sorry, no flights for Airport man <b>" . NextFlightsController::$searchFROMAirport . "</b> found!";
+            echo "Sorry, no flights for Airport <b>" . $_GET["Airport"] . "</b> found!";
         }
-
-        //$this->create();
     }
-
+    
     protected function create() {
-        //echo"NextFlightsController create not implemented";
         // create instace of SearchController and send the searchstring to the apropriate method
-        $searcherController = new SearchController();
-        self::$searchFROMAirport = $_POST['airportFromField'];
-        self::$searchTOAirport = $_POST['airportToField'];
+        $searchController = new SearchController();
 
-        echo NextFlightsController::$searchFROMAirport;
-        echo "sjdfhkjsdhfkjdhfkjdf_fuck";
+        // erste Anfrage mit den ersten 10 Einträgen
+        $arrivingFlights = $searchController->searchArrivingFlightsfromHomeView
+                ($_POST['aircraftField'], $_POST['airportField'], "0");
+   
+        $departingFlights = $searchController->searchDepartFlightsfromHomeView
+                ($_POST['aircraftField'], $_POST['airportField'], "0");
 
-
-        $arrivingFlights = $searcherController->searchArrivingFlightsfromHomeView($_POST['aircraftField'], $_POST['airportToField'], $_POST['airportFromField'], $_POST['filter']);
-
-        // do the same for departing flights here. replace the current method call with the right one        
-        $departingFlights = $searcherController->searchArrivingFlightsfromHomeView($_POST['aircraftField'], $_POST['airportToField'], $_POST['airportFromField'], $_POST['filter']);
-        // test if $flightsArrival is not empty
-        $amount = count($arrivingFlights);
-        if ($amount > 0) {
-            echo "im if";
-            $view = new NextFlightsView($arrivingFlights, $departingFlights);
+       // $amount = count($arrivingFlights);
+        if (!empty($arrivingFlights) || !empty($departingFlights)){
+            //echo $_POST['airportField'];
+            $view = new NextFlightsView($arrivingFlights, $departingFlights, $_POST['airportField']);
             $view->display();
         } else {
-            echo "Sorry, no flights for Airport <b>" . $airport . $_POST['airportFromField'] . "</b> found!";
+            echo "Sorry, no flights for Airport <b>" . $airport . $_POST['airportField'] . "</b> found!";
         }
     }
+
 
     public function float() {
         echo"float not implemented";

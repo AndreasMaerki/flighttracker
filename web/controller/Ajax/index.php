@@ -5,8 +5,10 @@ include_once "{$_SERVER['DOCUMENT_ROOT']}/config/config.php"; //sonst wird das r
 include_once "{$_SERVER['DOCUMENT_ROOT']}/controller/AirlineController.php";
 
 $clickedItem = $_POST["fname"];
-print_r($_POST);
-echo $clickedItem."sfvsdfasfa";
+$test = $_GET["fname"];
+
+
+echo $clickedItem." ---- ".$test;
 echo "<div id = \"hans\"></div>";
 
 $controller = new AirlineController();

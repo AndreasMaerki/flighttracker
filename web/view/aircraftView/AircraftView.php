@@ -10,11 +10,15 @@ class AircraftView extends View {
     private $pages;
     private $aircraftsOnThisPage;
     private $aircraftCodesOnThisPage;
+    private $acrPic;
+    private $aircraftManufacturer;
+    private $aircraft;
 
-    function __construct($acrCode, $aircraftName, $pages) {
+    function __construct($acrCode, $aircraftName, $pages, $aircraft) {
         $this->acrCode = $acrCode;
         $this->aircraftName = $aircraftName;
         $this->pages = $pages;
+        $this->aircraft = $aircraft;
     }
 
   
@@ -22,15 +26,14 @@ class AircraftView extends View {
 public function display(){
     
         $aircraftViewURI = URI_AIRCRAFTS;
+        echo "<form action={$aircraftViewURI} method=\"POST\">";
         echo "<h2>Check out details on Aircraft types:</h2>\n";
         echo "<div id =\"selectionBarContainer\">";
         echo "<label for=\"countrySearch\">Select AircraftTyp</label>\n";
-        echo "<select type=\"search\" action=\"{$aircraftViewURI}\" 
-            method=\"POST\" class=\"airportSearchField\" name=\"countrySearch\" size=\"1\">\n";
+        echo "<select type=\"search\" class=\"airportSearchField\" name=\"aircraftSearch\" size=\"1\">\n";
 
        for($i=0; $i < count($this->acrCode); $i++){
-          echo "<option>" . "(" .utf8_encode($this->acrCode[$i]) . 
-                ") " . utf8_encode($this->aircraftName[$i])
+          echo "<option>" . ($this->acrCode[$i]) 
                   . "</option>";         
        }
                
@@ -59,27 +62,62 @@ public function display(){
         echo "</div>\n";
 
 
+        $current_aircraft;
+        
 //            display of the results from here
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < count($this->aircraftCodesOnThisPage); $i++) {
+   
+            foreach($this->aircraft as $element)
+            {
+                if ($element->getCode() == $this->aircraftCodesOnThisPage[$i]) {
+                    $current_aircraft = $element;
+                }
+            }
+            $image = $current_aircraft->getImage();
+            
+            if ($image == "") {
+                $image = "/images/aircraft/default.jpg";
+            }
+            $description = str_replace("'","",$current_aircraft->getDescription());
+           
+            //script responsible for the popups when user clicks on a specific icon
             echo <<<AIRCRAFTS
-		<div id="entries">
-                    <a class="entry" id = "aircraftEntry" href="">
-                        <div class="image">
-                                <img src="../../images/Planes/PlanesSmall/s_airberlin_a330_1.jpg" 
-                                alt="s_airberlin_a330_1" >
-                        </div>
+            <script type="text/javascript">  
+            function example_popup{$i}() {  
 
+            var w = window.open('', '', 'width=500,height=600,resizeable,scrollbars');  
+
+            w.document.write('<h2>{$current_aircraft->getCode()} - {$current_aircraft->getName()}</h2><br>'
+                             + '<img src=\"{$image}\"><br><br><br>'
+                             + '<b>Beschreibung:</b><br>{$description}<br><br>'
+                             + '<b>Gewicht:</b> {$current_aircraft->getWeight()}<br>'
+                             + '<b>Maximale Passagierzahl:</b> {$current_aircraft->getMaxpassengers()}<br>'
+                             + '<b>Maximale Geschwindigkeit:</b> {$current_aircraft->getMaxspeed()}<br>'
+                             + '<b>Maximale Distanz:</b> {$current_aircraft->getMaxtraveldist()}<br>'
+                             + '<b>Businessclass:</b> {$current_aircraft->getHasbusinessclass()}<br>'
+                             + '<b>Firstclass:</b> {$current_aircraft->getHasfirstclass()}<br><br><br>' 
+                             + '<a href=\"javascript:window.close()\">Schliessen</a>');
+            w.document.close();
+
+            }  
+
+            </script>
+            
+   
+		<div id="entries">
+                    <a class="entry" id="aircraftEntry" href="javascript:example_popup{$i}()">
+                        <div class="image">
+                                <img src="{$image}" 
+                                alt="{$this->acrPic[$i]}" >
+                        </div>
                         <div class="e-right">
                             <div class="title">
-                                Type:
+                                Type: {$this->aircraftCodesOnThisPage[$i]}
                             </div>
                             <div class="infoText">
-                                Manufaturer:
+                                Manufaturer:{$this->aircraftManufacturer[$i]}
                             </div>
 
-                            <div class="fabricator">
-                                Click for large image!
-                            </div>
                         </div>
                         <div class="clear"></div>
                    
@@ -89,9 +127,6 @@ AIRCRAFTS;
         }//end for
         echo '<div class="clear"></div>';
     
-        foreach ($this->aircraftsOnThisPage as $key => $value) {
-            echo "$value";
-        }
         
     }//end display
 
@@ -101,6 +136,12 @@ AIRCRAFTS;
 
     public function setAircraftCodesOnThisPage($airlineCodesOnThisPage) {
         $this->aircraftCodesOnThisPage = $airlineCodesOnThisPage;
+    }
+    public function setAircraftPicOnThisPage($acrPic){
+        $this->acrPic = $acrPic;
+    }
+    public function setAircraftManufacturer($aircraftManufacturer){
+        $this->aircraftManufacturer = $aircraftManufacturer;
     }
 
 }

@@ -39,23 +39,33 @@ abstract class Controller {
                 // Flight Details
                 if (preg_match("/\bFlightDetailView\b/i", $_SERVER['REQUEST_URI'])) {
                     $this->showFlightdetails();
+
                     break;
                 } else if (preg_match("/\bAirplaneDetails\b/i", $_SERVER['REQUEST_URI'])) {
                     $this->showFloat();
                 } elseif (preg_match("/\bAirportDetails\b/i", $_SERVER['REQUEST_URI'])) {
                     $this->showFloat();
-                } elseif (preg_match("/\bAirlineDetails\b/i", $_SERVER['REQUEST_URI'])) {
-                    $this->showFloat();
+                } elseif (preg_match("/\btrack\b/i", $_SERVER['REQUEST_URI'])) {
+                    if (isset($_GET['flightnumber'])) {
+                       $this->create(); 
+                       break;
+                    }
+                    else
+                    {
+                       $this->init(); 
+                    }
                 } else {
+
                     $this->init();
                     break;
                 }
 
             case 'POST':// store the submitted user data in case of post
                 $this->create();
+
                 break;
             default:
-                break;
+                
         }
     }
 
