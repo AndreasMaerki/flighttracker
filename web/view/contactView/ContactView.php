@@ -39,7 +39,7 @@ class ContactView extends View {
                 <input type="hidden" name="contact" value="1">
             <input class ="button"type="submit" name="contactform_submit" value="Submit">
             </fieldset>
-        </form>
+        </form>\n
 FORM;
 	}
 

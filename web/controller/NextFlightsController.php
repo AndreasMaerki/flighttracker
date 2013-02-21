@@ -12,16 +12,7 @@ class NextFlightsController extends Controller {
     public static $searchTOAirport = "fagg";
     private $flightXML;
 
-    protected function index() {
-
-        echo "please search a Airport";
-    }
-
-    protected function show() {
-        echo "show not implemented";
-    }
-
-        /**
+     /**
      *
      * Gibt weitere flüge an mit dem gewähltem offset
      *  
@@ -65,12 +56,6 @@ class NextFlightsController extends Controller {
             echo "Sorry, no flights for Airport <b>" . $airport . $_POST['airportField'] . "</b> found!";
         }
     }
-
-
-    public function float() {
-        echo"float not implemented";
-    }
-
 }
 
 ?>

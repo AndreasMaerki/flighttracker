@@ -30,21 +30,21 @@ class AirlineView extends View {
 
     public function display() {
         $airlineUri = URI_AIRLINES;
-        echo "<h2>Check out details on Airlines:</h2>";
-        echo "<div id =\"selectionBarContainer\">";
-        echo "<form action={$airlineUri} method=\"POST\">";
-        echo "<label for=\"countrySearch\">Select Airline</label>";
-        echo "<select type=\"search\" class=\"airportSearchField\" name=\"airlineSearch\" size=\"1\">";
+        echo "<h2>Check out details on Airlines:</h2>\n";
+        echo "<div id =\"selectionBarContainer\">\n";
+        echo "<form action={$airlineUri} method=\"POST\">\n";
+        echo "<label for=\"countrySearch\">Select Airline</label>\n";
+        echo "<select type=\"search\" class=\"airportSearchField\" name=\"airlineSearch\" size=\"1\">\n";
         for ($i = 0; $i < count($this->airline); $i++) {
-            echo "<option>". utf8_encode($this->airline[$i]). "</option>";
+            echo "<option>". utf8_encode($this->airline[$i]). "</option>\n";
         }// end for
 
         echo "</select>\n";
         echo "<div class=\"searchField\">\n";
         echo "<input class=\"button\" type=\"submit\" name=\"Search\" value=\"find\">\n";
         echo "</div>\n";
-        echo "</div>";
-        echo "</form>";
+        echo "</div>\n";
+        echo "</form>\n";
 
         //subpages
         echo "<div class= \"littleLinkBoxContainer\">\n";
@@ -54,23 +54,21 @@ class AirlineView extends View {
                   </div>\n";
         }
         echo "</div>\n";
-        echo "<div id=\"entries\">";
+        echo "<div id=\"entries\">\n";
         
         for ($i=0;$i<count($this->airlinesOnThisPage);$i++){
- 
-           
-            foreach($this->airlineObject as $element)
-            {
+            
+            foreach($this->airlineObject as $element){
                 if ($element->getName() == $this->airlinesOnThisPage[$i]) {
                     $current_airline = $element;
                 }
             }
+            if (isset($current_airline)) {
             $image = $current_airline->getImage();
             
             if ($image == "") {
                 $image = "/images/airline/default2.jpg";
             }
-            
 
             if ($image[0] != "/") {
                 $image = "/".$image;
@@ -115,18 +113,17 @@ class AirlineView extends View {
                         <div class="image">
                               <img id= "{$this->airlineCodesOnThisPage[$i]}" src="{$image}" alt="{$this->airlinesOnThisPage[$i]}" >
                                   <div class="clear"></div>
-                                 <p> {$this->airlinesOnThisPage[$i]}</p>
+                                  <p> {$this->airlinesOnThisPage[$i]}</p>
                         </div>
-                    </a>
+                    </a>\n
 AIRLINES;
+            }//end if
         }//end for
         echo "</div>\n";
 
         
         echo '<div class="clear"></div>';
-    }
-
-//end method
+    }//end method
 
     public function setAirports($airports) {
         $this->airports = $airports;
@@ -147,10 +144,8 @@ AIRLINES;
         $this->airlineCodesOnThisPage = $airlineCodesOnThisPage;
     }
     public function setRequesteddetailView($requesteddetailView){
-        $this->requesteddetailView = $requesteddetailView;
-        
+        $this->requesteddetailView = $requesteddetailView;   
     }
-
     public function getCurrentPage() {
         return $this->currentPage;
     }

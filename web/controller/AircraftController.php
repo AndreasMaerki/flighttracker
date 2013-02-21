@@ -19,30 +19,21 @@ class AircraftController extends Controller {
     function __construct() {
         $this->searchController = new SearchController();
     }
-
+    //initialisation of the page 
     protected function init() {
         $desiredEntriesPerPage = 30;
         $allAircrafts = $this->searchController->getAllAircrafts();
-        
 
         foreach ($allAircrafts as $aircraftOb) {
-            
             $image = $aircraftOb->getImage();
-            
-            if ($image == "")
-            {
-               $image = "/images/aircraft/default.jpg";
+            if ($image == "") {//if no image in db, get the default image.
+                $image = "/images/aircraft/default.jpg";
             }
-//echo "<pre>";
-//print_r($aircraftOb);
-//echo "</pre>";
             array_push($this->aircraftName, $aircraftOb->getName());
             array_push($this->manufacturer, $aircraftOb->getAircraftManufacturer()->getName());
             array_push($this->acrCode, $aircraftOb->getCode());
             array_push($this->acrImage, $image);
         }
-
-
 
         $pages = count($this->aircraftName) / $desiredEntriesPerPage + 1;
         //the constructor parameters are used to fill the searchfield. they are not responsible for the display
@@ -61,28 +52,28 @@ class AircraftController extends Controller {
         $view->display();
     }
 
-    protected function index() {
-        echo "SearchController index not implemented jet";
-    }
 
-    protected function show() {
-        echo"SearchController show not implemented jet";
-    }
 
+    /**
+     * create is called after the user has submitted a search string.
+     * it sends the query string to the SearchController wich fetches the
+     * requiered data from the database.
+     */
     protected function create() {
+        //for the rebuild of the selection list. This is not a optimal solution.
+        //swapping the content of the page would be more elegant
         $allAircrafts = $this->searchController->getAllAircrafts();
-
         foreach ($allAircrafts as $aircraftOb) {
             array_push($this->aircraftName, $aircraftOb->getName());
             array_push($this->manufacturer, $aircraftOb->getAircraftManufacturer()->getName());
             array_push($this->acrCode, $aircraftOb->getCode());
             array_push($this->acrImage, $aircraftOb->getImage());
         }
-        
+
         $aircraft_code = trim($_POST['aircraftSearch']);
-        
+
         $aircraft = $this->searchController->getAircraft($aircraft_code);
-        
+
 
         if (!empty($aircraft)) {
             $aircraftCode[] = $aircraft[0]->getCode();
@@ -96,10 +87,6 @@ class AircraftController extends Controller {
             $view->setAircraftManufacturer($aircraftMan);
             $view->display();
         }
-    }
-
-    public function float() {
-        echo"float not implemented";
     }
 
 }

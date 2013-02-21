@@ -22,19 +22,11 @@ class TrackView extends View {
         $trackerURI = URI_TRACK;
         
         echo "<div id=\"selectionBarContainer\">
-        <form name=\"FlighTracker\" action={$trackerURI} method=\"POST\">
-
-      
-        
-        
+        <form name=\"FlighTracker\" action={$trackerURI} method=\"POST\">        
         <label for=\"aircraftField:\">Flight Nr.:</label>
         <input type=\"search\" id=\"aircraftNrField\" name=\"flightnumber\">
-        
-
-        
         <input class =\"button\"  id=\"submitButton33\" type=\"submit\" name=\"search\"  value=\"find\">
         </form></div>";
-     
     }
     
     public function display() {
@@ -97,7 +89,6 @@ class TrackView extends View {
     <div id="map_canvas" style="width:980px; height:500px"></div>
 
     <?php
-
     }
 	
 }

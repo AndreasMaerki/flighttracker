@@ -66,15 +66,15 @@ AIRPORTDETAILS;
             echo "<li><a href=\"
            {$nextFlightsURI}?offset={$offsetNumber}&Airport={$this->airport}\">Page {$pageNumber}</a></li>\n";
         }
-        echo "<ul>";
-        echo "<div class = \"clear\"</div>";
+        echo "<ul>\n";
+        echo "<div class = \"clear\"</div>\n";
         $this->nextArrivals();
         $this->nextDepartures();
     }
 
     private function nextArrivals() {
 
-        echo "<div id=\"arrivalsContainer\">";
+        echo "<div id=\"arrivalsContainer\">\n";
         echo "<h3 class= \"tableDescription\">Next arivivals:</h3>\n";
         echo <<<TABLEHEADER
 				<div id="tableContainer" class="tableContainer">
@@ -201,9 +201,7 @@ TABLEHEADER;
         
         echo "</tbody>\n";
         echo "</table>\n";
-        echo "</div>\n"; //close the tableContainer
         echo "</div>\n";
-    }
-
-//end method 
+        echo "</div>\n";
+    }//end method 
 }

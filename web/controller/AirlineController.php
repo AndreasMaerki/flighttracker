@@ -20,10 +20,6 @@ class AirlineController extends Controller {
         $this->searchController = new SearchController();
     }
 
-    protected function index() {
-        
-    }
-
     protected function init() {
 
         // arrays needed to sort out the relevant airlines on a specific sub-page
@@ -44,9 +40,6 @@ class AirlineController extends Controller {
             }
         }
 
-
-        //al name and code
-
         $pages = count($this->airline) / $desiredEntriesPerPage + 1;
         //the constructor parameters are used to fill the searchfield. they are not responsible for the display
         $view = new AirlineView($this->airline, $this->airlineCode, $pages, $this->airlines);
@@ -62,6 +55,11 @@ class AirlineController extends Controller {
         $view->display();
     }
 
+    /**
+     * create is called after the user has submitted a search string.
+     * it sends the query string to the SearchController wich fetches the
+     * requiered data from the database.
+     */
     protected function create() {
         $this->airlineCode = array();
         $this->airline = array();
@@ -90,17 +88,6 @@ class AirlineController extends Controller {
 
     public function setKlickedItem($param) {
         $this->clickedItem = $param;
-    }
-
-    public function float() {
-//        $view = new AirlineDetailView($this->clickedItem);
-//        $param = $_SERVER['REQUEST_URI'];
-//        $view->setAirport($param);
-//        $view->display();
-    }
-
-    protected function show() {
-        
     }
 
 }

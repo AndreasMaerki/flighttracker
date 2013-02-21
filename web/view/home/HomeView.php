@@ -20,36 +20,24 @@ class HomeView extends View {
         
         echo "<div id=\"homeForm\">\n";
         echo "<form name=\"Form2000\" onsubmit=\"return chkFormular();\" action={$nextFlightsURI} method=\"POST\">\n";
-
-        // Flugzeugnummer suche
         
         echo "<div class=\"homeFormCenter\">\n";
         echo "<label for=\"aircraftField:\">Flight Nr.:</label>\n";
         echo "<input type=\"search\" id=\"aircraftNrField\" name=\"aircraftField\">\n";
         echo "</div>\n";
-        //echo "<\div id=\"1\">";
-        //echo "<div id=\"2\">\n";
-        // 
-        // Flughafensuche
+        
         echo "<div class=\"homeFormCenter\">\n";
         echo "<label for=\"airportField\:\">Airport:</label>\n";
         echo "<input type=\"search\" class=\"airportField\" name=\"airportField\">\n";
-        //echo "<label for=\"arrivalDateField\">Arrival Date:</label>\n";
-        //echo "<input type=\"search\" class=\"dateField\" name=\"arrivalDateField\">\n";
         echo "</div>\n";
-
 
         // Filter
         echo "<div class=\"homeFormBelow\">\n";      
-        
 
-        // Button Find
+        // Button find
         echo "<input class =\"button\"  id=\"submitButton33\" type=\"submit\" name=\"search\"  value=\"find\">\n";
         echo "</form>\n</div>\n";
         echo "</div>\n";
-        //echo "</div>\n";
-
-      
         echo "<br>\n";
         echo "<br>\n";
     }

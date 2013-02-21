@@ -19,14 +19,6 @@ class AirportController extends Controller {
         $this->searchController = new SearchController();
     }
 
-    protected function index() {
-        
-    }
-
-    protected function show() {
-        echo " show not implemented";
-    }
-
     protected function init() {
         $this->countryStringArray = array();
         $this->countries = $this->searchController->getAllCountrys();
@@ -37,6 +29,11 @@ class AirportController extends Controller {
         $view->display();
     }
 
+    /**
+     * create is called after the user has submitted a search string.
+     * it sends the query string to the SearchController wich fetches the
+     * requiered data from the database.
+     */
     protected function create() {
 
         // Searchcontroller request
@@ -76,10 +73,6 @@ class AirportController extends Controller {
     protected function getCountry() {
         $country = $this->searchController->getAllCountrys();
         return $country;
-    }
-
-    public function float() {
-        echo"float not implemented";
     }
 
 }

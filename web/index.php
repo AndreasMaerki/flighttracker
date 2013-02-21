@@ -1,8 +1,7 @@
 <!DOCTYPE HTML>
 <?php
-include_once 'config/config.php'; // alle konstanten sind im config file definiert
+include_once 'config/config.php'; // all constants defined in the config file
 
-//include_once "{$_SERVER['DOCUMENT_ROOT']}/model/MainModel.php";
 include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Aircraft.php";
 include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Airline.php";
 include_once "{$_SERVER['DOCUMENT_ROOT']}/model/Airport.php";
@@ -19,16 +18,12 @@ include_once "{$_SERVER['DOCUMENT_ROOT']}/model/FlightStatus.php";
         <meta name="author" content="Andreas Maerki">
         <meta charset="utf-8">
         <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-
-
-
-
+        
         <script src="/js/vendor/jquery-1.9.0.js"></script>
         <script src="/js/vendor/jquery-ui.js"></script>
         <script src="/js/formular.js"></script>
 
-
-
+        <!-- all css have to be combined and minified before release -->
         <title>Flighttracker Home</title>
         <link rel="stylesheet" type="text/css" href="/css/normalize.css">
         <link rel="stylesheet" type="text/css" href="/css/General.css">
@@ -56,7 +51,7 @@ include_once "{$_SERVER['DOCUMENT_ROOT']}/model/FlightStatus.php";
                         <?php
                         $currentUri = getCurrentURI();
                         foreach (getMenu() as $href => $title) { //getMenu() returns array
-                            //if URI= the the menuitem add it to the class selected to style it differently, else class is empty
+                            //if URI= menuitem add it to the class selected to style it differently, else class is empty
                             echo "<li><a href=\"$href\" " . (($href == $currentUri) ? "class=\"selected\" " : "") . ">$title</a></li>\n";
                         }
                         ?>
@@ -76,19 +71,16 @@ include_once "{$_SERVER['DOCUMENT_ROOT']}/model/FlightStatus.php";
                         case URI_CONTACT:
                             include_once 'controller/ContactController.php';
                             $controller = new ContactController();
-                            //echo "<p>contact controller not implementet </p>";
                             break;
                         case URI_NEXT_FLIGHTS:
                             include_once 'controller/NextFlightsController.php';
                             $controller = new NextFlightsController();
-                            //echo "<p>case SearchController called in index</p>";
                             break;
                         case URI_AIRLINES:
                             include_once('controller/AirlineController.php');
                             $controller = new AirlineController();
-                            //echo "<p>case AirlineController called in index</p>";
                             break;
-                        case URI_AIRLINE_DETAILS:
+                        case URI_AIRLINE_DETAILS://not in use: remove or implement before release!
                             include_once('controller/FloatController.php');
                             $controller = new FloatController();
                             $controller->setFloatId(FLOAT_ID_AIRLINE);
@@ -97,7 +89,7 @@ include_once "{$_SERVER['DOCUMENT_ROOT']}/model/FlightStatus.php";
                             include_once('controller/AirportController.php');
                             $controller = new AirportController();
                             break;
-                        case URI_AIRPORT_DETAILS:
+                        case URI_AIRPORT_DETAILS://not in use: remove or implement before release!
                             include_once('controller/FloatController.php');
                             $controller = new FloatController();
                             $controller->setFloatId(FLOAT_ID_AIRPORT);
@@ -106,7 +98,7 @@ include_once "{$_SERVER['DOCUMENT_ROOT']}/model/FlightStatus.php";
                             include_once('controller/AircraftController.php');
                             $controller = new AircraftController();
                             break;
-                        case URI_AIRCRAFT_DETAILS:
+                        case URI_AIRCRAFT_DETAILS://not in use: remove or implement before release!
                             include_once('controller/FloatController.php');
                             $controller = new FloatController();
                             $controller->setFloatId(FLOAT_ID_AIRCRAFT);
@@ -143,7 +135,9 @@ include_once "{$_SERVER['DOCUMENT_ROOT']}/model/FlightStatus.php";
                         );
                     }
                     /*
-                     * @retuen all possible URIs must be returned with this array
+                     * @retuen all URIs 
+                     *all URIs defined in config.php must be returned with this array for the
+                     *navigation to work propperly
                      */
                     function getURIs() {
                         return array(
@@ -168,7 +162,7 @@ include_once "{$_SERVER['DOCUMENT_ROOT']}/model/FlightStatus.php";
                      */
                     function getCurrentURI() {
                         $menu = getURIs();
-                        if (array_key_exists($_SERVER['REQUEST_URI'], $menu)) {//if requested uri is content of $menu
+                        if (array_key_exists($_SERVER['REQUEST_URI'], $menu)) {//if requested uri is content of $getURIs
                             return $_SERVER['REQUEST_URI'];
                         } else {
                             foreach (array_keys(getURIs()) as $href) {

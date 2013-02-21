@@ -32,24 +32,14 @@ class HomeController extends Controller{
 		$view = new FlightDetailView($flightNumber);
 		$view->display();
 	}
-
-	protected function index(){
-	/*
-	$view = new HomeView();
-		$view->display();
-*/
-echo "HomeController index not implemented";
-	}
-
-
+        /**
+     * create is called after the user has submitted a search string.
+     * it sends the query string to the SearchController wich fetches the
+     * requiered data from the database.
+     */
 	protected function create(){
 		echo"HomeController create not implemented jet";
 
 	}
-        public function float() {
-        echo"float not implemented";
-    }
-
-
 
 }

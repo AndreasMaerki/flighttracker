@@ -8,12 +8,6 @@
 abstract class Controller {
 
     /**
-     * index reads collection data from model
-     * and assigns values to dedicated view template
-     */
-    abstract protected function index();
-
-    /**
      * init creates a new empty instance of the resource
      */
     abstract protected function init();
@@ -22,11 +16,6 @@ abstract class Controller {
      * create validates and stores sent user data of a newly created resource
      */
     abstract protected function create();
-    /*
-     * some Pages create a flow view to display detailed content on a specific resouce
-     */
-
-    abstract public function float();
 
     /* route is controlling all the routing on page 
      * except for the subrouting on some more komplex pages with subviews */

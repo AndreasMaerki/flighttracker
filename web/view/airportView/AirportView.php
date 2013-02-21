@@ -4,7 +4,7 @@ include_once "{$_SERVER['DOCUMENT_ROOT']}/view/view.php";
 include_once "{$_SERVER['DOCUMENT_ROOT']}/config/config.php";
 /**
  * Description of AirportVeiw
- * displayes airports in small klickable divs, and includes some informations 
+ * displayes airports in small klickable divs and includes some informations 
  * about it
  *
  * @author Andreas Maerki, Mathias Cuel, Philipe Rothen, Marc Hangartner
@@ -39,26 +39,24 @@ class AirportView extends View {
 
     public function display() {
         $airportsUri = URI_AIRPORTS;
-        echo "<h2>Check out details on Airports:</h2>";
-        echo "<div id =\"selectionBarContainer\">";
+        echo "<h2>Check out details on Airports:</h2>\n";
+        echo "<div id =\"selectionBarContainer\">\n";
 
 
         // searchform 
-        echo "<form action={$airportsUri} method=\"POST\">";
-        echo "<label for=\"countrySearch\">Select Country</label>";
-        echo "<select type=\"search\"  class=\"airportSearchField\" name=\"airportSearch\" size=\"1\">";
+        echo "<form action={$airportsUri} method=\"POST\">\n";
+        echo "<label for=\"countrySearch\">Select Country</label>\n";
+        echo "<select type=\"search\"  class=\"airportSearchField\" name=\"airportSearch\" size=\"1\">\n";
         for ($i = 0; $i < count($this->countryList); $i++) {
-            echo "<option>" . ($this->countryList[$i]) . "</option>";
+            echo "<option>" . ($this->countryList[$i]) . "</option>\n";
         }
-        echo "</select>";
+        echo "</select>\n";
         echo "<input class=\"button\" type=\"submit\" methode=\"POST\" name=\"airlineSearchbutton\" value=\"find\">\n";
-        echo "</form>";
+        echo "</form>\n";
         echo "</div>\n";
 
-        echo "<div id=\"entries\">";
-        /**
-         * iterates thru the entries and generates a image  
-         */
+        echo "<div id=\"entries\">\n";
+        
         for ($i = 0; $i < count($this->airports); $i++) {
             
             foreach($this->airportObject as $element)
@@ -67,13 +65,12 @@ class AirportView extends View {
                     $current_airport = $element;
                 }
             }
+            if(isset($current_airport)){
             $image = $current_airport->getImage();
-            
+            // f no image is set load default image instead
             if ($image == "") {
                 $image = "/images/airport/default2.jpg";
             }
-            
-
             if ($image[0] != "/") {
                 $image = "/".$image;
             }
@@ -120,21 +117,17 @@ class AirportView extends View {
                         </div>
                     </a>\n
 AIRPORTS;
+            }
         }//end for
         echo "</div>\n";
         echo "<div class=\"clear\"></div>\n";
 
 
         if ($this->airports) {
-            foreach ($this->airports as $value) {
-                //paste your hmtl code here Phil!!
-            }
         } else if ($this->airportNotFound) {
             echo "<div class = \"errorMessage\"> Sorry, Airport <b>" . $this->airportNotFound . "</b>not found!</div>\n";
         }
-    }
-
-//end method
+    }//end method
 
     public function setAirports($airports) {
         $this->airports = $airports;

@@ -9,9 +9,7 @@ class FlightDetailView extends View{
 		$this->flightnumber = $flightnumber;
 	}
 
-	// where can i request the flight?
-
-	public function display() {//getImage is not jet implemented in Flight class
+	public function display() {
 		if ($flight){
 			echo "<div class=\"airplane-details\">\n";
 			echo "<p><img id= \"detailViewImage\" src=\"/resources/{$flight->getImage()}\" alt=\"{$flight->getName()}\" /></p>\n";
@@ -25,7 +23,7 @@ class FlightDetailView extends View{
 			echo "</div>\n";
 		}else{
 			echo "<h1>Sorry! The requested resource could not be found</h1>\n";
-			echo "<p>Please enter a valid flight number. If you think it is a mistake on our site, please drop us a <a href=\"URI_CONTACT\">line</a></p>";
+			echo "<p>Please enter a valid flight number. If you think it is a mistake on our site, please drop us a <a href=\"URI_CONTACT\">line</a></p>\n";
 		}
 	}
 }
