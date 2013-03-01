@@ -39,7 +39,7 @@ class AirportView extends View {
 
     public function display() {
         $airportsUri = URI_AIRPORTS;
-        echo "<h2>Check out details on Airports:</h2>\n";
+        echo "<h2>Check out details on airports:</h2>\n";
         echo "<div id =\"selectionBarContainer\">\n";
 
 

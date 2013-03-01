@@ -1,5 +1,13 @@
 <?php
-
+/**
+ * Description of NextFlightsView
+ * displayes arriving and departing flights from the previously selected airport 
+ * since the flightinformationsystm returns a max of 15 flights on a request and
+ * since we want to restrict the dataflow to the minimum, we decidet to generate 
+ * subpages. when such a subpage is called, the next 15 flights will be requested
+ * from the fis.
+ * @author Andreas Maerki, Mathias Cuel, Philipe Rothen, Marc Hangartner
+ */
 include_once "{$_SERVER['DOCUMENT_ROOT']}/view/View.php";
 
 class NextFlightsView extends View {
@@ -57,7 +65,7 @@ AIRPORTDETAILS;
             echo "<br><br>Airport deatails not found!<br><br>";
         }
 
-        // Pages Auswahl
+        // Pages selection
         echo "<ul id =\"NextFlightsPageButtons\">";
         for ($i = 0; $i < 5; $i++) {
             $offsetNumber = $i * 10;
@@ -159,7 +167,6 @@ TABLEHEADER;
 					<tbody class= "scrollContent">
 
 TABLEHEADER;
-        //foreach 
         if (count($this->departingFlights) >= 1)
         {
             foreach ($this->departingFlights as &$flight) {
