@@ -1,4 +1,12 @@
 <?php
+/**
+ * Description of TrackView
+ * shows a plane on its current position and the path it has been following
+ * using the functionalities of the google js api
+ *
+ * @author Andreas Maerki, Mathias Cuel, Philipe Rothen, Marc Hangartner
+ */
+
 include_once "{$_SERVER['DOCUMENT_ROOT']}/view/view.php";
 
 
@@ -22,11 +30,15 @@ class TrackView extends View {
         $trackerURI = URI_TRACK;
         
         echo "<div id=\"selectionBarContainer\">
-        <form name=\"FlighTracker\" action={$trackerURI} method=\"POST\">        
+        <form name=\"FlighTracker\" action={$trackerURI} method=\"POST\">
         <label for=\"aircraftField:\">Flight Nr.:</label>
         <input type=\"search\" id=\"aircraftNrField\" name=\"flightnumber\">
+        
+
+        
         <input class =\"button\"  id=\"submitButton33\" type=\"submit\" name=\"search\"  value=\"find\">
         </form></div>";
+     
     }
     
     public function display() {
@@ -82,13 +94,14 @@ class TrackView extends View {
         });
 
             infowindow.open(map,beachMarker);
-            }
+         }
 
     </script>
 
     <div id="map_canvas" style="width:980px; height:500px"></div>
 
     <?php
+
     }
 	
 }

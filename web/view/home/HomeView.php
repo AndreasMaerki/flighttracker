@@ -9,14 +9,8 @@ include_once "{$_SERVER['DOCUMENT_ROOT']}/controller/NextFlightsController.php";
 class HomeView extends View {
 
     public function display() {
-       // $uri = URI_HOME;
         $nextFlightsURI = URI_NEXT_FLIGHTS;       
-       // $searchUri = URI_SEARCH_CONTROLLER;
-        echo "<h2>Search for flights on airport:</h2>\n";
-
-        //echo "<div id=\"accordion\">";
-        // Formularbeginn
-        //echo "<div id=\"1\">\n";
+        echo "<h2>Enter a flightnumber or search for a airport:</h2>\n";
         
         echo "<div id=\"homeForm\">\n";
         echo "<form name=\"Form2000\" onsubmit=\"return chkFormular();\" action={$nextFlightsURI} method=\"POST\">\n";

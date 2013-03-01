@@ -67,7 +67,7 @@ class AirportView extends View {
             }
             if(isset($current_airport)){
             $image = $current_airport->getImage();
-            // f no image is set load default image instead
+            // if no image is set load default image instead
             if ($image == "") {
                 $image = "/images/airport/default2.jpg";
             }

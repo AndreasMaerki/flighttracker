@@ -4,9 +4,11 @@ include_once "{$_SERVER['DOCUMENT_ROOT']}/view/View.php";
 include_once "{$_SERVER['DOCUMENT_ROOT']}/config/config.php";
 
 /**
- * Description of AirlineVeiw
+ * Description of AirlineView
+ * displayes airports in small klickable divs and includes some informations 
+ * about it
  *
- * @author andy1111
+ * @author Andreas Maerki, Mathias Cuel, Philipe Rothen, Marc Hangartner
  */
 class AirlineView extends View {
 
@@ -20,7 +22,7 @@ class AirlineView extends View {
     private $airlinePicturesOnThisPage;
     private $airlineObject;
 
-    // Konstruktor
+    // constructor
     function __construct($airline, $airlineCode, $pages, $airlineObject) {
         $this->airline = $airline;
         $this->airlineCode = $airlineCode;
@@ -40,11 +42,10 @@ class AirlineView extends View {
         }// end for
 
         echo "</select>\n";
-        echo "<div class=\"searchField\">\n";
         echo "<input class=\"button\" type=\"submit\" name=\"Search\" value=\"find\">\n";
         echo "</div>\n";
-        echo "</div>\n";
         echo "</form>\n";
+        echo "<div class=\"clear\"></div><div class=\"clear\"></div>";
 
         //subpages
         echo "<div class= \"littleLinkBoxContainer\">\n";

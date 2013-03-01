@@ -2,8 +2,8 @@
 
 /**
  * Description of AirlineDetailView
- *
- * @author andy1111
+ * Shows details of a selected resource in a seperate window.
+ * @author Andreas Maerki, Mathias Cuel, Philipe Rothen, Marc Hangartner
  */
 class AirlineDetailView extends View {
     

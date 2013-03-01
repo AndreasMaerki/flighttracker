@@ -1,12 +1,19 @@
 <?php
+
+/**
+ * Description of ContactView
+ * A contactform. Sertain fields are requiered. The user information will be restored if 
+ * the contactform could not be sendt
+ * @author Andreas Maerki, Mathias Cuel, Philipe Rothen, Marc Hangartner
+ */
 include_once "{$_SERVER['DOCUMENT_ROOT']}/view/View.php";
 
 
 class ContactView extends View {
 
-	public function display() {// implementation of abstract view method
-		echo "<h2>Complaints, suggestions, or just a comment. Drop us a line.</h2>";
-		if (!empty($this -> vars['notification'])) {//vars is a array defined in the abstract view class.if vars['key'] is empty, then true!
+	public function display() {
+		echo "<h2>Complaints, suggestions, or just a comment? Drop us a line.</h2>";
+		if (!empty($this ->vars['notification'])) {//vars is a array defined in the abstract view class.if vars['key'] is empty, then true!
 			echo "<p>{$this->vars['notification']}</p>";
 			//return the content of vars['notification']
 		}

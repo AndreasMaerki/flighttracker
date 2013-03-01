@@ -1,5 +1,7 @@
 /* 
-  Java Skript Methoden 
+  Java-script methods
+    implements functions for the autocomplete and the sticky navigation bar
+    @author andreas maerki
  */
 
 
@@ -15,8 +17,7 @@ $(function() {
 
 
 // check forumalr
-// Wird verwendet um zu überwachen welche Felder ausgefüllt sind 
-// Filter wird nach 1-15 geprüft
+// checks wich fields are filled out 
 function chkFormular () {
     if (document.Form2000.aircraftField.value == "" && 
         document.Form2000.airportToField.value == "" && 
@@ -77,7 +78,7 @@ $(function() {
     var sticky_navigation = function(){
         var scroll_top = $(window).scrollTop(); // our current vertical position from the top
          
-        // if we've scrolled more than the navigation, change its position to fixed to stick to top,
+        // if scrolled more than the navigation, change its position to fixed to stick to top,
         // otherwise change it back to relative
         if (scroll_top > sticky_navigation_offset_top) { 
             $('#navigationBar').css({
@@ -92,43 +93,13 @@ $(function() {
         }   
     };
      
-    // run our function on load
+    // run function on load
     sticky_navigation();
      
-    // and run it again every time you scroll
+    // and run it again every time on scroll
     $(window).scroll(function() {
         sticky_navigation();
     });
  
 });
-
-//var clickedItem = null;
-//$(document).ready(function() {
-//     $('.entry').on({
-//        'click':function(event) {
-//            $('#overlay').show();
-//            $('#overlay > div').load('/controller/Ajax/index.php');
-//            event.preventDefault();           
-//        }
-//    });
-//     
-//    $(document).on('click', '#close-overlay', function() {
-//        $('#overlay').hide();
-//    })
-//    $('#entries').click(function(e){
-//        // console.log(e.target.getAttribute('id')); 
-//        clickedItem =e.target.getAttribute('id');
-//            $.ajax({
-//            url: '/controller/Ajax/index.php', //This is the current doc
-//            type: "POST",
-//            data: ({fname: clickedItem}),
-//            success:function(msg){
-//                //clickedItem.html(data);
-//            }
-//        });
-//
-//        
-//    });
-   
-//})
 
