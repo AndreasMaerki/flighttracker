@@ -2,7 +2,11 @@
 
 include_once"{$_SERVER['DOCUMENT_ROOT']}/view/View.php";
 include "{$_SERVER['DOCUMENT_ROOT']}/config/config.php";
-
+/**
+ * display all aircrafts in the db. With a searchfield the data can be filtered
+ * clicking on a specific entry will show a detail-view if data is in db 
+ * @author Andreas Maerki, Mathias Cuel, Philipe Rothen, Marc Hangartner
+ */
 class AircraftView extends View {
 
     private $acrCode;

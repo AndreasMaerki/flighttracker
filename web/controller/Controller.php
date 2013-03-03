@@ -3,7 +3,7 @@
 /**
  * abstract class for all controllers
  *
- * @author Andreas Maerki
+ * @author Andreas Maerki, Mathias Cuel, Philipe Rothen, Marc Hangartner
  */
 abstract class Controller {
 
@@ -13,12 +13,14 @@ abstract class Controller {
     abstract protected function init();
 
     /**
-     * create validates and stores sent user data of a newly created resource
+     * use create to display returned data from the db
      */
     abstract protected function create();
 
-    /* route is controlling all the routing on page 
-     * except for the subrouting on some more komplex pages with subviews */
+    /** 
+     * route is controlling all the routing on page 
+     * except for the subrouting on some more komplex pages with subviews 
+     */
 
     public function route() {
 
@@ -58,7 +60,10 @@ abstract class Controller {
         }
     }
 
-    /* 	try to ignore url typos and replace them with valid chars if possible */
+    /**	
+     * tries to correct url typos and replaces invalid chars with valid ones if possible
+     * 
+     */
 
     public static function encodeUrl($url) {
         $specialChars = array(
@@ -80,6 +85,16 @@ abstract class Controller {
         $url = preg_replace('/(\-)+/', '-', $url);
         return $url;
     }
+    /**
+     * use this function if the content of a page should be displayed on multiple (sub)pages
+     * just append a index number to the url, it will be extracted and used to calculate the
+     * startpoint of the returned array. no index = 0
+     *  
+     * @param type $desiredEntriesPerPage array size of the returned array
+     * @param type $databaseItemArray the array that needs to be trimmed
+     * @return array trimmed to the requested size beginnig at the current offset determined
+     * via the appended subpage number in the url
+     */
 
     protected function subPageContentFilter($desiredEntriesPerPage, $databaseItemArray) {
         $currentPageIndex = array();

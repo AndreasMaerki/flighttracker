@@ -5,7 +5,11 @@ include_once "{$_SERVER['DOCUMENT_ROOT']}/view/home/NextFlightsView.php";
 include_once "{$_SERVER['DOCUMENT_ROOT']}/view/home/FlightDetailView.php";
 include_once "{$_SERVER['DOCUMENT_ROOT']}/config/config.php";
 include_once "{$_SERVER['DOCUMENT_ROOT']}/controller/NextFlightsController.php";
-
+/**
+ * displayes two searchfields. one for the flightnumber and one for the airport
+ * the airport field supports autocompletion via java-script
+ * @author Andreas Maerki, Mathias Cuel, Philipe Rothen, Marc Hangartner
+ */
 class HomeView extends View {
 
     public function display() {

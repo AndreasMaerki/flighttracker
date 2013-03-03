@@ -21,9 +21,9 @@ include_once "{$_SERVER['DOCUMENT_ROOT']}/model/FlightStatus.php";
         
         <script src="/js/vendor/jquery-1.9.0.js"></script>
         <script src="/js/vendor/jquery-ui.js"></script>
-        <script src="/js/formular.js"></script>
+        <script src="/js/Application.js"></script>
 
-        <!-- all css have to be combined and minified before release -->
+        <!-- all css would be combined and minified before release -->
         <title>Flighttracker Home</title>
         <link rel="stylesheet" type="text/css" href="/css/normalize.css">
         <link rel="stylesheet" type="text/css" href="/css/General.css">

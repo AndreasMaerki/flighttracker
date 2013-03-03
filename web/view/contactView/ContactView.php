@@ -1,12 +1,11 @@
 <?php
-
+include_once "{$_SERVER['DOCUMENT_ROOT']}/view/View.php";
 /**
  * Description of ContactView
  * A contactform. Sertain fields are requiered. The user information will be restored if 
  * the contactform could not be sendt
  * @author Andreas Maerki, Mathias Cuel, Philipe Rothen, Marc Hangartner
  */
-include_once "{$_SERVER['DOCUMENT_ROOT']}/view/View.php";
 
 
 class ContactView extends View {

@@ -7,7 +7,7 @@
  */
 abstract class View {
    
-    /*
+    /**
      * the display function will be calld by default whenever a new view gets instanciated
      */
     abstract function display();

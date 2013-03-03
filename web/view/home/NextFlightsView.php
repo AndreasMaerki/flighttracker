@@ -6,6 +6,8 @@
  * since we want to restrict the dataflow to the minimum, we decidet to generate 
  * subpages. when such a subpage is called, the next 15 flights will be requested
  * from the fis.
+ * this View has no tab on the page. it shows only as a result from a searchstring 
+ * submitted from the "home" page
  * @author Andreas Maerki, Mathias Cuel, Philipe Rothen, Marc Hangartner
  */
 include_once "{$_SERVER['DOCUMENT_ROOT']}/view/View.php";

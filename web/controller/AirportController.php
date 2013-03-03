@@ -5,7 +5,11 @@ include_once ("controller/SearchController.php");
 include_once ("view/airportView/AirportView.php");
 include_once ("{$_SERVER['DOCUMENT_ROOT']}/controller/SearchController.php");
 include_once ("model/Airport.php");
-
+/**
+ * AirportController
+ * generates the init view with subpages and a spezail view with the searchresults
+ * @author Andreas Maerki, Mathias Cuel, Philipe Rothen, Marc Hangartner
+ */
 class AirportController extends Controller {
 
     private $searchController;

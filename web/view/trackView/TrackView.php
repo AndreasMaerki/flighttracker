@@ -2,7 +2,7 @@
 /**
  * Description of TrackView
  * shows a plane on its current position and the path it has been following
- * using the functionalities of the google js api
+ * using the functionaities of the google js api
  *
  * @author Andreas Maerki, Mathias Cuel, Philipe Rothen, Marc Hangartner
  */

@@ -6,7 +6,11 @@ include_once ("{$_SERVER['DOCUMENT_ROOT']}/view/airlineView/AirlineView.php");
 include_once ("{$_SERVER['DOCUMENT_ROOT']}/view/airlineView/AirlineDetailView.php");
 include_once ("{$_SERVER['DOCUMENT_ROOT']}/model/Airline.php");
 include_once "{$_SERVER['DOCUMENT_ROOT']}/config/config.php";
-
+/**
+ * Airline controller 
+ * generates the init view with subpages and a spezail view with the searchresults
+ * @author Andreas Maerki, Mathias Cuel, Philipe Rothen, Marc Hangartner
+ */
 class AirlineController extends Controller {
 
     private $clickedItem;

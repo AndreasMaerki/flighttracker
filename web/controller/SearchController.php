@@ -1,8 +1,12 @@
 
 <?php
 
-//include_once "{$_SERVER['DOCUMENT_ROOT']}/lib/FlightXMLAdapter.php";
 include_once ("{$_SERVER['DOCUMENT_ROOT']}/lib/MysqlAdapter.php");
+
+/**
+ * the SearchController handles all connections between the controllers and the db
+ * oher controllers schould access its methods to fetch data from the db
+ */
 class SearchController {
 
     private $offset;
@@ -15,6 +19,7 @@ class SearchController {
     function __construct() {
         $this->sqlAdapter = new MysqlAdapter(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     }
+
     /**
      * 
      * @param type $flightnumber in the form of: LX001
@@ -24,8 +29,6 @@ class SearchController {
         $flight = $this->sqlAdapter->getFlight($flightnumber);
         return $flight;
     }
-
-    
 
     /**
      * 
@@ -46,9 +49,13 @@ class SearchController {
         $ret = $this->sqlAdapter->getAircraftByCode($searchString);
         return $ret;
     }
-    public function getAllAircrafts(){
+    /**
+     * 
+     * @return type array containing all aircrafts found in db
+     */
+    public function getAllAircrafts() {
         $ret = $this->sqlAdapter->getAircraft();
-        
+
 
         return $ret;
     }
@@ -81,6 +88,7 @@ class SearchController {
         }
         return $ret;
     }
+
     /**
      * 
      * @return type object array containing all airlines
@@ -111,16 +119,16 @@ class SearchController {
         }
         return $ret;
     }
+
     /**
      * @param type $searchString
      * @return type object array containing flights matching the search string
      */
-
-     public function searchArrivingFlightsfromHomeView($aircraftField, $airportField, $offset) {
+    public function searchArrivingFlightsfromHomeView($aircraftField, $airportField, $offset) {
         // trim string
         $airportFieldNew = $this->getAirportCodeFromPOST($airportField);
 
-        if ($aircraftField != '') { 
+        if ($aircraftField != '') {
             $flight[] = $this->sqlAdapter->getFlight($aircraftField);
             return $flight;
         }
@@ -128,31 +136,32 @@ class SearchController {
         if ($airportFieldNew != '') {
             $arrivals = $this->sqlAdapter->getAirportArrivals($airportFieldNew, "10", $offset);
             return $arrivals;
-        } 
+        }
     }
+
     /**
      * @param type $aircraftField or $airportField contains the search string
      * @return type object array containing flights matching the search string
      */
     public function searchDepartFlightsfromHomeView($aircraftField, $airportField, $offset) {
         $airportFieldNew = $this->getAirportCodeFromPOST($airportField);
-        
+
         if ($aircraftField != '') {
             $flight = $this->sqlAdapter->getFlight($aircraftField);
             return $flight;
         }
-         if ($airportFieldNew != '') {
+        if ($airportFieldNew != '') {
             $departs = $this->sqlAdapter->getAirportDepartures($airportFieldNew, "10", $offset); //offset noch uebergeben
             return $departs;
         }
-        
     }
+
     /**
      * 
      * @return type object array containing all countries
      */
     public function getAllCountrys() {
-        $ret = $this->sqlAdapter->getCountry(); 
+        $ret = $this->sqlAdapter->getCountry();
         return $ret;
     }
 

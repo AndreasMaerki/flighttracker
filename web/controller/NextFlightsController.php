@@ -5,6 +5,9 @@ include_once ("{$_SERVER['DOCUMENT_ROOT']}/model/Flight.php");
 include_once ("{$_SERVER['DOCUMENT_ROOT']}/lib/FlightXMLAdapter.php");
 include_once("{$_SERVER['DOCUMENT_ROOT']}/view/home/NextFlightsView.php");
 include_once("{$_SERVER['DOCUMENT_ROOT']}/controller/SearchController.php");
+/**
+ * NextFlightsController feeds the NextflightsView with information
+ */
 
 class NextFlightsController extends Controller {
 
@@ -14,7 +17,7 @@ class NextFlightsController extends Controller {
 
      /**
      *
-     * Gibt weitere flüge an mit dem gewähltem offset
+     * fetches a array with 10 flights. with an offset value later flights can be accessed
      *  
      */
     protected function init() {
@@ -40,16 +43,14 @@ class NextFlightsController extends Controller {
         // create instace of SearchController and send the searchstring to the apropriate method
         $searchController = new SearchController();
 
-        // erste Anfrage mit den ersten 10 Einträgen
+        // first request with 10 entries
         $arrivingFlights = $searchController->searchArrivingFlightsfromHomeView
                 ($_POST['aircraftField'], $_POST['airportField'], "0");
    
         $departingFlights = $searchController->searchDepartFlightsfromHomeView
                 ($_POST['aircraftField'], $_POST['airportField'], "0");
 
-       // $amount = count($arrivingFlights);
         if (!empty($arrivingFlights) || !empty($departingFlights)){
-            //echo $_POST['airportField'];
             $view = new NextFlightsView($arrivingFlights, $departingFlights, $_POST['airportField']);
             $view->display();
         } else {

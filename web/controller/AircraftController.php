@@ -4,7 +4,11 @@ include_once ("{$_SERVER['DOCUMENT_ROOT']}/controller/Controller.php");
 include_once ("{$_SERVER['DOCUMENT_ROOT']}/model/Aircraft.php");
 include_once ("{$_SERVER['DOCUMENT_ROOT']}/view/aircraftView/AircraftView.php");
 include_once ("{$_SERVER['DOCUMENT_ROOT']}/controller/SearchController.php");
-
+/**
+ * AircraftController
+ * generates the init view with subpages and a spezail view with the searchresults
+ * @author Andreas Maerki, Mathias Cuel, Philipe Rothen, Marc Hangartner
+ */
 class AircraftController extends Controller {
 
     private $searchController;
@@ -19,7 +23,7 @@ class AircraftController extends Controller {
     function __construct() {
         $this->searchController = new SearchController();
     }
-    //initialisation of the page 
+
     protected function init() {
         $desiredEntriesPerPage = 30;
         $allAircrafts = $this->searchController->getAllAircrafts();
