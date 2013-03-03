@@ -6,6 +6,7 @@ include_once ("{$_SERVER['DOCUMENT_ROOT']}/lib/MysqlAdapter.php");
 /**
  * the SearchController handles all connections between the controllers and the db
  * oher controllers schould access its methods to fetch data from the db
+ * @author Andreas Maerki, Mathias Cuel, Philipe Rothen, Marc Hangartner
  */
 class SearchController {
 
