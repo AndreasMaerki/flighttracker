@@ -18,7 +18,7 @@ davon abgewichen werden. Vorrang hat die Einhaltung des
 Zeitplans und die Funktionalität, da diese Aspekte stärker in die Bewertung des Projektes einflissen werden.
 
 
-Weitere Bestimmungen zur Implementierungen:
+Weitere Bestimmungen zu Implementierungen:
 
 Controller:
 Sämtliche Controller haben vom abstrakten Controller zu erben
